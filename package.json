@@ -20,6 +20,7 @@
     "grunt-contrib-requirejs": "*",
     "grunt-contrib-less": "*",
     "grunt-contrib-connect": "*",
-    "grunt-contrib-watch": "*"
+    "grunt-contrib-watch": "*",
+    "grunt-ember-templates": "*"
   }
 }

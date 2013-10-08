@@ -6,6 +6,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-ember-templates');
 
   /* Main configuration object.
      Each Grunt plugin has its format.
@@ -33,7 +34,18 @@ module.exports = function (grunt) {
 
     less: {
       files: {
-        './app/application.css': 'app/less/application.less'
+        './app/application.css': './app/less/application.less'
+      }
+    },
+
+    emberTemplates: {
+      options: {
+        templateName: function (filename) {
+          return filename.replace(/app\/html\/(.*?).html/, '$1');
+        }
+      },
+      files: {
+        './app/templates.min.js': './app/html/**/*.html'
       }
     },
 
@@ -51,11 +63,18 @@ module.exports = function (grunt) {
         options: {
           livereload: true
         }
+      },
+      html: {
+        files: ['app/html/**/*.html'],
+        tasks: ['emberTemplates'],
+        options: {
+          livereload: true
+        }
       }
     }
 
   });
 
-  grunt.registerTask('default', ['requirejs', 'less', 'connect', 'watch']);
+  grunt.registerTask('default', ['requirejs', 'less', 'emberTemplates', 'connect', 'watch']);
 
 };
