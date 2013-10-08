@@ -14,5 +14,11 @@
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/neo/t2-people/issues"
+  },
+  "devDependencies": {
+    "grunt": "*",
+    "grunt-contrib-requirejs": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-connect": "*"
   }
 }
