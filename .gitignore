@@ -1,2 +1,4 @@
 /node_modules
 /bower_components
+/app/application.min.js
+/app/application.css
