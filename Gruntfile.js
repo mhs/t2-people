@@ -42,7 +42,7 @@ module.exports = function (grunt) {
       compile: {
         options: {
           templateName: function (filename) {
-            return filename.replace(/app\/html\/(.*?).html/, '$1');
+            return filename.replace(/.\/app\/html\/(.*?).html/, '$1');
           }
         },
         files: {
