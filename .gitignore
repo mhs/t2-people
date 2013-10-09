@@ -1,5 +1,6 @@
 /node_modules
 /bower_components
 /app/bower
+/app/templates.min.js
 /app/application.min.js
 /app/application.css
