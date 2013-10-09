@@ -39,13 +39,15 @@ module.exports = function (grunt) {
     },
 
     emberTemplates: {
-      options: {
-        templateName: function (filename) {
-          return filename.replace(/app\/html\/(.*?).html/, '$1');
+      compile: {
+        options: {
+          templateName: function (filename) {
+            return filename.replace(/app\/html\/(.*?).html/, '$1');
+          }
+        },
+        files: {
+          './app/templates.min.js': ['./app/html/**/*.html']
         }
-      },
-      files: {
-        './app/templates.min.js': './app/html/**/*.html'
       }
     },
 
