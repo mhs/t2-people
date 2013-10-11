@@ -12,6 +12,7 @@
   "dependencies": {
     "ember": "*",
     "ember-model": "*",
+    "normalize-css": "*",
     "requirejs": "*"
   }
 }
