@@ -33,8 +33,10 @@ module.exports = function (grunt) {
     },
 
     less: {
-      files: {
-        './app/application.css': './app/less/application.less'
+      compile: {
+        files: {
+          './app/application.css': './app/less/application.less'
+        }
       }
     },
 
