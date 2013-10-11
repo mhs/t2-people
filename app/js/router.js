@@ -1,5 +1,11 @@
-define(['application'], function (App) {
-  App.Router.map(function () {
-    this.resource('home', { path: '/' });
-  })
-});
+define(
+  [
+    'application',
+    'routes/profile_route'
+  ],
+  function (App) {
+    App.Router.map(function () {
+      this.resource('profile', { path: '/' });
+    })
+  }
+);
