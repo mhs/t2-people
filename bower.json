@@ -11,7 +11,7 @@
   "private": true,
   "dependencies": {
     "ember": "*",
-    "ember-model": "*",
+    "ember-data-shim": "0.0.14",
     "normalize-css": "*",
     "requirejs": "*"
   }
