@@ -2,7 +2,11 @@ define(['application', 'models/person'], function (App) {
   App.ProfileRoute = Ember.Route.extend({
 
     model: function () {
-      return $.get(App.API_URL + '/profile');
+      return $.get(App.API_BASE_URL + '/people/' + App.AUTH_TOKEN + '/profile');
+    },
+
+    setupController: function (controller, model) {
+      controller.set("profile", model);
     }
 
   });
