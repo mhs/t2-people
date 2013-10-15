@@ -3,19 +3,33 @@
     <div class="col-md-8 col-md-offset-2">
 
       <section class="profile-details">
-        <p>{{person.bio}}.</p>
+        {{#if person.bio}}
+          <p>{{person.bio}}</p>
+        {{else}}
+          <p class="no-bio">You don't have a bio. <a href="#">Click here</a> and write one.</p>
+        {{/if}}
         <div class="left">
-          <img src="{{person.image_url}}" />
+          {{#if person.image_url}}
+            <img src="{{person.image_url}}" />
+          {{else}}
+            <img src="/app/img/neo.jpeg" />
+          {{/if}}
           <h1>{{person.name}}</h1>
           <h2>{{person.title}}</h2>
           <h3><i class="icon-map-marker"></i> {{person.office.name}}</h3>
         </div>
         <div class="right">
           <ul>
-            <li><a href="mailto:neo@neo.com"><i class="icon-inbox"></i> {{person.email}}</a></li>
-            <li><a href="http://github.com/neo"><i class="icon-github"></i> {{person.github}}</a></li>
-            <li><a href="http://twitter.com/neo_innovation"><i class="icon-twitter"></i> {{person.twitter}}</a></li>
-            <li><a href="http://neo.com/"><i class="icon-globe"></i> {{person.website}}</a></li>
+            <li><a {{bindAttr href="emailLink"}}><i class="icon-inbox"></i> {{person.email}}</a></li>
+            {{#if person.github}}
+              <li><a {{bindAttr href="githubLink"}}><i class="icon-github"></i> {{person.github}}</a></li>
+            {{/if}}
+            {{#if person.twitter}}
+              <li><a {{bindAttr href="twitterLink"}}><i class="icon-twitter"></i> {{person.twitter}}</a></li>
+            {{/if}}
+            {{#if person.website}}
+              <li><a {{bindAttr href="person.website"}}><i class="icon-globe"></i> {{person.website}}</a></li>
+            {{/if}}
           </ul>
         </div>
       </section>
