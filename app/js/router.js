@@ -1,6 +1,7 @@
 define(
   [
     'application',
+    'routes/application_route',
     'routes/profile_route'
   ],
   function (App) {

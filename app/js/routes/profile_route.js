@@ -1,8 +1,9 @@
 define(['application', 'models/person'], function (App) {
   App.ProfileRoute = Ember.Route.extend({
+
     model: function () {
-      var store = this.get('store');
-      return store.find('person', 1);
+      return $.get(App.API_URL + '/profile');
     }
+
   });
 })
