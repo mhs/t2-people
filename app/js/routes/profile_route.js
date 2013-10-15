@@ -12,7 +12,7 @@ define(
       },
 
       setupController: function (controller, model) {
-        controller.set('profile', model.person);
+        controller.set('person', model.person);
       }
 
     });

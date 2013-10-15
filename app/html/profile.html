@@ -3,19 +3,19 @@
     <div class="col-md-8 col-md-offset-2">
 
       <section class="profile-details">
-        <p>I'm a self-taught web developer with a LAMP background; recently starting to see Ruby and its marvels. Javascript is the love from my childhood, it brought me here and still gives me moments to treasure. My hobbies are walking dogs, playing bass guitar and writing about myself, though I'm not good at any of them.</p>
+        <p>{{person.bio}}.</p>
         <div class="left">
-          <img src="https://newcontext-production.s3.amazonaws.com/portrait/federico-bana/medium_e2c641f4e7015317e30833f50fd16657.jpg" />
-          <h1>{{profile.name}}</h1>
-          <h2>Software Developer</h2>
-          <h3><i class="icon-map-marker"></i> Montevideo</h3>
+          <img src="{{person.image_url}}" />
+          <h1>{{person.name}}</h1>
+          <h2>{{person.title}}</h2>
+          <h3><i class="icon-map-marker"></i> {{person.office.name}}</h3>
         </div>
         <div class="right">
           <ul>
-            <li><a href="mailto:neo@neo.com"><i class="icon-inbox"></i> federico.bana@neo.com</a></li>
-            <li><a href="http://github.com/neo"><i class="icon-github"></i> banafederico</a></li>
-            <li><a href="http://twitter.com/neo_innovation"><i class="icon-twitter"></i> banafederico</a></li>
-            <li><a href="http://neo.com/"><i class="icon-globe"></i> banafederico.com</a></li>
+            <li><a href="mailto:neo@neo.com"><i class="icon-inbox"></i> {{person.email}}</a></li>
+            <li><a href="http://github.com/neo"><i class="icon-github"></i> {{person.github}}</a></li>
+            <li><a href="http://twitter.com/neo_innovation"><i class="icon-twitter"></i> {{person.twitter}}</a></li>
+            <li><a href="http://neo.com/"><i class="icon-globe"></i> {{person.website}}</a></li>
           </ul>
         </div>
       </section>
