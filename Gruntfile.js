@@ -81,4 +81,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', ['requirejs', 'less', 'emberTemplates', 'connect', 'watch']);
 
+  grunt.registerTask('heroku', ['requirejs', 'less', 'emberTemplates']);
+
 };
