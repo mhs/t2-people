@@ -3,7 +3,7 @@ define(['application'], function (App) {
 
     personData: (function () {
       var properties = this.get('person').getProperties([
-        'title', 'bio', 'website', 'github', 'twitter'
+        'name', 'title', 'bio', 'website', 'github', 'twitter'
       ]);
       return Ember.Object.create(properties);
     }).property('person'),

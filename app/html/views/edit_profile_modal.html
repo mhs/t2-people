@@ -10,32 +10,34 @@
         <!-- Form should be extracted -->
         <form class="profile-form" role="form">
           <section>
-            <h1>About you</h1>
             <div class="form-group">
-              <label {{bindAttr for="view.personTitle.elementId"}}>Your title</label>
+              <label {{bindAttr for="view.personName.elementId"}}>Name</label>
+              {{input viewName="personName" value=personData.name placeholder="Enter your title" class="form-control"}}
+            </div>
+            <div class="form-group">
+              <label {{bindAttr for="view.personTitle.elementId"}}>Title</label>
               {{input viewName="personTitle" value=personData.title placeholder="Enter your title" class="form-control"}}
             </div>
             <div class="form-group">
-              <label {{bindAttr for="view.personBio.elementId"}}>Your short bio</label>
-              {{textarea viewName="personBio" value=personData.bio placeholder="Enter your short Bio" class="form-control"}}
+              <label {{bindAttr for="view.personBio.elementId"}}>Bio</label>
+              {{textarea viewName="personBio" value=personData.bio placeholder="Enter your short bio" class="form-control"}}
             </div>
           </section>
 
           <section>
-            <h1>Links</h1>
             <div class="form-group">
               <label {{bindAttr for="view.personWebsite.elementId"}}>Personal website</label>
               {{input viewName="personWebsite" value=personData.website placeholder="Enter your personal website" class="form-control"}}
             </div>
             <div class="form-group">
-              <label {{bindAttr for="view.personGithub.elementId"}}>Github account</label>
-              {{input viewName="personGithub" value=personData.github placeholder="Enter your Github account" class="form-control"}}
+              <label {{bindAttr for="view.personGithub.elementId"}}>GitHub handle</label>
+              {{input viewName="personGithub" value=personData.github placeholder="Enter your GitHub handle" class="form-control"}}
             </div>
             <div class="form-group">
-              <label {{bindAttr for="view.personTwitter.elementId"}}>Twitter account</label>
+              <label {{bindAttr for="view.personTwitter.elementId"}}>Twitter handle</label>
               <div class="input-group">
                 <span class="input-group-addon">@</span>
-                {{input viewName="personTwitter" value=personData.twitter placeholder="Enter your Twitter account" class="form-control"}}
+                {{input viewName="personTwitter" value=personData.twitter placeholder="Enter your Twitter handle" class="form-control"}}
               </div>
             </div>
           </section>

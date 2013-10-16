@@ -5,7 +5,7 @@ define(["application"], function(App) {
         var person = this.get('controller.person')
           , personData = this.get('controller.personData')
           , newProperties = personData.getProperties([
-              'title', 'bio', 'website', 'github', 'twitter'
+              'name', 'title', 'bio', 'website', 'github', 'twitter'
             ]);
 
         /* Hide modal. */
