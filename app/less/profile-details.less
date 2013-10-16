@@ -7,19 +7,23 @@
 
   p {
     font-size: 2rem;
-    position: relative;
-    position: relative;
+    line-height: 3rem;
     margin: 0 0 3rem 0;
+    float: left;
+    width: 100%;
 
-    &:after {
-      position: absolute;
-      right: -1rem;
-      bottom: 0;
+    &:before {
       font-family: FontAwesome;
-      content: "\f10e";
-      font-size: 3rem;
-      margin-right: 0.7rem;
-      color: #c0c0c0;
+      content: "\f10d";
+      font-size: 5rem;
+      line-height: 6rem;
+      height: 6rem;
+      color: #f0f0f0;
+      float: left;
+      margin-right: 1.4rem;
+    }
+    &.no-bio:before {
+      display: none;
     }
   }
   img {

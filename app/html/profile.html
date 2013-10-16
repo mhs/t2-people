@@ -17,7 +17,7 @@
         {{#if person.bio}}
           <p>{{person.bio}}</p>
         {{else}}
-          <p class="no-bio">You don't have a bio. <a href="#">Click here</a> and write one.</p>
+          <p class="no-bio">You don't have a bio. <a data-toggle="modal" href="#edit_profile_modal">Click here</a> and write one.</p>
         {{/if}}
         <ul>
           <li><a {{bindAttr href="emailLink"}}><i class="icon-inbox"></i> {{person.email}}</a></li>
