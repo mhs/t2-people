@@ -13,7 +13,7 @@ define(
       },
 
       setupController: function (controller, model) {
-        controller.set('person', model.person);
+        controller.set('person', Ember.Object.create(model.person));
       }
 
     });

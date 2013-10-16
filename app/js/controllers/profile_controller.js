@@ -1,18 +1,19 @@
 define(['application'], function (App) {
   App.ProfileController = Ember.Controller.extend({
 
-    actions: {
-      'showEditModal': function () {
-        this.set('showEditModal', true)
-      }
-    },
+    personData: (function () {
+      var properties = this.get('person').getProperties([
+        'title', 'bio', 'website', 'github', 'twitter'
+      ]);
+      return Ember.Object.create(properties);
+    }).property('person'),
 
     emailLink: (function () {
       return 'mailto:' + this.get('person.email');
     }).property('person.email'),
 
     githubLink: (function () {
-      return 'http://github.com/' + this.get('person.github');2
+      return 'http://github.com/' + this.get('person.github');
     }).property('person.github'),
 
     twitterLink: (function () {
