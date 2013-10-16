@@ -1,6 +1,12 @@
 define(['application'], function (App) {
   App.ProfileController = Ember.Controller.extend({
 
+    actions: {
+      'showEditModal': function () {
+        this.set('showEditModal', true)
+      }
+    },
+
     emailLink: (function () {
       return 'mailto:' + this.get('person.email');
     }).property('person.email'),

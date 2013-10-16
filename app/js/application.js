@@ -14,5 +14,6 @@ define(function () {
     App.SIGN_IN_URL  = 'http://t2api.herokuapp.com/sign_in?redirect_url=' + encodeURIComponent(document.location.href);
   }
 
+  window.App = App;
   return App;
 });

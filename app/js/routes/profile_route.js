@@ -2,7 +2,8 @@ define(
   [
     'application',
     'controllers/profile_controller',
-    'models/person'
+    'models/person',
+    'views/edit_profile_modal'
   ],
   function (App) {
     App.ProfileRoute = Ember.Route.extend({
