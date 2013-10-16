@@ -19,6 +19,12 @@
   "bugs": {
     "url": "https://github.com/neo/t2-people/issues"
   },
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "dependencies": {
+    "bower": "*"
+  },
   "devDependencies": {
     "grunt": "*",
     "grunt-contrib-requirejs": "*",
