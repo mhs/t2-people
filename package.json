@@ -23,7 +23,8 @@
     "postinstall": "./node_modules/bower/bin/bower install"
   },
   "dependencies": {
-    "bower": "*"
+    "bower": "*",
+    "connect": "*"
   },
   "devDependencies": {
     "grunt": "*",
