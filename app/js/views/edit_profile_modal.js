@@ -11,6 +11,16 @@ define(["application"], function(App) {
         /* Hide modal. */
         this.$('#edit_profile_modal').modal('hide');
 
+        $.ajax({
+          url: App.API_BASE_URL + '/profile',
+          type: 'put',
+          data: {
+            person: {
+
+            }
+          }
+        });
+
         /* Save profile changes. */
         person.setProperties(newProperties);
       }

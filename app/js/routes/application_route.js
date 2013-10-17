@@ -20,7 +20,7 @@ define(['application'], function (App) {
       $(document).ajaxError(function (event, xhr) {
         if (xhr.status === 401) {
           var return_url = encodeURIComponent(document.location.href);
-          document.location.href = 'http://t2api.herokuapp.com/sign_in?return_url=' + return_url;
+          document.location.href = App.SIGN_IN_URL;
         }
       });
     }
