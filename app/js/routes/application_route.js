@@ -19,7 +19,6 @@ define(['application'], function (App) {
          accordingly. */
       $(document).ajaxError(function (event, xhr) {
         if (xhr.status === 401) {
-          var return_url = encodeURIComponent(document.location.href);
           document.location.href = App.SIGN_IN_URL;
         }
       });
