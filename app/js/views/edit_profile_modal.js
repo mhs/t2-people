@@ -15,9 +15,7 @@ define(["application"], function(App) {
           url: App.API_BASE_URL + '/profile',
           type: 'put',
           data: {
-            person: {
-
-            }
+            person: personData.getProperties('name', 'title', 'twitter', 'github', 'website', 'bio')
           }
         });
 
