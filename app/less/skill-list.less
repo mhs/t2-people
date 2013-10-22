@@ -18,7 +18,7 @@
   }
   li {
     float: left;
-    margin: 0 1rem 0 0;
+    margin: 0 1rem 10px 0;
     background: #c1d72e;
     font-weight: bold;
     font-size: 1.5rem;
@@ -30,44 +30,12 @@
     transition: all 0.5s;
     -moz-transition: all 0.5s;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      color: #c1d72e;
-      background: #434750;
-    }
   }
-  aside {
-    float: left;
-    width: 100%;
+}
 
-    h2 {
-      float: left;
-      font-size: 1.2rem;
-      font-weight: bold;
-      font-family: 'Open Sans';
-      line-height: 3rem;
-      margin: 0 1.2rem 0 0;
-      color: #434750;
-
-      &:after {
-        content: ":";
-      }
-    }
-    ul {
-      float: left;
-      width: auto;
-    }
-    li {
-      float: left;
-      margin: 0 0.5rem 0 0;
-      padding: 0;
-      border: 0;
-      background: 0;
-    }
-    img {
-      display: block;
-      width: 3rem;
-      height: 3rem;
-    }
+.editable_skill_list {
+  a.destroy {
+    text-decoration: none;
+    cursor: pointer;
   }
 }

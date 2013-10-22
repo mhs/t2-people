@@ -15,12 +15,11 @@ define(["application"], function(App) {
           url: App.API_BASE_URL + '/profile',
           type: 'put',
           data: {
-            person: personData.getProperties('name', 'title', 'twitter', 'github', 'website', 'bio')
+            person: newProperties
           }
+        }).done(function () {
+          person.setProperties(newProperties);
         });
-
-        /* Save profile changes. */
-        person.setProperties(newProperties);
       }
     },
 

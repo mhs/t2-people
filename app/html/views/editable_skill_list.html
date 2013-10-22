@@ -1,0 +1,36 @@
+<section class="editable_skill_list skill-list">
+  <h1>
+    Expert on
+    {{#if editingSkills}}
+      <a {{action "turnOffEditableSkills"}} class="title_action"><i class="icon-ok"></i> Done</a>
+    {{else}}
+      <a {{action "turnOnEditableSkills"}} class="title_action"><i class="icon-edit"></i> Edit</a>
+    {{/if}}
+  </h1>
+
+  <ul>
+    {{#each skill in person.skill_list}}
+      <li class="editable editing">
+        {{ skill }}
+        {{#if editingSkills}}
+          <a {{action "destroy" skill target=view}} class="destroy"><i class="icon-remove-circle"></i></a>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+
+  {{#if editingSkills}}
+    <form class="row profile-new-expertise" role="form">
+      <section class="col-md-6">
+        <div class="form-group row">
+          <label {{bindAttr for="view.newPersonSkill.elementId"}} class="col-md-12">Add a new expertise area</label>
+          <span class="col-md-10">
+            {{input viewName="newSkill" valueBinding="personData.newSkill" placeholder="Bank Robber" class="form-control"}}
+          </span>
+          <button {{action "save" target=view}} type="button" class="btn btn-primary col-md-2">Save</button>
+        </div>
+      </section>
+    </form>
+  {{/if}}
+
+</section>

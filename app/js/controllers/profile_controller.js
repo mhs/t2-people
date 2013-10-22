@@ -3,7 +3,7 @@ define(['application'], function (App) {
 
     personData: (function () {
       var properties = this.get('person').getProperties([
-        'name', 'title', 'bio', 'website', 'github', 'twitter'
+        'name', 'title', 'bio', 'website', 'github', 'twitter', 'skill_list'
       ]);
       return Ember.Object.create(properties);
     }).property('person'),
@@ -18,7 +18,17 @@ define(['application'], function (App) {
 
     twitterLink: (function () {
       return 'http://twitter.com/' + this.get('person.twitter');
-    }).property('person.twitter')
+    }).property('person.twitter'),
+
+    turnOnEditableSkills: function() {
+      this.set('editingSkills', true);
+      return false;
+    },
+
+    turnOffEditableSkills: function() {
+      this.set('editingSkills', false);
+      return false;
+    }
 
   });
 });
