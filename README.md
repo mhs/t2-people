@@ -8,3 +8,6 @@
 5. Install front-end dependencies with `bower install`.
 6. Build the thing with `grunt`.
 7. Open your favorite browser to [localhost:9999](http://localhost:9999/).
+
+## Deploy it
+Fill me in please
