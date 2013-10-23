@@ -7,4 +7,4 @@
 4. Install build dependencies with `npm install`.
 5. Install front-end dependencies with `bower install`.
 6. Build the thing with `grunt`.
-7. Open your favorite browser to [localhost:7000](http://localhost:7000/).
+7. Open your favorite browser to [localhost:9999](http://localhost:9999/).
