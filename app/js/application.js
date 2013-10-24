@@ -15,5 +15,6 @@ define(function () {
   App.NAVBAR_URL   = App.API_HOST + '/navbar';
 
   window.App = App;
+
   return App;
 });

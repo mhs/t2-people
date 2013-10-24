@@ -1,6 +1,7 @@
 define(
   [
     'application',
+    'helpers',
     'routes/application_route',
     'routes/profile_route'
   ],
