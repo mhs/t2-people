@@ -39,7 +39,6 @@ define(["application"], function(App) {
 
     submit: function () {
       this.send('save');
-
       return false;
     },
 

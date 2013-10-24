@@ -1,36 +1,40 @@
-<section class="editable_skill_list skill-list">
-  <h1>
-    Expert on
+<section class="skill-list">
+  <div class="col-md-3 col-md-offset-2">
+    <h1>Expert on</h1>
     {{#if editingSkills}}
-      <a {{action "turnOffEditableSkills"}} class="title_action"><i class="icon-ok"></i> Done</a>
+      <a {{action "turnOffEditableSkills"}} class="action-item" href="#"><i class="icon-ok"></i> Done</a>
     {{else}}
-      <a {{action "turnOnEditableSkills"}} class="title_action"><i class="icon-edit"></i> Edit</a>
+      <a {{action "turnOnEditableSkills"}} class="action-item" href="#">Edit</a>
     {{/if}}
-  </h1>
+  </div>
+  <div class="col-md-5">
+    <ul>
+      {{#each skill in person.skill_list}}
+        <li class="editable editing">
+          {{ skill }}
+          {{#if editingSkills}}
+            <a {{action "destroy" skill target=view}} href="#" class="destroy"><i class="icon-remove"></i></a>
+          {{/if}}
+        </li>
+      {{else}}
+        {{#unless editingSkills}}
+          <li class="no-results">Please tell us what your skills are. You can start adding skill by <a {{action "turnOnEditableSkills"}} href="#">clicking here</a>.</li>
+        {{/unless}}
+      {{/each}}
+    </ul>
 
-  <ul>
-    {{#each skill in person.skill_list}}
-      <li class="editable editing">
-        {{ skill }}
-        {{#if editingSkills}}
-          <a {{action "destroy" skill target=view}} class="destroy"><i class="icon-remove-circle"></i></a>
-        {{/if}}
-      </li>
-    {{/each}}
-  </ul>
-
-  {{#if editingSkills}}
-    <form class="row profile-new-expertise" role="form">
-      <section class="col-md-6">
-        <div class="form-group row">
-          <label {{bindAttr for="view.newPersonSkill.elementId"}} class="col-md-12">Add a new expertise area</label>
-          <span class="col-md-10">
-            {{input viewName="newSkill" valueBinding="personData.newSkill" placeholder="Bank Robber" class="form-control"}}
-          </span>
-          <button {{action "save" target=view}} type="button" class="btn btn-primary col-md-2">Save</button>
+    {{#if editingSkills}}
+      <form class="profile-new-expertise" role="form">
+        <div class="form-group">
+          <label {{bindAttr for="view.newPersonSkill.elementId"}}>Find new skills</label>
+          {{view Ember.Select
+            viewName="newSkill"
+            contentBinding="skills"
+            valueBinding="personData.newSkill"
+            prompr="-- Select a skill --"
+            class="form-control"}}
         </div>
-      </section>
-    </form>
-  {{/if}}
-
+      </form>
+    {{/if}}
+  </div>
 </section>

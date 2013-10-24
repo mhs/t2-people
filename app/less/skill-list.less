@@ -1,24 +1,32 @@
 .skill-list {
   float: left;
   width: 100%;
-  margin-bottom: 3rem;
+  margin: 3rem 0;
 
   h1 {
-    font-size: 2.5rem;
-    line-height: 5rem;
-    border-bottom: 0.1rem dotted #e0e0e0;
-    margin: 0 0 2rem;
+    font-family: 'Lato';
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: right;
+    margin: 0 0 0.5rem;
+    color: #c0c0c0;
+  }
+  a.action-item {
+    float: right;
+    font-size: 1.3rem;
+    text-decoration: none;
   }
   ul {
     float: left;
     width: 100%;
     padding: 0;
-    margin: 0 0 2rem;
+    margin: 0;
     list-style: none;
   }
   li {
     float: left;
-    margin: 0 1rem 10px 0;
+    margin: 0 1rem 1rem 0;
     background: #c1d72e;
     font-weight: bold;
     font-size: 1.5rem;
@@ -31,11 +39,18 @@
     -moz-transition: all 0.5s;
     text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
   }
-}
-
-.editable_skill_list {
+  li.no-results {
+    padding: 0;
+    background: 0;
+    box-shadow: none;
+    text-shadow: none;
+    color: #000;
+    border: 0;
+    line-height: 2.2rem;
+  }
   a.destroy {
     text-decoration: none;
-    cursor: pointer;
+    color: #434750;
+    margin-left: 0.2rem;
   }
 }

@@ -8,7 +8,7 @@
         {{else}}
           <img src="/app/img/neo.jpeg" />
         {{/if}}
-        <h1>{{person.name}} <a data-toggle="modal" href="#edit_profile_modal" class='action-item'><i class="icon-edit"></i> Edit</a></h1>
+        <h1>{{person.name}} <a data-toggle="modal" href="#edit_profile_modal" class='action-item'>Edit</a></h1>
         <h2>{{person.title}}</h2>
         <h3><i class="icon-map-marker"></i> {{person.office.name}}</h3>
       </div>
@@ -34,11 +34,9 @@
       </div>
     </div>
 
-    <div class="col-md-8 col-md-offset-2">
 
-      {{view App.EditableSkillList}}
+    {{view App.EditableSkillList}}
 
-    </div>
   </div>
 </div>
 
