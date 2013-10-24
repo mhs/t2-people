@@ -2,5 +2,16 @@
   <iframe {{bindAttr src=App.NAVBAR_URL}}></iframe>
 </div>
 <div class="container content-wrapper">
+
+  <div class="navbar navbar-default">
+    <div class="navbar-header">
+      {{#linkTo 'profile' class="navbar-brand"}}<strong>T2 People</strong>{{/linkTo}}
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li>{{#linkTo 'profile'}}My profile{{/linkTo}}</li>
+      <li>{{#linkTo 'skills'}}Browse skills{{/linkTo}}</li>
+    </ul>
+  </div>
+
   {{outlet}}
 </div>

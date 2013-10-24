@@ -8,6 +8,7 @@ define(
   function (App) {
     App.Router.map(function () {
       this.resource('profile', { path: '/' });
+      this.resource('skills', { path: '/skills' });
     })
   }
 );
