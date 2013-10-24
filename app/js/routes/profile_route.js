@@ -10,7 +10,7 @@ define(
     App.ProfileRoute = Ember.Route.extend({
 
       model: function () {
-        return Ember.RVSP.hash({
+        return Ember.RSVP.hash({
           person: $.get(App.API_BASE_URL + '/people/' + App.AUTH_TOKEN + '/profile'),
           skills: $.get(App.API_BASE_URL + '/skills')
         });
