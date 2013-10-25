@@ -1,12 +1,32 @@
 .skill-search {
   .sidebar {
-    select {
+    select, .select2-container {
       margin: 0 0 1rem;
     }
     p {
       font-size: 1.2rem;
       line-height: 1.8rem;
       color: #606060;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+    li {
+      font-size: 1.4rem;
+      line-height: 2rem;
+      margin: -0.5rem 0 1rem;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+      a {
+        float: left;
+        margin-right: 1rem;
+        color: #434750;
+        text-decoration: none;
+      }
     }
   }
   .list {

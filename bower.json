@@ -12,6 +12,7 @@
   "dependencies": {
     "ember": "*",
     "normalize-css": "*",
-    "requirejs": "*"
+    "requirejs": "*",
+    "select2": "ivaynberg/select2#*"
   }
 }

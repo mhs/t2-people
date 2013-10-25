@@ -14,7 +14,16 @@ define(
       },
 
       setupController: function (controller, model) {
-        controller.set('people', model.people.people.map(App.Raw2EmberObject));
+        var skills = [
+          Ember.Object.create({ id: 1, name: 'Ruby', people: [
+            Ember.Object.create({ id: 1, name: 'Federico Bana' })
+          ]}),
+          Ember.Object.create({ id: 2, name: 'Javascript', people: [
+            Ember.Object.create({ id: 2, name: 'Alvaro Gil' })
+          ]})
+        ];
+        controller.set('skills', skills);
+        controller.set('skillFilters', skills)
       }
 
     });
