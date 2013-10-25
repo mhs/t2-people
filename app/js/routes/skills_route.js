@@ -1,6 +1,8 @@
 define(
   [
-    'application'
+    'application',
+    'controllers/skills_controller',
+    'views/skills'
   ],
   function (App) {
     App.SkillsRoute = Ember.Route.extend({
