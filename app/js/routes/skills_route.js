@@ -8,22 +8,13 @@ define(
     App.SkillsRoute = Ember.Route.extend({
 
       model: function () {
-        return Ember.RSVP.hash({
-          people: $.get(App.API_BASE_URL + '/people')
-        });
+        return $.get(App.API_BASE_URL + '/skills');
       },
 
       setupController: function (controller, model) {
-        var skills = [
-          Ember.Object.create({ id: 1, name: 'Ruby', people: [
-            Ember.Object.create({ id: 1, name: 'Federico Bana' })
-          ]}),
-          Ember.Object.create({ id: 2, name: 'Javascript', people: [
-            Ember.Object.create({ id: 2, name: 'Alvaro Gil' })
-          ]})
-        ];
+        var skills = model.map(App.Raw2EmberObject);
         controller.set('skills', skills);
-        controller.set('skillFilters', skills)
+        controller.set('skillFilters', skills);
       }
 
     });

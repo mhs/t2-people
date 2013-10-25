@@ -16,6 +16,7 @@ define(['application'], function (App) {
       this.get('skillFilters').forEach(function (skill) {
         /* TODO: Use [].flatten maybe */
         skill.get('people').forEach(function (person) {
+          person = Ember.Object.create(person)
           if (!people.filterBy('id', person.get('id')).length) {
             people.addObject(person);
           }
