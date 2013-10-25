@@ -21,61 +21,13 @@
         <div class="list">
           <h1>Everyone in the network</h1>
           <ul>
+            {{#each person in people}}
             <li>
               <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
+              <h2>{{person.name}}</h2>
+              <p><i class="icon-map-marker"></i> {{person.office.name}}</p>
             </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>Sebastian Heit</h2>
-              <p><i class="icon-map-marker"></i> Montevideo</p>
-            </li>
+            {{/each}}
           </ul>
         </div>
       </div>

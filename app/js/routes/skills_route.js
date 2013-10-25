@@ -14,7 +14,7 @@ define(
       },
 
       setupController: function (controller, model) {
-        controller.set('people', Ember.Object.create(model.people));
+        controller.set('people', model.people.people.map(App.Raw2EmberObject));
       }
 
     });
