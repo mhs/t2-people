@@ -47,32 +47,26 @@ define(["application"], function(App) {
       }
     },
 
-    setupSelect: (function () {
-      var controller = this;
+    didInsertElement: function () {
+      var controller = this
+        , personSkills = this.get('controller.person.skill_list').map(function (item, index) {
+            return { text: item, id: item };
+          })
+        , allSkills = this.get('controller.skills').map(function (item, index) {
+            return { text: item.name, id: item.name };
+          });
 
-      var personSkills = [];
-      this.get('controller.person.skill_list').forEach(function (item, index) {
-        personSkills.push({text: item, id: item});
-      });
-
-      var allSkills = [];
-      this.get('controller.skills').forEach(function (item, index) {
-        allSkills.push({text: item.name, id: item.name});
-      });
-
-      this.$('#inputSkills').select2({
-        tags: allSkills
-      })
-      .select2('data', personSkills)
-      .on('change', function (e) {
-        if (e.added)
-          controller.send('save', e.added.text);
-        else if (e.removed)
-          controller.send('destroy', e.removed.text);
-        return true;
-      })
-
-    }).observes('editingSkills'),
+      this.$('#inputSkills')
+        .select2({ tags: allSkills })
+        .select2('data', personSkills)
+        .on('change', function (e) {
+          if (e.added)
+            controller.send('save', e.added.text);
+          else if (e.removed)
+            controller.send('destroy', e.removed.text);
+          return true;
+        });
+    },
 
     submit: function () {
       this.send('save');
