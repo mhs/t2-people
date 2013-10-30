@@ -1,7 +1,8 @@
 define(
   [
     'application',
-    'controllers/search_controller'
+    'controllers/search_controller',
+    'views/search_people_item'
   ],
   function (App) {
     App.SearchRoute = Ember.Route.extend({

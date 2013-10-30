@@ -8,18 +8,7 @@
         </hgroup>
         <ul>
           {{#each person in filteredPeople}}
-            <li>
-              <img src="/app/img/neo.jpeg" />
-              <ul class="social">
-                <li><i class="icon-twitter"></i></li>
-                <li><i class="icon-github"></i></li>
-                <li><i class="icon-globe"></i></li>
-                <li><i class="icon-inbox"></i></li>
-              </ul>
-              <p class="skills">{{#each skill in person.skill_list}}<span>{{skill}}</span>{{else}}Has no skills.{{/each}}</p>
-              <h2>{{person.name}}</h2>
-              <p class="office"><i class="icon-map-marker"></i> {{person.office.name}}</p>
-            </li>
+            {{view App.SearchPeopleItemView personBinding=person}}
           {{else}}
             <li class="no-results">Your search didn't match anyone in the network.</li>
           {{/each}}

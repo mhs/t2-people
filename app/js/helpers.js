@@ -14,6 +14,9 @@ define(['application'], function (App) {
       }
     }
 
-    return Ember.Object.create(rawObject);
+    if (Ember.typeOf(rawObject) == 'object') {
+      rawObject = Ember.Object.create(rawObject);
+    }
+    return rawObject;
   }
 })

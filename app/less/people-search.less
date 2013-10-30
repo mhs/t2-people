@@ -32,12 +32,23 @@
         padding-top: 0.4rem;
 
         li {
+          float: right;
           margin: 0;
           padding: 0;
           font-size: 2rem;
           width: 25%;
           text-align: right;
 
+          a {
+            text-decoration: none;
+            transition: all 1s;
+            -webkit-transition: all 1s;
+            color: #505050;
+
+            &:hover {
+              color: #c1d72e;
+            }
+          }
           i {
             display: block;
             line-height: 2rem;
@@ -52,7 +63,8 @@
         float: right;
         clear: right;
         line-height: 2rem;
-        color: #505050;
+        color: #c1d72e;
+        font-weight: bold;
       }
       p.office {
         margin: 0;
