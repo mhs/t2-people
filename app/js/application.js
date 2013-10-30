@@ -1,14 +1,33 @@
 define(function () {
   var App = Ember.Application.create()
-    , isDev = /localhost/.test(document.location.href);
+    , isDev = /localhost/.test(document.location.href)
+    , tokenRegexp = /authentication_token=([a-zA-Z0-9]+)/;
 
-  App.AUTH_TOKEN = document.location.href.match(/authentication_token=([a-zA-Z0-9]+)/)
-  App.AUTH_TOKEN = App.AUTH_TOKEN ? App.AUTH_TOKEN[1] : null;
+  /* Resolve authentication. Removes
+     authentication token from URL to put
+     it in a cookie. */
+  if (tokenRegexp.test(document.location.href)) {
+    var token = document.location.href.match(tokenRegexp)
+      , cookie;
 
-  if (isDev)
+    cookie  = 'authentication_token=' + token[1];
+    cookie += '; expires=' + new Date(2100, 0).toUTCString();
+    document.cookie = cookie;
+    document.location.href = document.location.href.replace(tokenRegexp, '');
+  }
+  else if(tokenRegexp.test(document.cookie)) {
+    App.AUTH_TOKEN = document.cookie.match(tokenRegexp)[1];
+  }
+
+  /* Calculate host based on current URL. If
+     the URL includes a `localhost` substring,
+     then we're in a development environment. */
+  if (isDev) {
     App.API_HOST = 'http://localhost:5000';
-  else
+  }
+  else {
     App.API_HOST = 'http://t2api.herokuapp.com';
+  }
 
   App.API_BASE_URL = App.API_HOST + '/api/v1';
   App.SIGN_IN_URL  = App.API_HOST + '/sign_in';
