@@ -1,6 +1,10 @@
 define(['application'], function (App) {
   App.ProfileController = Ember.Controller.extend({
 
+    init: function () {
+      this.set('editingSkills', false);
+    },
+
     personData: (function () {
       var properties = this.get('person').getProperties([
         'name', 'title', 'bio', 'website', 'github', 'twitter', 'skill_list'
@@ -18,17 +22,7 @@ define(['application'], function (App) {
 
     twitterLink: (function () {
       return 'http://twitter.com/' + this.get('person.twitter');
-    }).property('person.twitter'),
-
-    turnOnEditableSkills: function() {
-      this.set('editingSkills', true);
-      return false;
-    },
-
-    turnOffEditableSkills: function() {
-      this.set('editingSkills', false);
-      return false;
-    }
+    }).property('person.twitter')
 
   });
 });
