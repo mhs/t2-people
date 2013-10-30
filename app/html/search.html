@@ -1,0 +1,12 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>Searching for: <strong>{{keyword}}</strong><h1>
+    <ul>
+      {{#each person in people}}
+        <li>{{person.email}}</li>
+      {{else}}
+        <li class="no-results">Your search didn't match anyone in the network.</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>
