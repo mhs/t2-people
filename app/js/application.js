@@ -14,6 +14,7 @@ define(function () {
     cookie += '; expires=' + new Date(2100, 0).toUTCString();
     document.cookie = cookie;
     document.location.href = document.location.href.replace(tokenRegexp, '');
+    return;
   }
   else if(tokenRegexp.test(document.cookie)) {
     App.AUTH_TOKEN = document.cookie.match(tokenRegexp)[1];
