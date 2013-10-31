@@ -4,7 +4,8 @@ define(
     'controllers/profile_controller',
     'models/person',
     'views/edit_profile_modal',
-    'views/editable_skill_list'
+    'views/editable_skill_list',
+    'views/similar_people_list'
   ],
   function (App) {
     App.ProfileRoute = Ember.Route.extend({

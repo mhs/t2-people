@@ -1,9 +1,13 @@
 define(["application"], function(App) {
   App.EditableSkillList = Ember.View.extend({
+
+    templateName: 'views/editable_skill_list',
+
     actions: {
       save: function (skill) {
-        var person = this.get('controller.person')
-          , personData = this.get('controller.personData');
+        var controller = this.get('controller'),
+            personData = controller.get('personData');
+
 
         personData.get('skill_list').addObject(skill);
 
@@ -14,14 +18,15 @@ define(["application"], function(App) {
             person: {skill_list: personData.get('skill_list')}
           }
         }).done(function (data) {
-          person.set("skill_list", data.person.skill_list);
+          controller.set('person', Ember.Object.create(data.person));
           personData.set('newSkill', '');
         });
 
       },
 
       destroy: function (skill) {
-        var person = this.get('controller.person');
+        var person = this.get('controller.person'),
+            controller = this.get('controller');
 
         person.get('skill_list').removeObject(skill);
 
@@ -32,7 +37,7 @@ define(["application"], function(App) {
             person: {skill_list: person.get('skill_list').toArray()}
           }
         }).done(function (data) {
-          person.set("skill_list", data.person.skill_list);
+          controller.set('person', Ember.Object.create(data.person));
         });
       },
 
@@ -75,8 +80,7 @@ define(["application"], function(App) {
 
     onSkillChanged: (function () {
       this.send('save', this.get('newSkillValue'));
-    }).observes('newSkillValue'),
+    }).observes('newSkillValue')
 
-    templateName: 'views/editable_skill_list'
   });
 });
