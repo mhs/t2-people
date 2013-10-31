@@ -5,7 +5,6 @@
         <div class="sidebar">
           <div class="form-group">
             <label>Search skills</label>
-
             {{view Ember.Select
               contentBinding="skills"
               valueBinding="newSkillFilter"
@@ -13,13 +12,11 @@
               optionValuePath="content"
               prompt="--"
               class="form-control"}}
-
             <ul>
               {{#each skill in appliedSkillFilters}}
                 <li>{{skill.name}} <a href="#" {{action "removeSkillFilter" skill target=view}}><i class="icon-remove"></i></a></li>
               {{/each}}
             </ul>
-
             <p>Use the dropdown above to find skills. Then the list of people on the right will be filtered based on your selection, displaying only the people who handle the technologies you're looking for.</p>
           </div>
         </div>
@@ -30,9 +27,11 @@
           <ul>
             {{#each person in people}}
             <li>
-              <img src="/app/img/neo.jpeg" />
-              <h2>{{person.name}}</h2>
-              <p><i class="icon-map-marker"></i> {{person.office_name}}</p>
+              {{#linkTo 'neon' person}}
+                <img src="/app/img/neo.jpeg" />
+                <h2>{{person.name}}</h2>
+                <p><i class="icon-map-marker"></i> {{person.office_name}}</p>
+              {{/linkTo}}
             </li>
             {{/each}}
           </ul>

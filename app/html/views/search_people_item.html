@@ -1,5 +1,7 @@
 <li>
-  <img src="/app/img/neo.jpeg" />
+  {{#linkTo 'neon' person}}
+    <img src="/app/img/neo.jpeg" />
+  {{/linkTo}}
   <ul class="social">
     <li><a {{bindAttr href="view.emailUrl"}}><i class="icon-inbox"></i></a></li>
     {{#if person.website}}
@@ -13,6 +15,6 @@
     {{/if}}
   </ul>
   <p class="skills">{{view.commaSeparatedSkills}}</p>
-  <h2>{{person.name}}</h2>
+  <h2>{{#linkTo 'neon' person}}{{person.name}}{{/linkTo}}</h2>
   <p class="office"><i class="icon-map-marker"></i> {{person.office.name}}</p>
 </li>
