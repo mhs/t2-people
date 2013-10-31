@@ -31,7 +31,7 @@ define(function () {
   }
 
   App.API_BASE_URL = App.API_HOST + '/api/v1';
-  App.SIGN_IN_URL  = App.API_HOST + '/sign_in';
+  App.SIGN_IN_URL  = App.API_HOST + '/sign_in?return_url=' + escape(location.href);
   App.NAVBAR_URL   = App.API_HOST + '/navbar';
 
   window.App = App;
