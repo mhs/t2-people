@@ -7,8 +7,10 @@
     <ul {{bindAttr class="view.editingSkills:hidden:visible"}}>
       {{#each similar_person in person.similar_people}}
         <li>
-          <img src="/app/img/neo.jpeg" />
-          <h2>{{similar_person.name}}</h2>
+          {{#linkTo 'neon' similar_person.id}}
+            <img src="/app/img/neo.jpeg" />
+            <h2>{{similar_person.name}}</h2>
+          {{/linkTo}}
           <p><i class="icon-map-marker"></i> {{similar_person.office_name}}</p>
         </li>
       {{/each}}
