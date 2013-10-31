@@ -1,5 +1,5 @@
 <li>
-  {{#linkTo 'neon' person}}
+  {{#linkTo 'neon' person.id}}
     <img src="/app/img/neo.jpeg" />
   {{/linkTo}}
   <ul class="social">
@@ -15,6 +15,6 @@
     {{/if}}
   </ul>
   <p class="skills">{{view.commaSeparatedSkills}}</p>
-  <h2>{{#linkTo 'neon' person}}{{person.name}}{{/linkTo}}</h2>
+  <h2>{{#linkTo 'neon' person.id}}{{person.name}}{{/linkTo}}</h2>
   <p class="office"><i class="icon-map-marker"></i> {{person.office.name}}</p>
 </li>

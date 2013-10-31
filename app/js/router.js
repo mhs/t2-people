@@ -13,7 +13,7 @@ define(
       this.resource('profile', { path: '/' });
       this.resource('skills',  { path: '/skills' });
       this.resource('search',  { path: '/search/:keyword' });
-      this.resource('neon',    { path: '/neon/:id' });
+      this.resource('neon',    { path: '/neon/:neon' });
     })
   }
 );

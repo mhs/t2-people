@@ -12,7 +12,7 @@ define(
         return Ember.RSVP.hash({
           skills: $.get(App.API_BASE_URL + '/skills'),
           people: $.get(App.API_BASE_URL + '/people'),
-          person_id: params.id
+          person_id: params.neon
         });
       },
 

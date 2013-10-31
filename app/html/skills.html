@@ -27,7 +27,7 @@
           <ul>
             {{#each person in people}}
             <li>
-              {{#linkTo 'neon' person}}
+              {{#linkTo 'neon' person.id}}
                 <img src="/app/img/neo.jpeg" />
                 <h2>{{person.name}}</h2>
                 <p><i class="icon-map-marker"></i> {{person.office_name}}</p>
