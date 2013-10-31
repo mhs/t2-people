@@ -5,6 +5,8 @@ define(['application'], function (App) {
       this.set('editingSkills', false);
     },
 
+    editable: true,
+
     personData: (function () {
       var properties = this.get('person').getProperties([
         'name', 'title', 'bio', 'website', 'github', 'twitter', 'skill_list'
