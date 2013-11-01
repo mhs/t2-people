@@ -2,7 +2,7 @@ define(["application"], function(App) {
   App.EditProfileModalView = Ember.View.extend({
     actions: {
       save: function () {
-        var person = this.get('controller.person')
+        var controller = this.get('controller')
           , personData = this.get('controller.personData')
           , properties = ['name', 'title', 'bio', 'website', 'github', 'twitter']
           , newProperties = personData.getProperties(properties);
@@ -25,8 +25,8 @@ define(["application"], function(App) {
           data: data,
           contentType: false,
           processData: false
-        }).done(function () {
-          person.setProperties(newProperties);
+        }).done(function (data) {
+          controller.set('person', Ember.Object.create(data.person));
         });
       }
     },
