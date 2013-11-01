@@ -1,6 +1,6 @@
 <li>
   {{#linkTo 'neon' person.id}}
-    <img src="/app/img/neo.jpeg" />
+    <img {{bindAttr src=person.avatar.small}}/>
   {{/linkTo}}
   <ul class="social">
     <li><a {{bindAttr href="view.emailUrl"}}><i class="icon-inbox"></i></a></li>
