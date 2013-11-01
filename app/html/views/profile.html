@@ -18,15 +18,15 @@
           {{/if}}
         {{/if}}
         <ul>
-          <li><a {{bindAttr href="emailLink"}}><i class="icon-inbox"></i> {{person.email}}</a></li>
+          <li><a {{bindAttr href="view.emailLink"}}><i class="icon-inbox"></i> {{person.email}}</a></li>
           {{#if person.github}}
-            <li><a {{bindAttr href="githubLink"}}><i class="icon-github"></i> {{person.github}}</a></li>
+            <li><a {{bindAttr href="view.githubLink"}}><i class="icon-github"></i> {{person.github}}</a></li>
           {{/if}}
           {{#if person.twitter}}
-            <li><a {{bindAttr href="twitterLink"}}><i class="icon-twitter"></i> {{person.twitter}}</a></li>
+            <li><a {{bindAttr href="view.twitterLink"}}><i class="icon-twitter"></i> {{person.twitter}}</a></li>
           {{/if}}
           {{#if person.website}}
-            <li><a {{bindAttr href="person.website"}}><i class="icon-globe"></i> {{person.website}}</a></li>
+            <li><a {{bindAttr href="view.websiteLink"}}><i class="icon-globe"></i> {{person.website}}</a></li>
           {{/if}}
         </ul>
       </div>
