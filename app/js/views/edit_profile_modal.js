@@ -2,13 +2,11 @@ define(["application"], function(App) {
   App.EditProfileModalView = Ember.View.extend({
     actions: {
       save: function () {
-        var controller = this.get('controller')
-          , personData = this.get('controller.personData')
+        var view = this
+          , controller = view.get('controller')
+          , personData = view.get('controller.personData')
           , properties = ['name', 'title', 'bio', 'website', 'github', 'twitter']
           , newProperties = personData.getProperties(properties);
-
-        /* Hide modal. */
-        this.$('#edit_profile_modal').modal('hide');
 
         var data = new FormData();
 
@@ -16,7 +14,7 @@ define(["application"], function(App) {
           data.append("person[" + i + "]", newProperties[i]);
         });
 
-        var file = this.$('input[type=file]')[0].files[0]
+        var file = view.$('input[type=file]')[0].files[0]
         data.append('person[avatar]', file || null);
 
         $.ajax({
@@ -27,6 +25,7 @@ define(["application"], function(App) {
           processData: false
         }).done(function (data) {
           controller.set('person', Ember.Object.create(data.person));
+          view.$('#edit_profile_modal').modal('hide');
         });
       }
     },
