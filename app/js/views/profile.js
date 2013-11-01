@@ -8,13 +8,6 @@ define(
     App.ProfileView = Ember.View.extend({
       templateName: 'views/profile',
 
-      personData: (function () {
-        var properties = this.get('controller.person').getProperties([
-          'name', 'title', 'bio', 'website', 'github', 'twitter', 'skill_list'
-        ]);
-        return Ember.Object.create(properties);
-      }).property('controller.person'),
-
       emailLink: (function () {
         return 'mailto:' + this.get('controller.person.email');
       }).property('controller.person.email'),
