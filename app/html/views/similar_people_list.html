@@ -3,8 +3,7 @@
     <h1>Similar people</h1>
   </div>
   <div class="col-md-5">
-
-    <ul {{bindAttr class="view.editingSkills:hidden:visible"}}>
+    <ul class="list" {{bindAttr class="view.editingSkills:hidden:visible"}}>
       {{#each similar_person in person.similar_people}}
         <li>
           {{#linkTo 'neon' similar_person.id}}
