@@ -11,6 +11,10 @@
         <form class="profile-form" role="form">
           <section>
             <div class="form-group">
+              <label {{bindAttr for="view.personAvatar.elementId"}}>Avatar</label>
+              {{input type="file" viewName="personAvatar" value=personData.avatar class="form-control"}}
+            </div>
+            <div class="form-group">
               <label {{bindAttr for="view.personName.elementId"}}>Name</label>
               {{input viewName="personName" value=personData.name placeholder="Enter your title" class="form-control"}}
             </div>
