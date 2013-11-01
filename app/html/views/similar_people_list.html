@@ -1,6 +1,6 @@
 <section class="profile-section similar-people-list">
   <div class="col-md-3 col-md-offset-2">
-    <h1>Similar to you</h1>
+    <h1>Similar people</h1>
   </div>
   <div class="col-md-5">
 
@@ -8,7 +8,7 @@
       {{#each similar_person in person.similar_people}}
         <li>
           {{#linkTo 'neon' similar_person.id}}
-            <img src="/app/img/neo.jpeg" />
+            <img {{bindAttr src=similar_person.avatar.small}}/>
             <h2>{{similar_person.name}}</h2>
           {{/linkTo}}
           <p><i class="icon-map-marker"></i> {{similar_person.office_name}}</p>
