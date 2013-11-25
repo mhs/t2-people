@@ -24,8 +24,9 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
   #    }
   #  }
 
+  enableSass: true
   prependTasks:
-    common: ["ember_handlebars"]
+    common: ["ember_handlebars", "env"]
 
   removeTasks:
     common: "handlebars"
@@ -39,6 +40,21 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
       files:
         "generated/template/handlebars.js": "<%= files.template.handlebars %>"
 
+  env:
+    config:
+      env: process.env['APP_ENV'] || "dev"
+      apiHost: process.env['API_HOST'] || "http://localhost:5000"
+      navBarUrl: process.env['NAVBAR_URL'] || "/api/v1/navbar"
+      oauthKey: process.env['OAUTH_KEY'] || "de92924d00c19567c3566d17fe2e783666fd05bcecea385b508b4a3e393dd204"
+
   watch:
     handlebars:
       tasks: ["ember_handlebars:compile", "concat:js"]
+
+  concat:
+    js:
+      src: ["<banner:meta.banner>", "<%= files.js.vendor %>", 'generated/js/env.js', "<%= files.template.generated %>", "<%= files.coffee.generated %>", "<%= files.js.app %>"]
+
+  server:
+    web:
+      port: 7000
