@@ -58,21 +58,27 @@ module.exports = function (grunt) {
         files: ['app/js/**/*.js'],
         tasks: ['requirejs'],
         options: {
-          livereload: true
+          livereload: {
+            port: 35720
+          }
         }
       },
       less: {
         files: ['app/less/**/*.less'],
         tasks: ['less'],
         options: {
-          livereload: true
+          livereload: {
+            port: 35720
+          }
         }
       },
       html: {
         files: ['app/html/**/*.html'],
         tasks: ['emberTemplates'],
         options: {
-          livereload: true
+          livereload: {
+            port: 35720
+          }
         }
       }
     }
