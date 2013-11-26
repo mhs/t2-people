@@ -1,3 +1,8 @@
 App.Router.map ->
-  @resource('people')
-  @resource('person', path: 'people/:id')
+  @resource('people', ->
+    @route 'new'
+  )
+
+  @resource('person', path: '/people/:person_id', ->
+    @route('edit')
+  )
