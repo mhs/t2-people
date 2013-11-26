@@ -7,4 +7,4 @@ App.ApplicationRoute = Ember.Route.extend
       auth.login()
 App.IndexRoute = Ember.Route.extend
   redirect: ->
-    @transitionTo 'hello'
+    @transitionTo 'people'

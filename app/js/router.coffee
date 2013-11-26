@@ -1,2 +1,2 @@
 App.Router.map ->
-  @route('hello')
+  @resource('people')
