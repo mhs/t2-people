@@ -57,4 +57,4 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
 
   server:
     web:
-      port: 7000
+      port: 9999
