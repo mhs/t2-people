@@ -6,13 +6,13 @@ App.NavView = Ember.View.extend
   bottom_links: null
 
   didInsertElement: () ->
-    url = window.App.NAVBAR_URL
+    url = window.ENV.apiHost + window.ENV.navBarUrl
     self = this
     $.getJSON(url, {}, (data, status, xhr) ->
       top_links = Ember.ArrayProxy.create({content: data.top})
       current_link = top_links.find((item) ->
         !!item.url.match(new RegExp(window.location.origin))
-      );
+      )
       if (!current_link)
         current_link = top_links.get('firstObject')
       if (!current_link.classes)
