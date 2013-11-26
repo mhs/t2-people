@@ -1,4 +1,4 @@
-Neons in a place working on stuff.
+Neons in {{chosem-select value=office options=officeOptions}} who work on stuff.
 
 {{#each}}
   <div>{{name}}</div>
