@@ -1,3 +1,5 @@
+App.NO_OFFICE_ID = '1000'
+
 App.ApplicationRoute = Ember.Route.extend
   beforeModel: (transition) ->
     auth = @controllerFor('authentication')
@@ -7,7 +9,7 @@ App.ApplicationRoute = Ember.Route.extend
       auth.login()
   model: ->
     @store.push 'office',
-      id: 1000
+      id: App.NO_OFFICE_ID
       name: 'Overview'
     @store.find('office')
 

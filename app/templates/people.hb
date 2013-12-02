@@ -1,5 +1,5 @@
-Neons in {{chosem-select value=office options=officeOptions}} who work on stuff.
+Neons in {{chosem-select value=selectedOffice options=officeOptions}} who work on stuff.
 
-{{#each}}
+{{#each filteredPeople}}
   <div>{{name}}</div>
 {{/each}}
