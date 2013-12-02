@@ -20,3 +20,7 @@ App.PeopleController = Ember.ArrayController.extend
     else
       @get('model').filterBy('office.id', @get('office.id'))
   ).property('office', 'model')
+
+  actions:
+    profile: -> console.log "profile"
+    edit: -> console.log "edit"
