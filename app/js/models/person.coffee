@@ -14,3 +14,7 @@ App.Person = DS.Model.extend
   office_slug: attr('string')
   avatar: attr('raw')
   office: DS.belongsTo('office')
+
+  firstName: (->
+    @get('name').split(' ')[0]
+  ).property('name')
