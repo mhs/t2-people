@@ -1,4 +1,5 @@
 attr = DS.attr
+
 App.Person = DS.Model.extend
   name: attr('string')
   notes: attr('string')
@@ -18,3 +19,19 @@ App.Person = DS.Model.extend
   firstName: (->
     @get('name').split(' ')[0]
   ).property('name')
+
+  # expects an object that FormData will be cool with
+  avatarFile: null
+
+  formData: (->
+    all_props = ['name', 'notes', 'email', 'unsellable', 'start_date', 'end_date', 'github', 'twitter', 'website', 'title', 'bio']
+    data = new FormData()
+    values = @getProperties(all_props...)
+    for prop in all_props
+      data.append("person[#{prop}]", values[prop])
+    file = @get('avatarFile')
+    if file
+      data.append('person[avatar]', file)
+    data
+  )
+

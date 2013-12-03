@@ -4,8 +4,9 @@
 
 <div class="content">
   <div class="person-card">
-    {{input value=name}}
+    <div class="name">{{input value=name}}</div>
     <div class="picture"><img {{ bind-attr src="avatar.small"}}/></div>
+    <div class="picture-upload">{{input type="file" value=formValue}}</div>
     <div class="role">{{role}}</div>
     <div class="office">{{office.name}}</div>
     <div class="email"><i>&#9993;</i> {{input value=email}}</div>
