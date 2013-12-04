@@ -8,7 +8,7 @@ App.PersonAdapter = App.ApplicationAdapter.extend
   ajaxOptions: (url, type, hash) ->
     # return contentType: false + needed options
     # hang on to the data since super will try to stringify it
-    if hash.data && hash.data.formData
+    if hash?.data?.formData?
       savedData = hash.data.formData
       hash.data = {}
       result = @_super(url, type, hash)

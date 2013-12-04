@@ -7,6 +7,8 @@ App.PeopleNewController = Ember.ObjectController.extend
   actions:
     save: (->
       model = @get('model')
+      if model.get('errors')
+        model.send('becameValid')
       model.save().then =>
         @transitionToRoute 'people'
     )
