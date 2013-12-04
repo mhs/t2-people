@@ -28,10 +28,11 @@ App.Person = DS.Model.extend
     data = new FormData()
     values = @getProperties(all_props...)
     for prop in all_props
-      data.append("person[#{prop}]", values[prop])
+      data.append("person[#{prop}]", values[prop]) unless values[prop] == undefined
     file = @get('avatarFile')
     if file
       data.append('person[avatar]', file)
+    data.append('person[office_id]', @get('office.id'))
     data
   )
 

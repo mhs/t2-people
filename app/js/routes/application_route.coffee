@@ -8,10 +8,14 @@ App.ApplicationRoute = Ember.Route.extend
       transition.abort()
       auth.login()
 
+  actions:
+    newPerson: ->
+      @transitionTo 'people.new'
+
   model: ->
     @store.push 'office',
       id: App.NO_OFFICE_ID
-      name: 'Overview'
+      name: 'Team Neo'
     @store.find('office')
 
   setupController: (controller, model) ->

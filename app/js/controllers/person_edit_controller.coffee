@@ -1,4 +1,5 @@
 App.PersonEditController = Ember.ObjectController.extend
+  needs: ['application']
 
   actions:
     save: (->
@@ -12,6 +13,7 @@ App.PersonEditController = Ember.ObjectController.extend
         contentType: false
         processData: false
       ).done((data)=>
+        @get('model').reload()
         @transitionToRoute('people')
       )
     )
