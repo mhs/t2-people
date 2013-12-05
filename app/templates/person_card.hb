@@ -14,6 +14,9 @@
   {{#if github}}
     <div class="github"><i class="social">&#62208;</i>{{github}}</div>
   {{/if}}
+  <div class="current-allocation">
+    {{currentAllocation.project.name}}
+  </div>
 
   <div class="view-profile">{{#link-to 'person' id}}<i>&#128269;</i>View Profile{{/link-to}}</div>
   <div class="edit-profile">{{#link-to 'person.edit' id}}<i>&#9881;</i>Edit Profile{{/link-to}}</div>

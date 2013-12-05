@@ -2,6 +2,7 @@ attr = DS.attr
 
 App.Person = DS.Model.extend
   name: attr('string')
+  role: attr('string')
   notes: attr('string')
   email: attr('string')
   unsellable: attr('boolean')
@@ -15,6 +16,7 @@ App.Person = DS.Model.extend
   office_slug: attr('string')
   avatar: attr('raw')
   office: DS.belongsTo('office')
+  currentAllocation: DS.belongsTo('allocation')
 
   firstName: (->
     @get('name').split(' ')[0]
@@ -24,7 +26,7 @@ App.Person = DS.Model.extend
   avatarFile: null
 
   formData: (->
-    all_props = ['name', 'notes', 'email', 'unsellable', 'start_date', 'end_date', 'github', 'twitter', 'website', 'title', 'bio']
+    all_props = ['name', 'role', 'notes', 'email', 'unsellable', 'start_date', 'end_date', 'github', 'twitter', 'website', 'title', 'bio']
     data = new FormData()
     values = @getProperties(all_props...)
     for prop in all_props
