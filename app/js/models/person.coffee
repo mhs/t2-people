@@ -26,7 +26,7 @@ App.Person = DS.Model.extend
   avatarFile: null
 
   formData: (->
-    all_props = ['name', 'role', 'notes', 'email', 'unsellable', 'start_date', 'end_date', 'github', 'twitter', 'website', 'title', 'bio']
+    all_props = 'name role notes email unsellable start_date end_date github twitter website title bio'.w()
     data = new FormData()
     values = @getProperties(all_props...)
     for prop in all_props

@@ -1,4 +1,7 @@
 App.PeopleRoute = Ember.Route.extend
+  beforeModel: ->
+    @store.find('project')
+
   model: ->
     @store.find('person')
 

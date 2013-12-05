@@ -142,16 +142,19 @@ App.ChosemSelectComponent = Ember.Component.extend({
       return options;
     }
 
-  }.property('input'),
+  }.property('input', 'options'),
 
   /**
     When the results get filtered, highlight the first result.
 
     @method selectFilteredOnChange
   */
+
   selectFilteredOnChange: function() {
       var firstObject = this.get('filtered.firstObject');
-      this.send('highlight', firstObject);
+      if (firstObject) {
+        this.send('highlight', firstObject);
+      }
     }.observes('filtered'),
 
   /**
