@@ -1,0 +1,110 @@
+.chosem
+  display: inline-block
+  position: relative
+  width: auto
+  height: auto
+
+.chosem:focus
+  outline: 0
+
+.chosem:focus, .chosem__value
+  border: none
+
+.chosem--multiple, .chosem__value
+  background: #fff
+  border: 1px solid #999
+
+.chosem__value, .chosem__inner
+  border: 1px solid #e7e7e7
+  padding: 5px
+  background: #f5f5f5
+  width: 100%
+
+.chosem__value--open
+  border-bottom: 0
+
+.chosem__value
+  background: $green
+  cursor: pointer
+  color: $white
+
+.chosem__inner
+  position: absolute
+  top: 89px
+  width: 100%
+  z-index: 2
+  margin: 0
+  padding: 0
+  border-top: none
+  box-shadow: 0 .25em 1em rgba(0,0,0,0.05)
+
+.chosem__placeholder
+  font-style: normal
+  opacity: .5
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50)
+  padding-right: 1.5em
+
+.chosem__caret
+  color: #666
+  position: absolute
+  top: .5em
+  right: .5em
+
+.chosem__search
+  position: relative
+  width: 100%
+  padding: 0 .25em
+  margin: .5em 0
+
+.chosem__search input
+  font-size: .9em
+  position: relative
+  width: 100%
+  margin: 0
+  padding: .15em
+  padding-left: 1.5em
+  line-height: 1.25em
+  border: 1px solid rgba(51,51,51,0.4)
+
+.chosem__search input:focus
+  border: 1px solid #32b5ff
+  box-shadow: 0 0 .5em rgba(50,181,255,0.4)
+  outline: none
+
+.chosem__search i
+  position: absolute
+  z-index: 2
+  left: .5em
+  top: .25em
+  color: #666
+
+.chosem__options
+  list-style: none
+  font-size: 26px
+  max-height: 10em
+  overflow: auto
+  -webkit-overflow-scrolling: touch
+  margin: 0
+  padding: 0
+
+.chosem__option
+  color: #666
+  padding: .25em
+  cursor: pointer
+
+.chosem__option--noop
+  text-align: center
+  color: #999
+  margin: .25em
+  background-color: #333
+  background-color: rgba(51,51,51,0.1)
+
+.chosem__option--selected, .chosem__option--selected:hover
+  background: rgba(255,255,0,0.5)
+.chosem__option--disabled, .chosem__option--disabled:hover
+  opacity: .5
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50)
+
+
+i
+  font-style: normal

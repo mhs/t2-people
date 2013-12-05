@@ -178,8 +178,8 @@ App.ChosemSelectComponent = Ember.Component.extend({
       _this.set('mouseOnContainer', false);
     });
 
-    // Hard-set open width to be the same as closed width
-    $me.css('width', $me.css('width'));
+    // // Hard-set open width to be the same as closed width
+    // $me.css('width', $me.css('width'));
 
     this.set('options.firstObject.selected', true);
   },
