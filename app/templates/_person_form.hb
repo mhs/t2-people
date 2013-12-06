@@ -1,9 +1,11 @@
 {{#form-for model}}
-  {{input name placeholder="Employee Name"}}
-  {{input avatarFile as="file" label="Avatar"}}
+  {{input name class="edit-name" placeholder="Employee Name"}}
+  <div class="picture">
+    <img src="http://nicenicejpg.com/350">
+    <!-- <img {{ bind-attr src="avatar.small"}}/> -->
+  </div>
+  {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
   {{input role placeholder="Employee Role"}}
-  {{input start_date placeholder="yyyy-mm-dd" label="Start Date" }}
-  {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
   {{#if isNew}}
     <div class="office">
       {{view Ember.Select
@@ -16,8 +18,14 @@
   {{#unless isNew}}
     <div class="office">{{office.name}}</div>
   {{/unless}}
+  <div class="start-date">
+    {{input start_date placeholder="yyyy-mm-dd" label="Start Date" }}
+  </div>
+  {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
   {{#input email}}
-    <i>&#9993;{{label-field email text=" "}}</i>
+    <div class="social-info">
+      <i>&#9993;{{label-field email text=" "}}</i>
+    </div>
     {{input-field email}}
     {{error-field email}}
   {{/input}}
@@ -40,3 +48,4 @@
     {{#link-to 'people'}}Return to List{{/link-to}}
   </div>
 {{/form-for}}
+
