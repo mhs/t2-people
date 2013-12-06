@@ -5,11 +5,9 @@
 
   <div class="picture">
     <img src="http://nicenicejpg.com/350">
-    <!-- <img {{ bind-attr src="avatar.small"}}/> -->
   </div>
 
   <div class="role">
-    <!-- {{role}} -->
     Developer
   </div>
 
@@ -20,6 +18,7 @@
   <div class="project">
     Assigned To
   </div>
+
   <div class="current-project">
     {{currentAllocation.project.name}}
   </div>
@@ -33,23 +32,8 @@
     </div>
   {{/if}}
 
-<!--   {{#if twitter}}
-    <div class="twitter">
-      <i class="social">&#62217;</i>
-      {{twitter}}
-    </div>
-  {{/if}}
-
-  {{#if github}}
-    <div class="github">
-      <i class="social">&#62208;</i>
-      {{github}}
-    </div>
-  {{/if}}
-<<<<<<< HEAD
- -->
   <div class="twitter">
-  <i class="social">&#62217;</i>
+    <i class="social">&#62217;</i>`
     <div class="social-info">
     @twitterHandle
     </div>
@@ -66,6 +50,7 @@
     {{#link-to 'person' id}}<i>&#128269;</i>
       View Profile
     {{/link-to}}
+  </div>
 
   <div class="edit-profile">
     {{#link-to 'person.edit' id}}<i>&#9881;</i>
