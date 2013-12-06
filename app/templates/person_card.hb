@@ -21,7 +21,7 @@
     Assigned To
   </div>
   <div class="current-project">
-    My Current Project
+    {{currentAllocation.project.name}}
   </div>
 
   {{#if email}}
@@ -46,6 +46,7 @@
       {{github}}
     </div>
   {{/if}}
+<<<<<<< HEAD
  -->
   <div class="twitter">
   <i class="social">&#62217;</i>
@@ -65,7 +66,6 @@
     {{#link-to 'person' id}}<i>&#128269;</i>
       View Profile
     {{/link-to}}
-  </div>
 
   <div class="edit-profile">
     {{#link-to 'person.edit' id}}<i>&#9881;</i>

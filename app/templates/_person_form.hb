@@ -41,7 +41,14 @@
   {{/input}}
   {{input unsellable as="checkbox"}}
   <div {{action 'save'}} class="confirm pointer"><i></i>
-    <i>&#10003;</i>Create Neon
+    <i>&#10003;</i>
+      {{#if isNew}}
+        Create Neon
+      {{/if}}
+      {{#unless isNew}}
+        Confirm Edits
+      {{/unless}}
+
   </div>
   <div class="return pointer">
     <i>&#11013;</i>

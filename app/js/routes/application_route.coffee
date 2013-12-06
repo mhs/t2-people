@@ -1,4 +1,5 @@
 App.NO_OFFICE_ID = '1000'
+App.NO_PROJECT_ID = '1000'
 
 App.ApplicationRoute = Ember.Route.extend
   beforeModel: (transition) ->
@@ -16,6 +17,9 @@ App.ApplicationRoute = Ember.Route.extend
     @store.push 'office',
       id: App.NO_OFFICE_ID
       name: 'Team Neo'
+    @store.push 'project',
+      id: App.NO_PROJECT_ID
+      name: 'Anything'
     @store.find('office')
 
   setupController: (controller, model) ->

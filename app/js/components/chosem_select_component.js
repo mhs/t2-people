@@ -142,16 +142,28 @@ App.ChosemSelectComponent = Ember.Component.extend({
       return options;
     }
 
-  }.property('input'),
+  }.property('input', 'options'),
+
+  //when the options change, if the current value isn't among them nuke it. HAX
+  filterValue: function() {
+    isThere = this.get('filtered').contains(this.get('value'))
+    if (!isThere) {
+      this.set('value', this.get('defaultProject'));
+    }
+  },
 
   /**
     When the results get filtered, highlight the first result.
 
     @method selectFilteredOnChange
   */
+
   selectFilteredOnChange: function() {
+      this.filterValue()
       var firstObject = this.get('filtered.firstObject');
-      this.send('highlight', firstObject);
+      if (firstObject) {
+        this.send('highlight', firstObject);
+      }
     }.observes('filtered'),
 
   /**

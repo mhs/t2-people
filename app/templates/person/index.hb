@@ -20,6 +20,9 @@
       <div class="github"><i class="social">&#62208;</i>{{github}}</div>
     {{/if}}
   </div>
+  <div class="current-allocation">
+    {{currentAllocation.project.name}}
+  </div>
   <div class="about">
     <header>
       About {{firstName}}
