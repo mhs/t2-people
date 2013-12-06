@@ -144,6 +144,14 @@ App.ChosemSelectComponent = Ember.Component.extend({
 
   }.property('input', 'options'),
 
+  //when the options change, if the current value isn't among them nuke it. HAX
+  filterValue: function() {
+    isThere = this.get('filtered').contains(this.get('value'))
+    if (!isThere) {
+      this.set('value', this.get('defaultProject'));
+    }
+  },
+
   /**
     When the results get filtered, highlight the first result.
 
@@ -151,6 +159,7 @@ App.ChosemSelectComponent = Ember.Component.extend({
   */
 
   selectFilteredOnChange: function() {
+      this.filterValue()
       var firstObject = this.get('filtered.firstObject');
       if (firstObject) {
         this.send('highlight', firstObject);
