@@ -71,33 +71,43 @@ i.social
   +clearfix
 
 .header
+  +clearfix
   text-align: center
   padding: 20px
   margin: 0 auto 40px
   border-bottom: 2px solid gray
 
   h2
+    display: inline-block
     font-size: 40px
     color: gray
     margin: 0
 
 // Person Card Styling
 
+.person-card
+  min-height: 725px
+  max-height: 725px
+
 .person-card, .edit-card
+  position: relative
+  height: 725px
   letter-spacing: .5px
   padding: 10px
   +corners
-  width: 23.9%
+  width: 24.25%
   float: left
-  margin: 0 15px 15px 0
+  margin: 0 10px 10px 0
   background: $light-gray
 
   &:nth-child(4n+4)
-    margin: 0 0 15px 0
+    margin: 0 0 10px 0
 
 .edit-card
+  +clearfix
   width: 30%
-  margin: auto
+  padding: 40px
+  margin: 0 auto 40px
   float: none
 
   label
@@ -105,8 +115,9 @@ i.social
 
   input
     +corners
-    width: 60%
-    padding: 3px
+    float: right
+    width: 100%
+    padding: 5px
     border: 1px solid $dark-gray
     font-size: 16px
     display: block
@@ -118,24 +129,27 @@ i.social
       border: 2px solid $dark-gray
 
 .edit-name
-  margin: 20px auto 20px
+  margin: 0 auto 20px
+
+  input
+    float: none
 
 .name
   +black-font
-  font-size: 24px
+  font-size: 20px
   color: black
   text-align: center
   margin: 30px 0 20px
 
 .picture
   margin: 0 auto 20px
-  +size(100px)
+  +size(150px)
   border-radius: 50%
   overflow: hidden
   border: 4px solid $white
 
   img
-    +size(100px)
+    +size(150px)
 
 .avatar-picker
   +corners
@@ -159,6 +173,7 @@ i.social
 
 .role, .office, .current-project
   +corners
+  +clearfix
   +black-font
   font-size: 20px
   text-align: center
@@ -182,6 +197,17 @@ i.social
 .current-project
   background: $red
 
+.start-date, .end-date
+  +clearfix
+
+  label
+    position: relative
+    top: 6px
+    display: block
+    float: left
+
+  input
+    width: 60%
 
 .email, .twitter, .github, .view-profile, .edit-profile
   text-align: center
@@ -197,10 +223,16 @@ i.social
   margin: 30px 0 20px 0
 
 .github
-  margin: 20px 0 60px 0
+  margin: 20px 0 40px 0
 
 .email, .twitter, .github
   color: black
+
+.profile-options
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
 
 .view-profile, .edit-profile
 
@@ -212,3 +244,26 @@ i.social
     top: 1px
     font-size: 30px
 
+.edit-info
+  +clearfix
+
+  input
+    width: 85%
+
+  i
+    font-size: 44px
+    position: relative
+    top: 15px
+
+  i, label
+    float: left
+
+.unsellable
+  +clearfix
+
+  label
+    float: left
+    display: block
+
+  input
+    width: 10%

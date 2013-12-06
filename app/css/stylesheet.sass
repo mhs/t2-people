@@ -10,38 +10,47 @@
 .chosem:focus, .chosem__value
   border: none
 
-.chosem--multiple, .chosem__value
+.chosem--multiple
   background: #fff
   border: 1px solid #999
 
 .chosem__value, .chosem__inner
-  border: 1px solid #e7e7e7
   padding: 5px
   background: #f5f5f5
   width: 100%
 
 .chosem__value--open
   border-bottom: 0
+  width: 100%
 
 .chosem__value
   cursor: pointer
   color: $white
 
+.select-office
+  margin: 0 5px 5px 0
+
 .select-office .chosem__value
   background: $green
+
+  &:hover
+    background: darken($green, 5%)
 
 .select-project .chosem__value
   background: $red
 
+  &:hover
+    background: darken($red, 5%)
+
 .chosem__inner
+  text-align: left
+  width: 400px
   position: absolute
   top: 89px
-  width: 100%
   z-index: 2
   margin: 0
   padding: 0
   border-top: none
-  box-shadow: 0 .25em 1em rgba(0,0,0,0.05)
 
 .chosem__placeholder
   font-style: normal

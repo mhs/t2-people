@@ -29,7 +29,6 @@ App.PeopleController = Ember.ArrayController.extend
   ).property('selectedOffice')
 
   filteredPeople: (->
-    debugger
     office_id = @get('office.id') || App.NO_OFFICE_ID
     if office_id == App.NO_OFFICE_ID
       officePeople = @get('model')

@@ -5,7 +5,9 @@
     <!-- <img {{ bind-attr src="avatar.small"}}/> -->
   </div>
   {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
-  {{input role placeholder="Employee Role"}}
+  <div class="role">
+    {{input role placeholder="Employee Role"}}
+  </div>
   {{#if isNew}}
     <div class="office">
       {{view Ember.Select
@@ -21,25 +23,33 @@
   <div class="start-date">
     {{input start_date placeholder="yyyy-mm-dd" label="Start Date" }}
   </div>
-  {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
-  {{#input email}}
-    <div class="social-info">
+  <div class="end-date">
+    {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
+  </div>
+  <div class="edit-info">
+    {{#input email}}
       <i>&#9993;{{label-field email text=" "}}</i>
-    </div>
-    {{input-field email}}
-    {{error-field email}}
+      {{input-field email}}
+      {{error-field email}}
+  </div>
   {{/input}}
-  {{#input twitter}}
+  <div class="edit-info">
+    {{#input twitter}}
     <i class="social">&#62217;{{label-field twitter text=" "}}</i>
     {{input-field twitter}}
     {{error-field twitter}}
+  </div>
   {{/input}}
-  {{#input github}}
+  <div class="edit-info">
+    {{#input github}}
     <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
     {{input-field github}}
     {{error-field github}}
+  </div>
   {{/input}}
-  {{input unsellable as="checkbox"}}
+  <div class="unsellable">
+    {{input unsellable as="checkbox"}}
+  </div>
   <div {{action 'save'}} class="confirm pointer"><i></i>
     <i>&#10003;</i>
       {{#if isNew}}

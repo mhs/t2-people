@@ -46,15 +46,17 @@
     </div>
   </div>
 
-  <div class="view-profile">
-    {{#link-to 'person' id}}<i>&#128269;</i>
-      View Profile
-    {{/link-to}}
-  </div>
+  <div class="profile-options">
+    <div class="view-profile">
+      {{#link-to 'person' id}}<i>&#128269;</i>
+        View Profile
+      {{/link-to}}
+    </div>
 
-  <div class="edit-profile">
-    {{#link-to 'person.edit' id}}<i>&#9881;</i>
-      Edit Profile
-    {{/link-to}}
+    <div class="edit-profile">
+      {{#link-to 'person.edit' id}}<i>&#9881;</i>
+        Edit Profile
+      {{/link-to}}
+    </div>
   </div>
 </div>
