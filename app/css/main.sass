@@ -64,7 +64,7 @@ i.social
   +clearfix
   width: 100%
 
-.container
+.container, .people-container
   margin: auto
   max-width: 1024px
   width: 96%
@@ -82,6 +82,36 @@ i.social
     font-size: 40px
     color: gray
     margin: 0
+
+.search
+  +clearfix
+  width: 160px
+  float: right
+
+  label
+    display: none
+
+  input
+    +corners
+    padding: 5px
+    display: block
+    border: 2px solid $dark-gray
+
+.person-icon, .magnify
+  +clearfix
+  float: right
+  position: relative
+
+  i
+    position: relative
+    font-size: 50px
+
+.person-icon
+  top: 10px
+
+.magnify
+  top: 12px
+  background: $blue
 
 .profile .header
   +clearfix
