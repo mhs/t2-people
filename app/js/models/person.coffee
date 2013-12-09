@@ -38,3 +38,10 @@ App.Person = DS.Model.extend
     data
   )
 
+  matches: (regex) ->
+    props = 'name email twitter github'.w()
+    props.any (term) =>
+      item = @get(term)
+      item && item.match(regex)
+
+
