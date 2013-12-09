@@ -8,7 +8,7 @@
   </div>
 
   <div class="role">
-    Developer
+    {{role}}
   </div>
 
   <div class="office">
@@ -20,7 +20,11 @@
   </div>
 
   <div class="current-project">
-    {{currentAllocation.project.name}}
+    {{#if currentAllocation.project.name}}
+      {{currentAllocation.project.name}}
+    {{else}}
+      Bench
+    {{/if}}
   </div>
 
   {{#if email}}

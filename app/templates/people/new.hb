@@ -2,8 +2,8 @@
  Add an Employee
 </div>
 
-<div class="content">
-  <div class="person-card">
+<div class="container">
+  <div class="edit-card">
     {{partial "person_form"}}
   </div>
 </div>

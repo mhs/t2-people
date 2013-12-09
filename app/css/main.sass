@@ -83,13 +83,19 @@ i.social
     color: gray
     margin: 0
 
+.profile .header
+  +clearfix
+  text-align: left
+
 // Person Card Styling
+
 
 .person-card
   min-height: 725px
   max-height: 725px
 
 .person-card, .edit-card
+  +clearfix
   position: relative
   height: 725px
   letter-spacing: .5px
@@ -104,21 +110,22 @@ i.social
     margin: 0 0 10px 0
 
 .edit-card
-  +clearfix
   width: 30%
   padding: 40px
   margin: 0 auto 40px
   float: none
+  height: auto
 
   label
     display: none
 
   input
+    +black-font
     +corners
     float: right
     width: 100%
     padding: 5px
-    border: 1px solid $dark-gray
+    border: none
     font-size: 16px
     display: block
     text-align: center
@@ -126,7 +133,6 @@ i.social
 
     &:focus
       outline: none
-      border: 2px solid $dark-gray
 
 .edit-name
   margin: 0 auto 20px
@@ -165,6 +171,7 @@ i.social
     opacity: 0
 
   label
+    +black-font
     position: relative
     top: 12px
     cursor: pointer
@@ -175,16 +182,26 @@ i.social
   +corners
   +clearfix
   +black-font
-  font-size: 20px
+  font-size: 18px
   text-align: center
-  margin: 10px auto 10px
+  margin: 10px auto 20px
   padding: 10px
   display: table
   color: $white
 
+
 .role
   background: $blue
 
+  input
+    border: none
+    background: rgba($white, .3)
+    position: relative
+    top: 5px
+    color: $white
+
+    +placeholder
+      color: $white
 .office
   background: $green
 
@@ -202,12 +219,13 @@ i.social
 
   label
     position: relative
-    top: 6px
+    top: 7px
+    font-size: 14px
     display: block
     float: left
 
   input
-    width: 60%
+    width: 67%
 
 .email, .twitter, .github, .view-profile, .edit-profile
   text-align: center
@@ -244,10 +262,11 @@ i.social
     top: 1px
     font-size: 30px
 
-.edit-info
+.info
   +clearfix
 
   input
+    text-align: left
     width: 85%
 
   i
@@ -262,8 +281,74 @@ i.social
   +clearfix
 
   label
+    margin: 10px 0 20px
     float: left
     display: block
 
   input
-    width: 10%
+    margin: 10px 0 20px
+    width: auto
+    float: right
+
+.return, .confirm
+  display: block
+  border: none
+  margin: 0 auto 20px
+
+  i
+    margin: 0
+
+
+.return
+  margin: 0 auto 0
+
+  a
+    &:visited, &:active, &:focus
+      color: $dark-gray
+
+// Profile Styling
+
+.profile-container
+  width: 100%
+  padding: 0 0 0 0
+
+.profile
+  +clearfix
+
+  .person-card
+    padding: 0 40px 20px
+    background: $white
+
+  .role, .office
+    font-size: 26px
+    padding: 0
+    background: $white
+
+  .role
+    margin-bottom: 0
+    color: gray
+
+  .office
+    margin: 5px auto 40px
+    color: $dark-gray
+
+  .start-date
+    color: $dark-gray
+
+  .info i
+    color: $dark-gray
+    font-size: 60px
+    position: relative
+    top: 13px
+    left: 28px
+
+  .twitter, .github, .email
+    font-size: 22px
+    color: gray
+
+.profile-name
+  +black-font
+  width: 60%
+  padding: 5px
+  background: $blue
+  color: $white
