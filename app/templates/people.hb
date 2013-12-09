@@ -5,7 +5,9 @@
   <div class="search">
     {{input search placeholder="Search"}}
   </div>
-  {{#each person in filteredPeople}}
-    {{render 'person_card' person}}
-  {{/each}}
+  <div class="people-container">
+    {{#each person in filteredPeople}}
+      {{render 'person_card' person}}
+    {{/each}}
+  </div>
 </div>
