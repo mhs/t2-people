@@ -1,9 +1,13 @@
 {{#form-for model}}
-  {{input name placeholder="Employee Name"}}
-  {{input avatarFile as="file" label="Avatar"}}
-  {{input role placeholder="Employee Role"}}
-  {{input start_date placeholder="yyyy-mm-dd" label="Start Date" }}
-  {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
+  {{input name class="edit-name" placeholder="Employee Name"}}
+  <div class="picture">
+    <img src="http://nicenicejpg.com/350">
+    <!-- <img {{ bind-attr src="avatar.small"}}/> -->
+  </div>
+  {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
+  <div class="role">
+    {{input role placeholder="Employee Role"}}
+  </div>
   {{#if isNew}}
     <div class="office">
       {{view Ember.Select
@@ -16,22 +20,36 @@
   {{#unless isNew}}
     <div class="office">{{office.name}}</div>
   {{/unless}}
-  {{#input email}}
-    <i>&#9993;{{label-field email text=" "}}</i>
-    {{input-field email}}
-    {{error-field email}}
+  <div class="start-date">
+    {{input start_date placeholder="yyyy-mm-dd" label="Start Date" }}
+  </div>
+  <div class="end-date">
+    {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
+  </div>
+  <div class="edit-info">
+    {{#input email}}
+      <i>&#9993;{{label-field email text=" "}}</i>
+      {{input-field email}}
+      {{error-field email}}
+  </div>
   {{/input}}
-  {{#input twitter}}
+  <div class="edit-info">
+    {{#input twitter}}
     <i class="social">&#62217;{{label-field twitter text=" "}}</i>
     {{input-field twitter}}
     {{error-field twitter}}
+  </div>
   {{/input}}
-  {{#input github}}
+  <div class="edit-info">
+    {{#input github}}
     <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
     {{input-field github}}
     {{error-field github}}
+  </div>
   {{/input}}
-  {{input unsellable as="checkbox"}}
+  <div class="unsellable">
+    {{input unsellable as="checkbox"}}
+  </div>
   <div {{action 'save'}} class="confirm pointer"><i></i>
     <i>&#10003;</i>
       {{#if isNew}}
@@ -47,3 +65,4 @@
     {{#link-to 'people'}}Return to List{{/link-to}}
   </div>
 {{/form-for}}
+

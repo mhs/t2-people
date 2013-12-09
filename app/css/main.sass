@@ -1,8 +1,8 @@
 @import bourbon/bourbon
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import colors
-@import helpers
 @import new-nav
+@import stylesheet
 
 +font-face(entypo, '/webfonts/entypo')
 +font-face(entypo-social, '/webfonts/entypo-social')
@@ -18,20 +18,36 @@
   font-family: "Montserrat", sans-serif
   font-weight: 400
 
+@mixin corners
+  border-radius: 2px
+
 html,body
+  background: $white
   font-family: "Montserrat", sans-serif
   margin: 0
   padding: 0
   min-height: 100%
 
+h1
+  font-size: 36px
+
+h2
+  font-size: 28px
+
+p
+  font-size: 16px
+
+a
+  text-decoration: none
+
 button
   margin: 0
 
-header, .office-nav
+header
   +clearfix
 
-canvas
-  display: block
+i
+  font-family: "entypo"
 
 i.social
   font-family: "entypo-social"
@@ -52,428 +68,202 @@ i.social
   margin: auto
   max-width: 1024px
   width: 96%
-  @include clearfix
+  +clearfix
 
-#utilizationToggle
-  display: block
-  float: right
-  margin-top: 22px
+.header
+  +clearfix
+  text-align: center
+  padding: 20px
+  margin: 0 auto 40px
+  border-bottom: 2px solid gray
 
+  h2
+    display: inline-block
+    font-size: 40px
+    color: gray
+    margin: 0
 
-.snapshot-forecast-button
-  cursor: pointer
+// Person Card Styling
+
+.person-card
+  min-height: 725px
+  max-height: 725px
+
+.person-card, .edit-card
+  position: relative
+  height: 725px
+  letter-spacing: .5px
+  padding: 10px
+  +corners
+  width: 24.25%
   float: left
-  @include black-font
-  background: #FFFFFF
-  font-size: 16px
-  color: #C6C6C6
-  border: none
-  line-height: 25px
-  text-transform: uppercase
-  text-decoration: none
-  padding: 5px 10px
-  margin-left: 20px
+  margin: 0 10px 10px 0
+  background: $light-gray
 
-  &:focus
-    outline: none
+  &:nth-child(4n+4)
+    margin: 0 0 10px 0
 
-  &.snapshot-forecast-button-selected
-    background: #2DCA7D
-    border: none
-    color: #FFFFFF
-    box-shadow: -4px 4px 0 0 #20B56B
+.edit-card
+  +clearfix
+  width: 30%
+  padding: 40px
+  margin: 0 auto 40px
+  float: none
+
+  label
+    display: none
+
+  input
+    +corners
+    float: right
+    width: 100%
+    padding: 5px
+    border: 1px solid $dark-gray
+    font-size: 16px
+    display: block
+    text-align: center
+    margin: 0 auto 10px
 
     &:focus
       outline: none
+      border: 2px solid $dark-gray
 
-h1
-  @include regular-font
-  font-weight: 400
-  font-size: 30px
-  color: #2C2E2E
-  margin-bottom: 20px
-  float: left
+.edit-name
+  margin: 0 auto 20px
 
+  input
+    float: none
 
-
-.office-nav
-  width: 100%
-  background: #F0F0F0
-  border-top: 1px solid #DEDEDE
-  border-bottom: 1px solid #DEDEDE
-  margin-bottom: 30px
-
-
-.office-nav a.button
-  @include regular-font
-  float: left
-  width: 9%
-  padding: 10px 0
-  background-color: #F0F0F0
-  text-decoration: none
-  text-align: center
-  font-size: 13px
-  color: #AAAAAA
-  line-height: 18px
-  border: 0
-  cursor: pointer
-
-  &:focus
-    outline: none
-
-  &:hover
-    color: #393939
-    outline: none
-
-
-  &:first-child
-    padding-left: 0
-
-
-  &.selected-office
-    @include black-font
-    color: #393939
-    outline: none
-    border-radius: 0
-    background-color: #fdfdfd
-
-.legend
-  +clearfix
-  margin: 0 0 30px
-
-  h3
-    margin: 0 15px 0 0
-    float: left
-    position: relative
-    top: 4px
-
-  .indicator
-    +size(30px)
-    margin: 0 8px
-    border-radius: 50%
-    float: left
-
-  .overhead
-    background: $dark-gray
-
-  .unavailable
-    background: $mid-gray
-
-  .non-billing
-    background: $dark-blue
-
-  .billing
-    background: $blue
-
-/* GRAPH STYLE */
-
-.stack-chart
-  width: 100%
-
-.vertical-rule
-  stroke: white
-  stroke-width: 2px
-  stroke-dasharray: 5,5
-
-
-.tooltip-line
-  stroke: white
-  stroke-width: 3px
-
-.averageUtilization
-  position: absolute
-  z-index: 5
-  top: 118px
-  left: 35px
-
-  .averagePercentage
-    @include black-font
-    font-size: 55px
-    color: #646969
-    padding: 25px 0px 15px 10px
-    border-radius: 90px
-    background-color: #fff
-    box-shadow: 0px 5px 0 0 #909090
-    width: 110px
-    height: 110px
-    margin-left: 30px
-
-    span
-      font-size: 30px
-      padding: 0
-      vertical-align: super
-
-
-
-  .averageLabel
-    @include black-font
-    text-transform: uppercase
-    padding: 5px 10px
-    background: #2DCA7D
-    color: #FFFFFF
-    box-shadow: -4px 4px 0 0 #20B56B
-    margin-top: -15px
-
-    span
-      position: relative
-      top: 0px
-      font-family: 'entypo'
-      color: #555
-      font-size: 15px
-      margin-left: 5px
-
-
-
-
-
-#utilizationData
-  width: 76%
-  float: left
-
-
-h2
-  @include regular-font
-  display: inline-block
-  float: left
-  font-weight: 400
-  font-size: 30px
-  color: #2C2E2E
-  margin-bottom: 0px
-  clear: none
-
-
-.arrow-left, .arrow-right
-  position: relative
-  font-family: "entypo"
-  top: 4px
-  color: #D8D8D8
-  font-size: 40px
-  font-style: normal
-  cursor: pointer
-
-  &:hover
-    color: #C8C8C8
-
-
-  &:active
-    color: #b1b1b1
-
-
-
-.viewDayBefore
-  margin-right: 10px
-
-
-.viewDayAfter
-  margin-left: 10px
-
-
-.dateToggle
-  display: block
-  float: right
-  padding-top: 22px
-
-
-
-.dateToggle > div
-  display: block
-  float: left
-
-
-.dateInput
-  @include regular-font
-  font-size: 16px
-  width: 146px
-  padding: 5px
-
-.staff-lists
-  +clearfix
-
-.staffList
-  @include black-font
-  float: left
-  width: 100%
-  font-size: 24px
-  color: #2C2E2E
-  line-height: 36px
-  padding: 5px 0 5px
-  border-top: 4px solid #C6C6C6
-  border-bottom: 4px solid #C6C6C6
-
-  .numbers
-    @include regular-font
-    color: #fff
-    font-size: 14px
-    display: block
-    position: relative
-
-
-  .number-container
-    +size(36px)
-    position: relative
-    float: left
-    min-height: 36px
-    min-width: 36px
-    border-radius: 50%
-    margin: 0 10px 0 0
-    text-align: center
-    background-color: #c0c0c0
-
-ul
-  padding-left: 0
-  padding-bottom: 40px
-  margin: 0
-
-li
-  @include regular-font
-  list-style-type: none
-  line-height: 32px
-  font-size: 14px
-  padding-left: 28px
-  border-bottom: 1px solid #C6C6C6
-
-.week-label
-  fill: $dark-blue
-
-.shadow-label
-  fill: $light-blue
-
-.date-label
-  fill: $red
-
-svg
-  .billing
-    fill: $blue
-  .available
-    fill: $dark-blue
-  .unavailable
-    fill: $mid-gray
-  .overhead
-    fill: $dark-gray
-
-svg text
-  font-size: 20px
+.name
   +black-font
-  text-anchor: middle
-  font-family: "Montserrat", sans-serif
+  font-size: 20px
+  color: black
+  text-align: center
+  margin: 30px 0 20px
 
-svg circle
-  fill: $green
+.picture
+  margin: 0 auto 20px
+  +size(150px)
+  border-radius: 50%
+  overflow: hidden
+  border: 4px solid $white
 
-svg circle, .billing-line
-  stroke-width: 4px
-  stroke: white
+  img
+    +size(150px)
 
-.billing-line
-  fill: none
+.avatar-picker
+  +corners
+  +size(150 40)
+  cursor: pointer
+  color: $white
+  margin: 10px auto 20px
+  background: blue
 
-.office-header
-  +clearfix
-  margin: 26px 0 30px 0
+  input[type="file"]
+    cursor: pointer
+    position: absolute
+    opacity: 0
 
-  h1
-    font-size: 40px
-    float: left
-    margin: 0
-
-#utilizationOverview
-  background-color: #DF5137
-  box-shadow: -4px 4px 0 0 #9E3927
-  padding: 17px
-  @include regular-font
-  color: #ffffff
-  font-size: 13px
-
-  .office-location
-    font-size: 20px
+  label
     position: relative
-    top: 3px
-    float: left
-
-
-  .officeInfo
-    +clearfix
-    margin-bottom: 6px
-
-    &:last-child
-      margin-bottom: 0
-
-
-
-  .office-percentage
-    @include regular-font
-    font-size: 22px
-    float: left
+    top: 12px
+    cursor: pointer
+    display: block
     text-align: center
-    background-color: #FF9481
-    padding: 1px 6px 3px 6px
-    margin-right: 7px
-    min-width: 45px
 
+.role, .office, .current-project
+  +corners
+  +clearfix
+  +black-font
+  font-size: 20px
+  text-align: center
+  margin: 10px auto 10px
+  padding: 10px
+  display: table
+  color: $white
 
+.role
+  background: $blue
 
+.office
+  background: $green
 
-.office-by-office, .office-title
-  @include black-font
-  @include clearfix
-  text-transform: uppercase
-  background-color: #fff
-  font-size: 14px
-  display: block
-  color: #000000
-  margin-bottom: 15px
-  float: right
-
-.office-title
-  padding: 5px
-  float: none
+.project
+  +black-font
+  margin: 10px auto 10px
+  color: gray
   text-align: center
 
-// snapshots css
+.current-project
+  background: $red
 
-.utilization-list
-  float: left
-  width: 60%
+.start-date, .end-date
+  +clearfix
 
-.utilization-sidebar
-  margin: 0 0 15px 0
-  float: left
-  width: 100%
+  label
+    position: relative
+    top: 6px
+    display: block
+    float: left
+
+  input
+    width: 60%
+
+.email, .twitter, .github, .view-profile, .edit-profile
+  text-align: center
+  font-size: 16px
+  color: gray
+  margin: 20px 0
   cursor: pointer
 
-  .active
+  i
+    font-size: 50px
+
+.email
+  margin: 30px 0 20px 0
+
+.github
+  margin: 20px 0 40px 0
+
+.email, .twitter, .github
+  color: black
+
+.profile-options
+  position: absolute
+  bottom: 0
+  left: 0
+  width: 100%
+
+.view-profile, .edit-profile
+
+  a
     color: gray
-    background: white
 
-  ul
-    li
-      color: white
-      width: 14.2857%
-      background: gray
-      float: left
-      text-align: center
-      padding: 0
-      border-bottom: none
-      border-left: 1px solid white
+  i
+    position: relative
+    top: 1px
+    font-size: 30px
 
+.edit-info
+  +clearfix
 
-    li:nth-child(1)
-      @include regular-font
-      border-top: none
-      padding-left: 28px
-      line-height: 32px
-      border-left: none
+  input
+    width: 85%
 
-#calendarBar
-  position: relative
-  top: 6px
-  float: right
+  i
+    font-size: 44px
+    position: relative
+    top: 15px
 
-.datepicker
-  padding: 5px
-  font-size: 16px
-  text-align: center
+  i, label
+    float: left
 
+.unsellable
+  +clearfix
 
+  label
+    float: left
+    display: block
 
-
+  input
+    width: 10%

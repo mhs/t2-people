@@ -1,9 +1,9 @@
-<div class="header">
-  Edit an Employee
-</div>
+<div class="container">
+  <div class="header">
+    <h2>Edit an Employee</h2>
+  </div>
 
-<div class="content">
-  <div class="person-card">
+  <div class="edit-card">
     {{partial "person_form"}}
   </div>
 </div>
