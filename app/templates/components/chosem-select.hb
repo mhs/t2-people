@@ -1,4 +1,4 @@
-<div {{action 'toggleOpen' on='mouseDown' bubbles=false}} {{bindAttr class=':chosem__value isOpen:chosem__value--open:chosem__value--closed'}}>
+<div {{action 'toggleOpen' on='mouseDown' bubbles=false}} {{bind-attr class=':chosem__value isOpen:chosem__value--open:chosem__value--closed'}}>
     {{#if multiple}}
         {{#if value}}
             <ul>
@@ -17,7 +17,7 @@
         {{/if}}
     {{/if}}
     {{#unless multiple}}
-        <i {{bindAttr class=':chosem__caret :fa isOpen:fa-caret-up:fa-caret-down'}}></i>
+        <i {{bind-attr class=':chosem__caret :fa isOpen:fa-caret-up:fa-caret-down'}}></i>
     {{/unless}}
 </div>
 
