@@ -156,7 +156,7 @@ i.social
     margin: 0 0 10px 0
 
 .edit-card
-  width: 30%
+  width: 33%
   padding: 40px
   margin: 0 auto 40px
   float: none
@@ -166,7 +166,6 @@ i.social
     display: none
 
   input
-    +black-font
     +corners
     float: right
     width: 100%
@@ -344,6 +343,9 @@ i.social
   text-shadow: none
 
   i
+    font-size: 50px
+    position: relative
+    float: left
     color: $white
     margin: 0
 
@@ -351,9 +353,17 @@ i.social
   color: $white
   background: $blue
 
+  i
+    top: 8px
+    left: 10px
+
 .return-button
   background: $red
   margin: 0 auto 0
+
+  i
+    top: 9px
+    left: 5px
 
   a
     color: $white
@@ -371,6 +381,7 @@ i.social
   +clearfix
 
   .person-card
+    margin: 0
     padding: 0 40px 20px
     background: $white
 
@@ -414,9 +425,11 @@ i.social
     float: left
 
 .about
-  width: 60%
+  +clearfix
+  float: left
+  width: 30%
 
-.profile-name
+.profile-name, .profile-project
   +black-font
   padding: 5px
   background: $blue
