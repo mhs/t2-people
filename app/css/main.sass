@@ -73,7 +73,7 @@ i.social
 .header
   +clearfix
   text-align: center
-  padding: 20px
+  padding: 60px 20px 20px
   margin: 0 auto 40px
   border-bottom: 2px solid gray
 
@@ -83,9 +83,10 @@ i.social
     color: gray
     margin: 0
 
+// Search
+
 .search
   +clearfix
-  width: 160px
   float: right
 
   label
@@ -93,9 +94,15 @@ i.social
 
   input
     +corners
+    margin: 0
+    font-size: 16px
     padding: 5px
     display: block
+    width: 200px
     border: 2px solid $dark-gray
+
+    &:focus
+      outline: none
 
 .person-icon, .magnify
   +clearfix
@@ -104,14 +111,23 @@ i.social
 
   i
     position: relative
-    font-size: 50px
+    font-size: 42px
 
 .person-icon
-  top: 10px
+  color: $dark-gray
+  margin: 0 5px 0 0
+  top: 13px
 
 .magnify
-  top: 12px
+  margin: 0 10px 0 0
+  +size(32px)
+  right: 3px
   background: $blue
+
+  i
+    color: $white
+    top: 13px
+    left: 5px
 
 .profile .header
   +clearfix
@@ -168,6 +184,7 @@ i.social
   margin: 0 auto 20px
 
   input
+    font-size: 18px
     float: none
 
 .name
@@ -193,7 +210,7 @@ i.social
   cursor: pointer
   color: $white
   margin: 10px auto 20px
-  background: blue
+  background: $orange2
 
   input[type="file"]
     cursor: pointer
@@ -320,21 +337,29 @@ i.social
     width: auto
     float: right
 
-.return, .confirm
+.return-button, .confirm-button
   display: block
   border: none
   margin: 0 auto 20px
+  text-shadow: none
 
   i
+    color: $white
     margin: 0
 
+.confirm-button
+  color: $white
+  background: $blue
 
-.return
+.return-button
+  background: $red
   margin: 0 auto 0
 
   a
+    color: $white
+
     &:visited, &:active, &:focus
-      color: $dark-gray
+      color: $white
 
 // Profile Styling
 
@@ -366,19 +391,33 @@ i.social
     color: $dark-gray
 
   .info i
+    +clearfix
     color: $dark-gray
     font-size: 60px
     position: relative
-    top: 13px
-    left: 28px
+    float: left
+    top: 31px
+    left: 0
+
+    &.email-icon
+      top: 41px
 
   .twitter, .github, .email
     font-size: 22px
+    position: relative
+    left: 40px
     color: gray
+    float: left
+    text-align: left
+
+  .return-button
+    float: left
+
+.about
+  width: 60%
 
 .profile-name
   +black-font
-  width: 60%
   padding: 5px
   background: $blue
   color: $white
