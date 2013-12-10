@@ -19,19 +19,8 @@
   "bugs": {
     "url": "https://github.com/neo/t2-people/issues"
   },
-  "scripts": {
-    "postinstall": "./node_modules/bower/bin/bower install"
-  },
   "dependencies": {
-    "bower": "*",
-    "connect": "*"
-  },
-  "devDependencies": {
-    "grunt": "*",
-    "grunt-contrib-requirejs": "*",
-    "grunt-contrib-less": "*",
-    "grunt-contrib-connect": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-ember-templates": "*"
+    "grunt-ember-handlebars": "0.7.0",
+    "lineman": ">= 0.12.3"
   }
 }

@@ -1,13 +1,24 @@
-# T2 People
+# Lineman + Ember
 
-## Build it
-1. Make sure you have [nodejs](http://nodejs.org/) installed.
-2. Make sure you have [Grunt CLI](http://gruntjs.com/getting-started#installing-the-cli) installed.
-3. Make sure you have [Bower](http://bower.io/#installing-bower) installed.
-4. Install build dependencies with `npm install`.
-5. Install front-end dependencies with `bower install`.
-6. Build the thing with `grunt`.
-7. Open your favorite browser to [localhost:9999](http://localhost:9999/).
+A little example that pulls [lineman](https://github.com/testdouble/lineman) & [ember](http://emberjs.com) together.
 
-## Deploy it
-Fill me in please
+If you haven't already done so, first: install [node.js](http://nodejs.org); next, install lineman:
+
+$ npm install -g lineman
+
+To work from this example, just clone into it and run:
+
+```
+$ npm install
+$ lineman run
+```
+
+And then visit the page at [localhost:8000](http://localhost:8000) to verify that it works.
+
+## Running tests
+
+To run the tests, you can do one of two things:
+
+1. In one terminal run lineman run and (with it still running) run lineman spec, which will launch chrome and an ongoing interactive session with testem.
+
+2. For a one-shot test run, first have phantomjs installed (brew install phantomjs) and then run lineman spec-ci which will run the tests headlessly
