@@ -22,3 +22,7 @@ To run the tests, you can do one of two things:
 1. In one terminal run lineman run and (with it still running) run lineman spec, which will launch chrome and an ongoing interactive session with testem.
 
 2. For a one-shot test run, first have phantomjs installed (brew install phantomjs) and then run lineman spec-ci which will run the tests headlessly
+
+## Deploying
+
+Once you have setup your git remote for heroku (app name is t2-people) you can just git push the repo there. The app uses a build pack that does the rest.
