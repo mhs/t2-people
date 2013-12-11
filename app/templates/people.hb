@@ -6,7 +6,7 @@
 <div class="header">
   <div class="container">
     <div class="filter">
-      <h2>Neons in {{view Ember.Select class="select-office" content=offices value=selectedOffice optionLabelPath="content.name"}}</h2><h2>who are working on {{view Ember.Select  class="select-project" content=projects value=selectedProject optionLabelPath="content.name"}}.</h2>
+      <h2>Neons in {{chosem-select class="select-office" value=selectedOffice options=offices}}</h2><h2>who are working on {{chosem-select class="select-project" value=selectedProject options=projects}}.</h2>
     </div>
   </div>
 </div>
