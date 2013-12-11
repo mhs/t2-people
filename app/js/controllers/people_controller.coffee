@@ -27,9 +27,9 @@ App.PeopleController = Ember.ArrayController.extend
     filteredProjects = if office.get('id') == App.NO_OFFICE_ID
                          @store.filter('project', (record) -> true)
                        else
-                         op = office.get('projects')
-                         op.pushObject(@get('anyProject'))
-                         op
+                         projects = Ember.ArrayProxy.create(content: [@get('anyProject')])
+                         office.get('projects').forEach (proj)-> projects.pushObject(proj)
+                         projects
     filteredProjects.sortBy('name')
   ).property('selectedOffice')
 
@@ -57,11 +57,20 @@ App.PeopleController = Ember.ArrayController.extend
     , 150)
   ).observes('search')
 
-  setQueryParams: (->
+  updateRoute: ->
     @transitionToRoute queryParams:
       project_id: @get('selectedProject.id')
       office_id: @get('selectedOffice.id')
-  ).observes('selectedProject', 'selectedOffice')
+
+  selectedOfficeUpdated: (->
+    if @get("selectedOffice.id") != App.NO_OFFICE_ID
+      @set("selectedProject", @get('anyProject'))
+    @updateRoute()
+  ).observes('selectedOffice')
+
+  selectedProjectUpdated: (->
+    @updateRoute()
+  ).observes('selectedProject')
 
 
 
