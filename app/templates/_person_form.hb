@@ -3,8 +3,8 @@
   <div class="picture">
     <img {{ bind-attr src="avatar.small"}}/>
   </div>
-  {{input avatarData class="avatar-picker" as="file" label="Choose Avatar"}}
-  <div class="role">
+  {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
+  <div class="edit-role">
     {{input role placeholder="Employee Role"}}
   </div>
   {{#if isNew}}
@@ -20,29 +20,29 @@
     <div class="office">{{office.name}}</div>
   {{/unless}}
   <div class="start-date">
-    {{input start_date placeholder="yyyy-mm-dd" label="Start Date" }}
+    {{input start_date placeholder="yyyy-mm-dd" label="Start Date"}}
   </div>
   <div class="end-date">
     {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
   </div>
   <div class="info">
     {{#input email}}
-      <i>&#9993;{{label-field email text=" "}}</i>
       {{input-field email}}
+      <i>&#9993;{{label-field email text=" "}}</i>
       {{error-field email}}
   </div>
   {{/input}}
   <div class="info">
     {{#input twitter}}
-    <i class="social">&#62217;{{label-field twitter text=" "}}</i>
     {{input-field twitter}}
+    <i class="social">&#62217;{{label-field twitter text=" "}}</i>
     {{error-field twitter}}
   </div>
   {{/input}}
   <div class="info">
     {{#input github}}
-    <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
     {{input-field github}}
+    <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
     {{error-field github}}
   </div>
   {{/input}}

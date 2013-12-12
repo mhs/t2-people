@@ -16,17 +16,10 @@
             <em class='chosem__placeholder'>{{placeholder}}</em>
         {{/if}}
     {{/if}}
-    {{#unless multiple}}
-        <i {{bind-attr class=':chosem__caret :fa isOpen:fa-caret-up:fa-caret-down'}}></i>
-    {{/unless}}
 </div>
 
 {{#if isOpen}}
     <div class='chosem__inner'>
-        <div class="chosem__search">
-            <i class='fa fa-search'></i>
-            {{focus-input value=input placeholder='Search'}}
-        </div>
         <ul class='chosem__options'>
             {{#if filtered}}
                 {{#each item in filtered}}
