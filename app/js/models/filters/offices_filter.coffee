@@ -19,3 +19,13 @@ App.OfficesFilter = App.FilterModel.extend
           record.get('office') == @get('data')
     result
   ).property('offices')
+
+  selectedOptionsDidChange: (->
+    # if anything other than the default is selected,
+    #   deselect the default
+    selected = @get('selectedOptions')
+    if selected.get('length') == 0
+      @reset()
+    else if selected.get('length') > 1
+      @get('defaultOption').set('selected', false)
+  ).observes('options.@each.selected')

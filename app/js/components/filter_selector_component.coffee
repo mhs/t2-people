@@ -8,7 +8,8 @@ App.FilterSelectorComponent = Ember.Component.extend
 
   actions:
     reset: ->
-      @get('options').forEach (item) ->
-        item.set('selected', item.get('isDefault'))
-    select: (slug) ->
-      @get('model').select(slug)
+      @get('model').reset()
+    select: (option) ->
+      @get('model').addSelect(option)
+    unselect: (option) ->
+      @get('model').removeSelect(option)

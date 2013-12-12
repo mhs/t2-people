@@ -42,12 +42,6 @@ App.PeopleController = Ember.ArrayController.extend
     officeFilter = @get('officeFilterModel')
     officePeople = @get('model').filter(officeFilter.get('filterFunc'))
 
-    # officeId = @get('queryParams').office_id || App.NO_OFFICE_ID
-    # if officeId == App.NO_OFFICE_ID
-    #   officePeople = @get('model')
-    # else
-    #   officePeople = @get('model').filterBy('office.id', @get('office.id'))
-
     projectId = @get('queryParams').project_id || App.NO_PROJECT_ID
     if projectId == App.NO_PROJECT_ID || !projectId
       result = officePeople
