@@ -147,13 +147,51 @@ i.social
 
 
 .person-card
-  min-height: 725px
-  max-height: 725px
+
+  .social-info
+    +clearfix
+
+  .email, .twitter, .github
+    text-align: center
+    color: gray
+    margin: 40px 0
+    cursor: pointer
+    float: left
+    width: 33%
+
+    i
+      +transition(all, .3s)
+      font-size: 55px
+
+      &:hover
+        font-size: 65px
+
+      &.placeholder
+        color: $mid-gray
+        cursor: not-allowed
+
+        &:hover
+          font-size: 55px
+          color: $mid-gray
+
+
+  .email
+    i:hover
+      color: white
+      text-shadow: -1px -1px 0 $mid-gray, 1px -1px 0 $mid-gray, -1px 1px 0 $mid-gray, 1px 1px 0 $mid-gray
+
+  .twitter
+    i:hover
+      color: #4099ff
+
+  .github
+    i:hover
+      color: black
 
 .person-card, .edit-card
   +clearfix
   position: relative
-  height: 725px
+  height: 600px
   letter-spacing: .5px
   padding: 10px
   +corners
@@ -203,6 +241,12 @@ i.social
   color: black
   text-align: center
   margin: 30px 0 20px
+
+  a
+    color: black
+
+  &:visited, &:active
+    color: black
 
 .picture
   margin: 0 auto 20px
@@ -292,40 +336,24 @@ i.social
     &:focus ~ label
       font-size: 60px
 
-.email, .twitter, .github, .view-profile, .edit-profile
-  text-align: center
-  font-size: 16px
-  color: gray
-  margin: 20px 0
-  cursor: pointer
-
-  i
-    font-size: 50px
-
-.email
-  margin: 30px 0 20px 0
-
-.github
-  margin: 20px 0 40px 0
-
-.email, .twitter, .github
-  color: black
-
 .profile-options
   position: absolute
   bottom: 0
   left: 0
   width: 100%
 
-.view-profile, .edit-profile
-
-  a
-    color: gray
+.edit-profile
+  position: absolute
+  bottom: 10px
+  right: 75px
 
   i
     position: relative
     top: 1px
     font-size: 30px
+
+  a
+    color: gray
 
 .info
   +clearfix
