@@ -1,10 +1,9 @@
 {{#form-for model}}
   {{input name class="edit-name" placeholder="Employee Name"}}
   <div class="picture">
-    <img src="http://nicenicejpg.com/350">
-    <!-- <img {{ bind-attr src="avatar.small"}}/> -->
+    <img {{ bind-attr src="avatar.small"}}/>
   </div>
-  {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
+  {{input avatarData class="avatar-picker" as="file" label="Choose Avatar"}}
   <div class="role">
     {{input role placeholder="Employee Role"}}
   </div>

@@ -4,7 +4,7 @@
   </div>
 
   <div class="picture">
-    <img src="http://nicenicejpg.com/350">
+    <img {{ bind-attr src="avatar.small"}}/>
   </div>
 
   <div class="role">
