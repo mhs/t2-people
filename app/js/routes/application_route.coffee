@@ -14,9 +14,6 @@ App.ApplicationRoute = Ember.Route.extend
       @transitionTo 'people.new'
 
   model: ->
-    @store.push 'office',
-      id: App.NO_OFFICE_ID
-      name: 'Team Neo'
     @store.push 'project',
       id: App.NO_PROJECT_ID
       name: 'Anything'

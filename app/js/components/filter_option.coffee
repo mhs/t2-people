@@ -3,7 +3,7 @@ App.FilterOption = Ember.Object.extend
   slug: null
 
   selected: false
-  visible: false
+  visible: true
   isDefault: false
 
   # related data that corresponds to this option

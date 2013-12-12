@@ -5,7 +5,7 @@
 <div class="person-icon"><i>&#128100;</i></div>
 <div class="header">
   <div class="container">
-    <h2>Neons in {{chosem-select class="select-office" value=selectedOffice options=offices}}</h2><h2>who are working on {{chosem-select class="select-project" value=selectedProject defaultProject=anyProject options=projects}}.</h2>
+    <h2>Neons in {{filter-selector modelBinding="officeFilterModel"}}</h2>
   </div>
 </div>
 
