@@ -7,20 +7,17 @@ App.PeopleController = Ember.ArrayController.extend
     App.OfficesFilter.create(offices: @get('controllers.application.offices'))
   ).property('controllers.application.offices')
 
+  queryParamsDidChange: (->
+    params = @get('queryParams')
+    offices = params.offices || ''
+    @get('officeFilterModel').select(offices.split(','))
+  ).observes('queryParams')
+
   offices: Ember.computed.alias('controllers.application.offices')
 
   anyProject: (->
     @store.all('project').findBy('id', App.NO_PROJECT_ID)
   ).property()
-
-  selectedOffice: (->
-    queryId = @get('queryParams').office_id || App.NO_OFFICE_ID
-    @get('offices').findProperty('id', queryId)
-  ).property()
-
-  office: ( ->
-    @get('offices').findProperty('id', @get('selectedOffice.value'))
-  ).property('offices', 'selectedOffice')
 
   selectedProject: (->
     queryId = @get('queryParams').project_id || App.NO_PROJECT_ID
@@ -28,6 +25,7 @@ App.PeopleController = Ember.ArrayController.extend
   ).property()
 
   projects: (->
+    return []
     office = @get('selectedOffice')
     filteredProjects = if office.get('id') == App.NO_OFFICE_ID
                          @store.filter('project', (record) -> true)
@@ -59,11 +57,13 @@ App.PeopleController = Ember.ArrayController.extend
     , 150)
   ).observes('search')
 
+  selectedOfficeSlugs: Ember.computed.alias 'officeFilterModel.selectedSlugs'
+
   setQueryParams: (->
+    return unless @get('controllers.application.currentRouteName')
     @transitionToRoute queryParams:
-      project_id: @get('selectedProject.id')
-      office_id: @get('selectedOffice.id')
-  ).observes('selectedProject', 'selectedOffice')
+      offices: @get('selectedOfficeSlugs').join(',')
+  ).observes('officeFilterModel.options.@each.selected')
 
 
 

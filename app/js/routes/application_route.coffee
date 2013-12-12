@@ -14,14 +14,7 @@ App.ApplicationRoute = Ember.Route.extend
       @transitionTo 'people.new'
 
   model: ->
-    @store.push 'project',
-      id: App.NO_PROJECT_ID
-      name: 'Anything'
     @store.find('office')
-
-  setupController: (controller, model) ->
-    controller.set('model', model)
-    controller.set('selectedOffice', model.findBy('id', App.NO_OFFICE_ID))
 
 App.IndexRoute = Ember.Route.extend
   redirect: ->

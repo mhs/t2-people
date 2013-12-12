@@ -32,8 +32,13 @@ App.FilterModel = Ember.Object.extend
     option.set('selected', false)
 
   reset: ->
-    @selectOptions (item) -> false
-    @get('defaultOption').set('selected', true)
+    @get('options').setEach 'selected', false
+    @get('defaultOption').set 'selected', true
+
+  # selectedSlugs: Ember.computed.mapBy 'selectedOptions', 'slug'
+  selectedSlugs: (->
+    @get('selectedOptions').mapProperty('slug')
+  ).property('selectedOptions')
 
   selectOptions: (func) ->
     @get('options').forEach (option) ->
