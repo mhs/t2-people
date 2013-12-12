@@ -7,7 +7,7 @@ Ember.Handlebars.registerBoundHelper('emphasiser', function(input, against) {
 
   if (against) {
 
-    input = input.toLowerCase(),
+    input = input.toLowerCase();
     against = against.toLowerCase();
 
     var output = input.split(against);

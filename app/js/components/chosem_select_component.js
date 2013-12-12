@@ -146,7 +146,7 @@ App.ChosemSelectComponent = Ember.Component.extend({
 
   //when the options change, if the current value isn't among them nuke it. HAX
   filterValue: function() {
-    isThere = this.get('filtered').contains(this.get('value'))
+    isThere = this.get('filtered').contains(this.get('value'));
     if (!isThere) {
       this.set('value', this.get('defaultProject'));
     }
@@ -159,7 +159,7 @@ App.ChosemSelectComponent = Ember.Component.extend({
   */
 
   selectFilteredOnChange: function() {
-      this.filterValue()
+      this.filterValue();
       var firstObject = this.get('filtered.firstObject');
       if (firstObject) {
         this.send('highlight', firstObject);
@@ -298,7 +298,7 @@ App.ChosemSelectComponent = Ember.Component.extend({
     */
     select: function(item) {
 
-      if (item.get('disabled')) return;
+      if (item.get('disabled')) {return;}
 
       // Set all options to not be highlighted
       this.get('options')
@@ -348,7 +348,7 @@ App.ChosemSelectComponent = Ember.Component.extend({
       @param {Class} item The item to highlight
     */
     highlight: function(item) {
-      if (item.get('disabled')) return;
+      if (item.get('disabled')) {return;}
       this.get('options')
         .setEach('selected', false);
       item.set('selected', true);
