@@ -26,21 +26,21 @@
     {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
   </div>
   <div class="info">
-    {{#input email}}
+    {{#input email class="edit-email"}}
       {{input-field email}}
       <i>&#9993;{{label-field email text=" "}}</i>
       {{error-field email}}
   </div>
   {{/input}}
   <div class="info">
-    {{#input twitter}}
+    {{#input twitter class="edit-twitter"}}
     {{input-field twitter}}
     <i class="social">&#62217;{{label-field twitter text=" "}}</i>
     {{error-field twitter}}
   </div>
   {{/input}}
   <div class="info">
-    {{#input github}}
+    {{#input github class="edit-github"}}
     {{input-field github}}
     <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
     {{error-field github}}

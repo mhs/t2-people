@@ -33,11 +33,11 @@
 
   <div class="social-info">
     {{#if email}}
-      <a {{bind-attr href="mailTo"}}>
-        <div class="email">
+      <div class="email">
+        <a {{bind-attr href="mailTo"}}>
           <i>&#9993;</i>
-        </div>
-      </a>
+        </a>
+      </div>
       {{else}}
       <div class="email">
         <i class="placeholder">&#9993;</i>
@@ -45,11 +45,11 @@
     {{/if}}
 
     {{#if twitter}}
-      <a {{bind-attr href="twitterURL"}}>
-        <div class="twitter">
+      <div class="twitter">
+        <a {{bind-attr href="twitterURL"}}  target="_blank">
           <i class="social">&#62217;</i>
-        </div>
-      </a>
+        </a>
+      </div>
     {{else}}
       <div class="twitter">
         <i class="placeholder social">&#62217;</i>
@@ -57,11 +57,11 @@
     {{/if}}
 
     {{#if github}}
-      <a {{bind-attr href="githubURL"}}>
-        <div class="github">
+      <div class="github">
+        <a {{bind-attr href="githubURL"}} target="_blank">
           <i class="social">&#62208;</i>
-        </div>
-      </a>
+        </a>
+      </div>
       {{else}}
       <div class="github">
         <i class="placeholder social">&#62208;</i>
