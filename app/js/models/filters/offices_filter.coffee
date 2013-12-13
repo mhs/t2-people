@@ -20,12 +20,15 @@ App.OfficesFilter = App.FilterModel.extend
     result
   ).property('offices')
 
-  selectedOptionsDidChange: (->
-    # if anything other than the default is selected,
-    #   deselect the default
+  fixSelection: ->
     selected = @get('selectedOptions')
     if selected.get('length') == 0
       @reset()
     else if selected.get('length') > 1
       @get('defaultOption').set('selected', false)
+
+  selectedOptionsDidChange: (->
+    # if anything other than the default is selected,
+    #   deselect the default
+    Ember.run.once(this, 'fixSelection')
   ).observes('options.@each.selected')

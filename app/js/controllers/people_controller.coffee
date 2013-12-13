@@ -61,8 +61,9 @@ App.PeopleController = Ember.ArrayController.extend
 
   setQueryParams: (->
     return unless @get('controllers.application.currentRouteName')
-    @transitionToRoute queryParams:
-      offices: @get('selectedOfficeSlugs').join(',')
+    Ember.run.once this, =>
+      @transitionToRoute queryParams:
+        offices: @get('selectedOfficeSlugs').join(',')
   ).observes('officeFilterModel.options.@each.selected')
 
 
