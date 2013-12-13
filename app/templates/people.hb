@@ -5,7 +5,8 @@
 <div class="person-icon"><i>&#128100;</i></div>
 <div class="header">
   <div class="container">
-    <h2>Neons in {{filter-selector modelBinding="officeFilterModel"}}</h2>
+    <h2>Neons in {{filter-selector modelBinding="officeFilterModel"}} who work on
+      {{filter-selector modelBinding="projectFilterModel"}}</h2>
   </div>
 </div>
 

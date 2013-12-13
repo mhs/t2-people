@@ -7,10 +7,18 @@ App.PeopleController = Ember.ArrayController.extend
     App.OfficesFilter.create(offices: @get('controllers.application.offices'))
   ).property('controllers.application.offices')
 
+  projectFilterModel: (->
+    App.ProjectsFilter.create(projects: @store.all('project'),
+                              officeFilterModel: @get('officeFilterModel')
+    )
+  ).property()
+
   queryParamsDidChange: (->
     params = @get('queryParams')
     offices = params.offices || ''
+    projects = params.projects || ''
     @get('officeFilterModel').select(offices.split(','))
+    @get('projectFilterModel').select(projects.split(','))
   ).observes('queryParams')
 
   offices: Ember.computed.alias('controllers.application.offices')
@@ -38,18 +46,19 @@ App.PeopleController = Ember.ArrayController.extend
 
   filteredPeople: (->
     officeFilter = @get('officeFilterModel')
-    officePeople = @get('model').filter(officeFilter.get('filterFunc'))
+    projectFilter = @get('projectFilterModel')
+    officeFunc = officeFilter.get('filterFunc')
+    projectFunc = projectFilter.get('filterFunc')
 
-    projectId = @get('queryParams').project_id || App.NO_PROJECT_ID
-    if projectId == App.NO_PROJECT_ID || !projectId
-      result = officePeople
-    else
-      result = officePeople.filterBy 'currentAllocation.project.id', projectId
+    filterFunc = (record) ->
+      officeFunc.call(officeFilter, record) && projectFunc.call(projectFilter, record)
+
+    officePeople = @get('model').filter(filterFunc)
 
     searchRegex = new RegExp(@get('searchTerm') || '', 'i')
-    result.filter (item) =>
+    officePeople.filter (item) =>
       item.matches(searchRegex)
-  ).property('officeFilterModel.selectedOptions', 'queryParams', 'searchTerm')
+  ).property('officeFilterModel.selectedOptions', 'projectFilterModel.selectedOptions', 'queryParams', 'searchTerm')
 
   updateSearch: (->
     Ember.run.debounce({name: 'searchDebounce'}, =>
@@ -59,12 +68,15 @@ App.PeopleController = Ember.ArrayController.extend
 
   selectedOfficeSlugs: Ember.computed.alias 'officeFilterModel.selectedSlugs'
 
+  selectedProjectSlugs: Ember.computed.alias 'projectFilterModel.selectedSlugs'
+
   setQueryParams: (->
     return unless @get('controllers.application.currentRouteName')
     Ember.run.once this, =>
       @transitionToRoute queryParams:
-        offices: @get('selectedOfficeSlugs').join(',')
-  ).observes('officeFilterModel.options.@each.selected')
+        offices: @get('selectedOfficeSlugs').join(','),
+        projects: @get('selectedProjectSlugs').join(',')
+  ).observes('officeFilterModel.options.@each.selected', 'projectFilterModel.options.@each.selected')
 
 
 
