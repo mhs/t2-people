@@ -5,4 +5,11 @@ App.Project = DS.Model.extend
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean')
 
-  value: Ember.computed.alias('id')
+  sortOrder: (->
+    val = 0
+    if !@get('billable')
+      val += 1
+    if @get('vacation')
+      val += 2
+    val
+  ).property('billable', 'vacation')

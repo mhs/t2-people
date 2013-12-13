@@ -45,6 +45,12 @@ App.PeopleController = Ember.ArrayController.extend
     searchRegex = new RegExp(@get('searchTerm') || '', 'i')
     officePeople.filter (item) =>
       item.matches(searchRegex)
+
+    sortByName =
+      sortProperties: ['name']
+      content: officePeople
+
+    Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, sortByName)
   ).property('officeFilterModel.selectedOptions', 'projectFilterModel.selectedOptions', 'queryParams', 'searchTerm')
 
   updateSearch: (->

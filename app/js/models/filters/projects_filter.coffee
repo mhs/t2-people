@@ -14,7 +14,9 @@ App.ProjectsFilter = App.FilterModel.extend
         date = record.get('end_date')
         !!date && date < new Date
       notAllocated: (record) ->
-        !record.get('currentAllocation')
+        !record.get('unsellable') && !record.get('currentAllocation')
+      onOverhead: (record) ->
+        record.get('unsellable')
       onPto: (record) ->
         record.get('currentAllocation.project.vacation')
       onBillable: (record) ->
@@ -27,6 +29,14 @@ App.ProjectsFilter = App.FilterModel.extend
       isDefault: true
       filterFunc: (record) ->
         filters.currentEmployee(record)
+
+    result.pushObject App.FilterOption.create
+      displayName: 'Overhead'
+      slug: 'overhead'
+      isDefault: true
+      filterFunc: (record) ->
+        filters.currentEmployee(record) &&
+          filters.onOverhead(record)
 
     result.pushObject App.FilterOption.create
       displayName: 'Available'
@@ -60,6 +70,12 @@ App.ProjectsFilter = App.FilterModel.extend
         filters.exEmployee(record)
 
     projects = @get('projects') || []
+
+    sortByName =
+      sortProperties: ['sortOrder', 'name']
+      content: projects
+
+    projects = Ember.ArrayProxy.createWithMixins(Ember.SortableMixin,sortByName)
 
     projects.forEach (project) ->
       result.pushObject App.FilterOption.create
