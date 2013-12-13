@@ -8,12 +8,17 @@ App.ProjectsFilter = App.FilterModel.extend
   options: (->
     filters =
       currentEmployee: (record) ->
-        date = record.get('endDate')
-        !date || date > new Date
+        date = record.get('end_date')
+        !date || date >= new Date
+      exEmployee: (record) ->
+        date = record.get('end_date')
+        !!date && date < new Date
       notAllocated: (record) ->
         !record.get('currentAllocation')
       onPto: (record) ->
         record.get('currentAllocation.project.vacation')
+      onBillable: (record) ->
+        record.get('currentAllocation.billable')
 
     result = []
     result.pushObject App.FilterOption.create
@@ -43,12 +48,16 @@ App.ProjectsFilter = App.FilterModel.extend
       displayName: 'Billable Projects'
       slug: 'billable'
       isDefault: false
-      filterFunc: (record) -> true
+      filterFunc: (record) ->
+        filters.currentEmployee(record) &&
+          filters.onBillable(record)
+
     result.pushObject App.FilterOption.create
       displayName: 'Are No Longer With The Company'
       slug: 'gone'
       isDefault: false
-      filterFunc: (record) -> true
+      filterFunc: (record) ->
+        filters.exEmployee(record)
 
     projects = @get('projects') || []
 
@@ -62,7 +71,17 @@ App.ProjectsFilter = App.FilterModel.extend
     result
   ).property('projects')
 
-  # TODO: observe officeFilterModel.selectedOptions and control visibility
+  officeSelectionDidChange: (->
+    offices = @get('officeFilterModel.selectedOptions').mapBy('data')
+    if offices.contains(null)
+      # default is selected
+      @get('options').setEach('visible', true)
+    else
+      @get('options').forEach (option) ->
+        visible = !option.data || offices.any (item) ->
+          option.data.get('offices').contains(item)
+        option.set('visible', visible)
+  ).observes('officeFilterModel.options.@each.selected').on('init')
 
   fixSelection: ->
     selected = @get('selectedOptions')
