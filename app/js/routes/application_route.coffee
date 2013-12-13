@@ -8,14 +8,18 @@ App.ApplicationRoute = Ember.Route.extend
     if !auth.get('isAuthenticated')
       transition.abort()
       auth.login()
+    Ember.RSVP.all [@store.find('office'), @store.find('person'), @store.find('project')]
+
 
   actions:
     newPerson: ->
       @transitionTo 'people.new'
 
   model: ->
-    @store.find('office')
+    @store.all('office')
 
 App.IndexRoute = Ember.Route.extend
+  model: ->
+    @modelFor 'application'
   redirect: ->
     @transitionTo 'people'
