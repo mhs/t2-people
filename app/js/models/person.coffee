@@ -22,6 +22,18 @@ App.Person = DS.Model.extend
     @get('name').split(' ')[0]
   ).property('name')
 
+  mailTo: (->
+    "mailto:" + @get('email')
+    ).property('email')
+
+  twitterURL: (->
+    "https://twitter.com/" + @get('twitter')
+    ).property('twitter')
+
+  githubURL: ( ->
+    "https://github.com/" + @get('github')
+    ).property('github')
+
   # expects an object that FormData will be cool with
   avatarFile: null
 
