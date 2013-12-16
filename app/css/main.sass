@@ -151,14 +151,14 @@ i.social
   padding: 3px 5px
 
   .options
+    +clearfix
     list-style-type: none
     position: absolute
     z-index: 2
     color: green
-    top: 211px
+    top: 341px
     text-align: left
     border: 2px solid gray
-    border-top: none
     width: 47%
     left: 521px
     background: $white
@@ -212,6 +212,55 @@ i.social
 
   .selected
     background: $red
+
+
+.filter-options
+  margin: 0 0 20px 0
+
+.reset, .confirm-choice, .filter-options
+  +clearfix
+  text-align: center
+
+  p
+    position: relative
+    margin: 0
+
+.reset, .confirm-choice
+  +corners
+  height: 60px
+  border: 2px solid
+  +transition(all, .2s)
+
+
+
+  &:hover
+    background: $light-gray
+
+  span, p
+    margin: 0
+    display: inline
+
+.reset
+  +clearfix
+  float: right
+  padding: 5px 5px 5px 8px
+
+  span
+    position: relative
+    bottom: 7px
+
+  p
+    bottom: 12px
+
+.confirm-choice
+  float: left
+  padding: 5px 8px 5px 5px
+
+  span
+    top: 10px
+
+  p
+    bottom: 10px
 
 // Person Card Styling
 

@@ -2,6 +2,16 @@
   {{#if isOpen}}
     <div {{action 'toggleOpen'}}>{{selectedList}}</div>
     <ul class="options">
+    <div class="filter-options">
+      <div class="reset" {{action 'reset'}}>
+        <p>Reset Filter</p>
+        <span>&#10226;</span>
+      </div>
+      <div class="confirm-choice" {{action 'toggleOpen'}}>
+        <span>&#10003;</span>
+        <p>Confirm Choice</p>
+      </div>
+    </div>
       {{#each thing in options}}
         {{#if thing.visible}}
           {{#if thing.selected}}
