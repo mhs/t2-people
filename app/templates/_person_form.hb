@@ -24,7 +24,6 @@
       <label for="startDate"> Start Date </label>
       {{edit-date name="startDate" class="date" value=formStartDate}}
     </div>
->>>>>>> issue10
   </div>
   <div class="info">
     <div class="end-date">
