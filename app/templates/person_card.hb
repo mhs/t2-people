@@ -41,7 +41,7 @@
   {{/if}}
 
   <div class="twitter">
-    <i class="social">&#62217;</i>`
+    <i class="social">&#62217;</i>
     <div class="social-info">
     @twitterHandle
     </div>

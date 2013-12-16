@@ -48,6 +48,12 @@ App.Person = DS.Model.extend
     skipProperties = 'avatar office_slug current_allocation_id'.w()
     for prop, value of serializedHash
       unless skipProperties.contains(prop)
+        # NOTE: formData expects either files, blobs or strings
+        #       anything else will be converted to string, so
+        #       null -> "null" ftl
+        #       BUT also don't want to turn false -> ''
+        if value == null
+          value = ''
         data.append("person[#{prop}]", value)
     file = @get('avatarFile')
     if file
