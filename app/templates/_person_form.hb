@@ -20,10 +20,10 @@
     <div class="office">{{office.name}}</div>
   {{/unless}}
   <div class="start-date">
-    {{input start_date placeholder="yyyy-mm-dd" label="Start Date" }}
+    {{input formStartDate as="date" label="Start Date" }}
   </div>
   <div class="end-date">
-    {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
+    {{input formEndDate as="date" label="End Date" }}
   </div>
   <div class="info">
     {{#input email}}
