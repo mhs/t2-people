@@ -5,7 +5,7 @@ App.FilterSelectorComponent = Ember.Component.extend
   validOptions: Ember.computed.alias('model.validOptions')
 
   selectedList: (->
-    @get('selectedOptions').mapBy('displayName').join(',')
+    @get('selectedOptions').mapBy('displayName').join(', ')
   ).property('selectedOptions')
 
   isOpen: false

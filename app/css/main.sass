@@ -2,7 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import colors
 @import new-nav
-@import chosem
 
 +font-face(entypo, '/webfonts/entypo')
 +font-face(entypo-social, '/webfonts/entypo-social')
@@ -142,6 +141,77 @@ i.social
 .profile .header
   +clearfix
   text-align: left
+
+//filter stytling
+
+.select-office, .select-role, .select-project
+  color: $white
+  cursor: pointer
+  margin: 0 5px 5px 5px
+  padding: 3px 5px
+
+  .options
+    list-style-type: none
+    position: absolute
+    z-index: 2
+    color: green
+    top: 211px
+    text-align: left
+    border: 2px solid gray
+    border-top: none
+    width: 47%
+    left: 521px
+    background: $white
+    margin: 0
+    padding: 10px 10px 5px 10px
+
+  .option
+    +corners
+    padding: 5px
+    margin: 0 0 5px 0
+    +transition(all, .2s)
+
+    &:hover
+      color: $white
+
+  .selected
+    color: $white
+
+.select-office
+  background: $green
+
+  .options
+    color: $green
+
+  .option:hover
+    background: $green
+
+  .selected
+    background: $green
+
+.select-role
+  background: $blue
+
+  .options
+    color: $blue
+
+  .option:hover
+    background: $blue
+
+  .selected
+    background: $blue
+
+.select-project
+  background: $red
+
+  .options
+    color: $red
+
+  .option:hover
+    background: $red
+
+  .selected
+    background: $red
 
 // Person Card Styling
 

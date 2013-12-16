@@ -5,13 +5,12 @@
 <div class="person-icon"><i>&#128100;</i></div>
 <div class="header">
   <div class="container">
-    <h2>
-      Neons in
-      {{filter-selector modelBinding="officeFilterModel"}}
-      who
-      {{filter-selector modelBinding="roleFilterModel"}}
-      working on
-      {{filter-selector modelBinding="projectFilterModel"}}</h2>
+    <h2> Neons in </h2>
+    <h2>{{filter-selector class="select-office" modelBinding="officeFilterModel"}}</h2>
+    <h2>who</h2>
+    <h2>{{filter-selector class="select-role" modelBinding="roleFilterModel"}}</h2>
+    <h2>working on</h2>
+    <h2>{{filter-selector class="select-project" modelBinding="projectFilterModel"}}</h2>
   </div>
 </div>
 

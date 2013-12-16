@@ -1,6 +1,6 @@
 <div class="filter-selector">
   {{#if isOpen}}
-    <div {{action 'toggleOpen'}}>X</div>
+    <div {{action 'toggleOpen'}}>{{selectedList}}</div>
     <ul class="options">
       {{#each thing in options}}
         {{#if thing.visible}}
