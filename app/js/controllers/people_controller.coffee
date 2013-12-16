@@ -43,7 +43,7 @@ App.PeopleController = Ember.ArrayController.extend
     officePeople = @get('model').filter(filterFunc)
 
     searchRegex = new RegExp(@get('searchTerm') || '', 'i')
-    officePeople.filter (item) =>
+    officePeople = officePeople.filter (item) =>
       item.matches(searchRegex)
 
     sortByName =
