@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import colors
 @import new-nav
-@import stylesheet
+@import chosem
 
 +font-face(entypo, '/webfonts/entypo')
 +font-face(entypo-social, '/webfonts/entypo-social')
@@ -83,6 +83,15 @@ i.social
     color: gray
     margin: 0
 
+.filter
+
+  select
+    -webkit-appearance: none
+    border: 0
+    background: $green
+    padding: 10px 5px
+    color: $white
+
 // Search
 
 .search
@@ -99,7 +108,8 @@ i.social
     padding: 5px
     display: block
     width: 200px
-    border: 2px solid $dark-gray
+    color: $dark-gray
+    border: 2px solid $blue
 
     &:focus
       outline: none
@@ -170,8 +180,9 @@ i.social
     float: right
     width: 100%
     padding: 5px
-    border: none
-    font-size: 16px
+    color: gray
+    border: 1px inset
+    font-size: 18px
     display: block
     text-align: center
     margin: 0 auto 10px
@@ -224,7 +235,7 @@ i.social
     display: block
     text-align: center
 
-.role, .office, .current-project
+.role, .office, .current-project, .edit-role
   +corners
   +clearfix
   +black-font
@@ -236,18 +247,23 @@ i.social
   color: $white
 
 
-.role
+.role, .edit-role
   background: $blue
 
+.edit-role
+  padding: 5px
+
   input
+    +black-font
     border: none
-    background: rgba($white, .3)
+    background: rgba($white, .1)
     position: relative
-    top: 5px
     color: $white
+    margin: 0
 
     +placeholder
       color: $white
+
 .office
   background: $green
 
@@ -266,12 +282,15 @@ i.social
   label
     position: relative
     top: 7px
-    font-size: 14px
+    font-size: 16px
     display: block
     float: left
 
   input
     width: 67%
+
+    &:focus ~ label
+      font-size: 60px
 
 .email, .twitter, .github, .view-profile, .edit-profile
   text-align: center
@@ -315,6 +334,9 @@ i.social
     text-align: left
     width: 85%
 
+    &:focus~i
+      font-size: 60px
+
   i
     font-size: 44px
     position: relative
@@ -329,6 +351,7 @@ i.social
   label
     margin: 10px 0 20px
     float: left
+    font-size: 20px
     display: block
 
   input

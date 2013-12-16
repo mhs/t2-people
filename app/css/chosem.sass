@@ -27,8 +27,34 @@
   cursor: pointer
   color: $white
 
+.chosem__inner
+  text-align: left
+  width: 970px
+  position: absolute
+  top: 83px
+  z-index: 2
+  margin: 0
+  padding: 0
+  border-top: none
+  background: $white
+  box-shadow: 6px 6px 20px 0px $dark-gray
+
+
+.chosem__option
+  color: $dark-gray
+  padding: 20px
+  cursor: pointer
+  +transition(all, .2s)
+
 .select-office
   margin: 0 5px 5px 0
+
+  .chosem__inner
+    left: -186px
+
+  .chosem__option--selected, .chosem__option--selected:hover
+    background: $green
+    color: $white
 
 .select-office .chosem__value
   background: $green
@@ -36,21 +62,21 @@
   &:hover
     background: darken($green, 5%)
 
+.select-project
+
+  .chosem__inner
+    right: -16px
+
+  .chosem__option--selected, .chosem__option--selected:hover
+    background: $red
+    color: $white
+
 .select-project .chosem__value
   background: $red
 
   &:hover
     background: darken($red, 5%)
 
-.chosem__inner
-  text-align: left
-  width: 400px
-  position: absolute
-  top: 89px
-  z-index: 2
-  margin: 0
-  padding: 0
-  border-top: none
 
 .chosem__placeholder
   font-style: normal
@@ -58,31 +84,21 @@
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50)
   padding-right: 1.5em
 
-.chosem__caret
-  color: #666
-  position: absolute
-  top: .5em
-  right: .5em
-
 .chosem__search
   position: relative
   width: 100%
-  padding: 0 .25em
-  margin: .5em 0
+  border: none
 
 .chosem__search input
-  font-size: .9em
+  font-size: 22px
   position: relative
   width: 100%
   margin: 0
-  padding: .15em
-  padding-left: 1.5em
-  line-height: 1.25em
-  border: 1px solid rgba(51,51,51,0.4)
+  padding: 10px 15px
+  border: none
 
-.chosem__search input:focus
-  border: 1px solid #32b5ff
-  box-shadow: 0 0 .5em rgba(50,181,255,0.4)
+  &:focus
+  border-bottom: 2px solid $dark-gray
   outline: none
 
 .chosem__search i
@@ -101,11 +117,6 @@
   margin: 0
   padding: 0
 
-.chosem__option
-  color: #666
-  padding: .25em
-  cursor: pointer
-
 .chosem__option--noop
   text-align: center
   color: #999
@@ -113,8 +124,6 @@
   background-color: #333
   background-color: rgba(51,51,51,0.1)
 
-.chosem__option--selected, .chosem__option--selected:hover
-  background: rgba(255,255,0,0.5)
 .chosem__option--disabled, .chosem__option--disabled:hover
   opacity: .5
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50)
