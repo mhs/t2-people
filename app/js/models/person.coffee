@@ -79,4 +79,15 @@ App.Person = DS.Model.extend
       item = @get(term)
       item && item.match(regex)
 
+App.EMPLOYEE_ROLES = [
+  'Apprentice',
+  'Business Development',
+  'Designer',
+  'Developer',
+  'General & Administrative',
+  'Managing Director',
+  'Principal',
+  'Product Manager',
+  'Support Staff'
+]
 

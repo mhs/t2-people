@@ -5,13 +5,21 @@
   </div>
   {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
   <div class="edit-role">
-    {{input role placeholder="Employee Role"}}
+    {{input role
+            as="select"
+            prompt="Employee Role"
+            collection="App.EMPLOYEE_ROLES"
+            selection="role"
+            optionValuePath="content"
+            optionLabelPath="content"
+    }}
   </div>
   {{#if isNew}}
     <div class="office">
       {{view Ember.Select
              content=selectableOffices
              selection=office
+             prompt="Office"
              optionValuePath="content.id"
              optionLabelPath="content.name"}}
     </div>
