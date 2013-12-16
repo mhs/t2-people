@@ -22,7 +22,7 @@ App.PersonAdapter = App.ApplicationAdapter.extend
 App.PersonSerializer = App.ApplicationSerializer.extend
   serializeIntoHash: (data, type, record) ->
     # return the FormData from record
-    data.formData = record.formData()
+    data.formData = record.formData(@serialize(record))
 
 App.RawTransform = DS.Transform.extend
   deserialize: (serialized) ->
