@@ -19,11 +19,17 @@
   {{#unless isNew}}
     <div class="office">{{office.name}}</div>
   {{/unless}}
-  <div class="start-date">
-    {{input formStartDate as="date" label="Start Date" }}
+  <div class="info">
+    <div class="start-date">
+      <label for="startDate"> Start Date </label>
+      {{edit-date name="startDate" class="date" value=formStartDate}}
+    </div>
   </div>
-  <div class="end-date">
-    {{input formEndDate as="date" label="End Date" }}
+  <div class="info">
+    <div class="end-date">
+      <label for="endDate"> End Date </label>
+        {{edit-date name="endDate" class="date" value=formEndDate}}
+    </div>
   </div>
   <div class="info">
     {{#input email}}
