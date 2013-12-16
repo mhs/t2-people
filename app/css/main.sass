@@ -424,12 +424,15 @@ i.social
 .edit-role
   padding: 5px
 
+  label
+    display: block
+    margin: 0 0 5px 0
+
   input
     +black-font
     border: none
-    background: rgba($white, .1)
     position: relative
-    color: $white
+    color: $blue
     margin: 0
 
     +placeholder
@@ -530,39 +533,44 @@ i.social
     float: right
 
 .return-button, .confirm-button
-  display: block
+  +black-font
+  font-size: 22px
   border: none
-  margin: 0 auto 20px
+  margin: 20px 0
   text-shadow: none
+  color: $dark-gray
+
 
   i
+    top: 3px
     font-size: 50px
     position: relative
-    float: left
-    color: $white
     margin: 0
 
 .confirm-button
-  color: $white
-  background: $blue
+  cursor: pointer
+  width: 70%
 
-  i
-    top: 8px
-    left: 10px
+  &:hover
+    color: $green
 
 .return-button
-  background: $red
   margin: 0 auto 0
 
+  &:hover
+    color: $red
+
   i
-    top: 9px
-    left: 5px
+    top: 4px
 
   a
-    color: $white
+    color: $dark-gray
 
     &:visited, &:active, &:focus
-      color: $white
+      color: $dark-gray
+
+  &:hover a
+    color: $red
 
 // Profile Styling
 

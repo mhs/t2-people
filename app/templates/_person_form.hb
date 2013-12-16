@@ -49,17 +49,18 @@
   <div class="unsellable">
    {{input unsellable as="checkbox" checked="checked"}}
   </div>
-  <button {{action 'save'}} class="confirm-button">
+  <div {{action 'save'}} class="confirm-button">
     <i>&#10003;</i>
       {{#if isNew}}
         Create Neon
       {{/if}}
       {{#unless isNew}}
-        Confirm
+        Confirm Edits
       {{/unless}}
-
-  <button class="return-button">
+  </div>
+  <div class="return-button">
     <i>&#11013;</i>
     {{#link-to 'people'}}Return to List{{/link-to}}
+  </div>
 {{/form-for}}
 
