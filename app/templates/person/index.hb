@@ -13,45 +13,40 @@
       </div>
 
       {{#if email}}
-      <div class="info">
-        <i class="email-icon">&#9993;</i>
-        <div class="email">
-          {{email}}
-        </div>
+      <div class="email">
+        <a {{bind-attr href="mailTo"}}>
+          <i>&#9993;</i>
+        </a>
       </div>
-      {{/if}}
+      {{else}}
+      <div class="email">
+        <i class="placeholder">&#9993;</i>
+      </div>
+    {{/if}}
 
-      <div class="info">
-        <i class="social">&#62217;</i>
-        <div class="twitter">
-          @twitterhandle
-        </div>
+    {{#if twitter}}
+      <div class="twitter">
+        <a {{bind-attr href="twitterURL"}}  target="_blank">
+          <i class="social">&#62217;</i>
+        </a>
       </div>
+    {{else}}
+      <div class="twitter">
+        <i class="placeholder social">&#62217;</i>
+      </div>
+    {{/if}}
 
-      {{#if twitter}}
-      <div class="info">
-        <i class="social">&#62217;</i>
-        <div class="twitter">
-          {{twitter}}
-        </div>
+    {{#if github}}
+      <div class="github">
+        <a {{bind-attr href="githubURL"}} target="_blank">
+          <i class="social">&#62208;</i>
+        </a>
       </div>
-      {{/if}}
-
-      <div class="info">
-        <i class="social">&#62208;</i>
-        <div class="github">
-          GithubHandle
-        </div>
+      {{else}}
+      <div class="github">
+        <i class="placeholder social">&#62208;</i>
       </div>
-
-      {{#if github}}
-      <div class="info">
-        <i class="social">&#62208;</i>
-        <div class="github">
-          {{github}}
-        </div>
-      </div>
-      {{/if}}
+    {{/if}}
 
       <button class="return-button">
       <i>&#11013;</i>
