@@ -1,5 +1,5 @@
 App.Router.map ->
-  @resource('people', queryParams: ['office_id', 'project_id'])
+  @resource('people', queryParams: ['offices', 'projects', 'roles'])
 
   @route('people.new', path: '/people/new')
 

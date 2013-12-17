@@ -1,5 +1,5 @@
 <div class="header">
- Add an Employee
+  <h2>Add an Employee</h2>
 </div>
 
 <div class="container">

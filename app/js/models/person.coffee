@@ -18,6 +18,7 @@ App.Person = DS.Model.extend
   office: DS.belongsTo('office')
   currentAllocation: DS.belongsTo('allocation')
 
+
   firstName: (->
     @get('name').split(' ')[0]
   ).property('name')
@@ -37,16 +38,38 @@ App.Person = DS.Model.extend
   # expects an object that FormData will be cool with
   avatarFile: null
 
-  formData: (->
-    all_props = 'name role notes email unsellable start_date end_date github twitter website title bio'.w()
+  formStartDate: ((k, v) ->
+    if arguments.length > 1
+      @set('start_date', @deserializeDate(v))
+    @serializeDate(@get('start_date'))
+  ).property('start_date')
+
+  formEndDate: ((k, v) ->
+    if arguments.length > 1
+      @set('end_date', @deserializeDate(v))
+    @serializeDate(@get('end_date'))
+  ).property('end_date')
+
+  serializeDate: (d) ->
+    App.DateTransform.create().serialize(d)
+  deserializeDate: (d) ->
+    App.DateTransform.create().deserialize(d)
+
+  formData: ((serializedHash) ->
     data = new FormData()
-    values = @getProperties(all_props...)
-    for prop in all_props
-      data.append("person[#{prop}]", values[prop]) unless values[prop] == undefined
+    skipProperties = 'avatar office_slug current_allocation_id'.w()
+    for prop, value of serializedHash
+      unless skipProperties.contains(prop)
+        # NOTE: formData expects either files, blobs or strings
+        #       anything else will be converted to string, so
+        #       null -> "null" ftl
+        #       BUT also don't want to turn false -> ''
+        if value == null
+          value = ''
+        data.append("person[#{prop}]", value)
     file = @get('avatarFile')
     if file
       data.append('person[avatar]', file)
-    data.append('person[office_id]', @get('office.id'))
     data
   )
 
@@ -56,4 +79,15 @@ App.Person = DS.Model.extend
       item = @get(term)
       item && item.match(regex)
 
+App.EMPLOYEE_ROLES = [
+  'Apprentice',
+  'Business Development',
+  'Designer',
+  'Developer',
+  'General & Administrative',
+  'Managing Director',
+  'Principal',
+  'Product Manager',
+  'Support Staff'
+]
 

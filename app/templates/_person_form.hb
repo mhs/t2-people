@@ -5,13 +5,21 @@
   </div>
   {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
   <div class="edit-role">
-    {{input role placeholder="Employee Role"}}
+    {{input role
+            as="select"
+            prompt="Employee Role"
+            collection="App.EMPLOYEE_ROLES"
+            selection="role"
+            optionValuePath="content"
+            optionLabelPath="content"
+    }}
   </div>
   {{#if isNew}}
     <div class="office">
       {{view Ember.Select
              content=selectableOffices
              selection=office
+             prompt="Office"
              optionValuePath="content.id"
              optionLabelPath="content.name"}}
     </div>
@@ -19,11 +27,17 @@
   {{#unless isNew}}
     <div class="office">{{office.name}}</div>
   {{/unless}}
-  <div class="start-date">
-    {{input start_date placeholder="yyyy-mm-dd" label="Start Date"}}
+  <div class="info">
+    <div class="start-date">
+      <label for="startDate"> Start Date </label>
+      {{edit-date name="startDate" class="date" value=formStartDate}}
+    </div>
   </div>
-  <div class="end-date">
-    {{input end_date placeholder="yyyy-mm-dd" label="End Date" }}
+  <div class="info">
+    <div class="end-date">
+      <label for="endDate"> End Date </label>
+        {{edit-date name="endDate" class="date" value=formEndDate}}
+    </div>
   </div>
   <div class="info">
     {{#input email class="edit-email"}}
@@ -49,17 +63,18 @@
   <div class="unsellable">
    {{input unsellable as="checkbox" checked="checked"}}
   </div>
-  <button {{action 'save'}} class="confirm-button">
+  <div {{action 'save'}} class="confirm-button">
     <i>&#10003;</i>
       {{#if isNew}}
         Create Neon
       {{/if}}
       {{#unless isNew}}
-        Confirm
+        Confirm Edits
       {{/unless}}
-
-  <button class="return-button">
+  </div>
+  <div class="return-button">
     <i>&#11013;</i>
     {{#link-to 'people'}}Return to List{{/link-to}}
+  </div>
 {{/form-for}}
 

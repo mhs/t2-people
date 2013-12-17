@@ -27,7 +27,11 @@
     {{#if currentAllocation.project.name}}
       {{currentAllocation.project.name}}
     {{else}}
-      Bench
+      {{#if unsellable}}
+        Overhead
+      {{else}}
+        Bench
+      {{/if}}
     {{/if}}
   </div>
 

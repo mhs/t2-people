@@ -2,7 +2,6 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import colors
 @import new-nav
-@import chosem
 
 +font-face(entypo, '/webfonts/entypo')
 +font-face(entypo-social, '/webfonts/entypo-social')
@@ -143,8 +142,125 @@ i.social
   +clearfix
   text-align: left
 
+//filter stytling
+
+.select-office, .select-role, .select-project
+  color: $white
+  cursor: pointer
+  margin: 0 5px 5px 5px
+  padding: 3px 5px
+
+  .options
+    +clearfix
+    list-style-type: none
+    position: absolute
+    z-index: 2
+    color: green
+    top: 341px
+    text-align: left
+    border: 2px solid gray
+    width: 47%
+    left: 521px
+    background: $white
+    margin: 0
+    padding: 10px 10px 5px 10px
+
+  .option
+    +corners
+    padding: 5px
+    margin: 0 0 5px 0
+    +transition(all, .2s)
+
+    &:hover
+      color: $white
+
+  .selected
+    color: $white
+
+.select-office
+  background: $green
+
+  .options
+    color: $green
+
+  .option:hover
+    background: $green
+
+  .selected
+    background: $green
+
+.select-role
+  background: $blue
+
+  .options
+    color: $blue
+
+  .option:hover
+    background: $blue
+
+  .selected
+    background: $blue
+
+.select-project
+  background: $red
+
+  .options
+    color: $red
+
+  .option:hover
+    background: $red
+
+  .selected
+    background: $red
 
 
+.filter-options
+  margin: 0 0 20px 0
+
+.reset, .confirm-choice, .filter-options
+  +clearfix
+  text-align: center
+
+  p
+    position: relative
+    margin: 0
+
+.reset, .confirm-choice
+  +corners
+  height: 60px
+  border: 2px solid
+  +transition(all, .2s)
+
+
+
+  &:hover
+    background: $light-gray
+
+  span, p
+    margin: 0
+    display: inline
+
+.reset
+  +clearfix
+  float: right
+  padding: 5px 5px 5px 8px
+
+  span
+    position: relative
+    bottom: 7px
+
+  p
+    bottom: 12px
+
+.confirm-choice
+  float: left
+  padding: 5px 8px 5px 5px
+
+  span
+    top: 10px
+
+  p
+    bottom: 10px
 
 // Person Card Styling
 
@@ -308,12 +424,15 @@ i.social
 .edit-role
   padding: 5px
 
+  label
+    display: block
+    margin: 0 0 5px 0
+
   input
     +black-font
     border: none
-    background: rgba($white, .1)
     position: relative
-    color: $white
+    color: $blue
     margin: 0
 
     +placeholder
@@ -341,7 +460,7 @@ i.social
     display: block
     float: left
 
-  input
+  input.date
     width: 67%
 
 .profile-options
@@ -414,39 +533,44 @@ i.social
     float: right
 
 .return-button, .confirm-button
-  display: block
+  +black-font
+  font-size: 22px
   border: none
-  margin: 0 auto 20px
+  margin: 20px 0
   text-shadow: none
+  color: $dark-gray
+
 
   i
+    top: 3px
     font-size: 50px
     position: relative
-    float: left
-    color: $white
     margin: 0
 
 .confirm-button
-  color: $white
-  background: $blue
+  cursor: pointer
+  width: 70%
 
-  i
-    top: 8px
-    left: 10px
+  &:hover
+    color: $green
 
 .return-button
-  background: $red
   margin: 0 auto 0
 
+  &:hover
+    color: $red
+
   i
-    top: 9px
-    left: 5px
+    top: 4px
 
   a
-    color: $white
+    color: $dark-gray
 
     &:visited, &:active, &:focus
-      color: $white
+      color: $dark-gray
+
+  &:hover a
+    color: $red
 
 // Profile Styling
 
@@ -511,3 +635,6 @@ i.social
   padding: 5px
   background: $blue
   color: $white
+
+li.selected
+  color: red

@@ -3,53 +3,55 @@ App.PeopleController = Ember.ArrayController.extend
   roleFilter: null
   queryParams: null
 
-  offices: Ember.computed.alias('controllers.application.offices')
-  anyProject: (->
-    @store.all('project').findBy('id', App.NO_PROJECT_ID)
+  officeFilterModel: (->
+    App.OfficesFilter.create(offices: @get('controllers.application.offices'))
+  ).property('controllers.application.offices')
+
+  projectFilterModel: (->
+    App.ProjectsFilter.create(projects: @store.all('project'),
+                              officeFilterModel: @get('officeFilterModel')
+    )
   ).property()
 
-  selectedOffice: (->
-    queryId = @get('queryParams').office_id || App.NO_OFFICE_ID
-    @get('offices').findProperty('id', queryId)
+  roleFilterModel: (->
+    App.RolesFilter.create()
   ).property()
 
-  office: ( ->
-    @get('offices').findProperty('id', @get('selectedOffice.value'))
-  ).property('offices', 'selectedOffice')
-
-  selectedProject: (->
-    queryId = @get('queryParams').project_id || App.NO_PROJECT_ID
-    @get('projects').findProperty('id', queryId)
-  ).property()
-
-  projects: (->
-    office = @get('selectedOffice')
-    filteredProjects = if office.get('id') == App.NO_OFFICE_ID
-                         @store.filter('project', (record) -> true)
-                       else
-                         projects = Ember.ArrayProxy.create(content: [@get('anyProject')])
-                         office.get('projects').forEach (proj)-> projects.pushObject(proj)
-                         projects
-    filteredProjects.sortBy('name')
-  ).property('selectedOffice')
+  queryParamsDidChange: (->
+    params = @get('queryParams')
+    offices = params.offices || ''
+    projects = params.projects || ''
+    roles = params.roles || ''
+    @get('officeFilterModel').select(offices.split(','))
+    @get('projectFilterModel').select(projects.split(','))
+    @get('roleFilterModel').select(roles.split(','))
+  ).observes('queryParams')
 
   filteredPeople: (->
-    officeId = @get('queryParams').office_id || App.NO_OFFICE_ID
-    if officeId == App.NO_OFFICE_ID
-      officePeople = @get('model')
-    else
-      officePeople = @get('model').filterBy('office.id', @get('office.id'))
+    officeFilter = @get('officeFilterModel')
+    projectFilter = @get('projectFilterModel')
+    roleFilter = @get('roleFilterModel')
+    officeFunc = officeFilter.get('filterFunc')
+    projectFunc = projectFilter.get('filterFunc')
+    roleFunc = roleFilter.get('filterFunc')
 
-    projectId = @get('queryParams').project_id || App.NO_PROJECT_ID
-    if projectId == App.NO_PROJECT_ID || !projectId
-      result = officePeople
-    else
-      result = officePeople.filterBy 'currentAllocation.project.id', projectId
+    filterFunc = (record) ->
+      officeFunc.call(officeFilter, record) &&
+        projectFunc.call(projectFilter, record) &&
+        roleFunc.call(roleFilter, record)
+
+    officePeople = @get('model').filter(filterFunc)
 
     searchRegex = new RegExp(@get('searchTerm') || '', 'i')
-    result.filter (item) =>
+    officePeople = officePeople.filter (item) =>
       item.matches(searchRegex)
-  ).property('queryParams', 'searchTerm')
+
+    sortByName =
+      sortProperties: ['name']
+      content: officePeople
+
+    Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, sortByName)
+  ).property('officeFilterModel.selectedOptions', 'projectFilterModel.selectedOptions', 'queryParams', 'searchTerm')
 
   updateSearch: (->
     Ember.run.debounce({name: 'searchDebounce'}, =>
@@ -57,21 +59,24 @@ App.PeopleController = Ember.ArrayController.extend
     , 150)
   ).observes('search')
 
-  updateRoute: ->
-    @transitionToRoute queryParams:
-      project_id: @get('selectedProject.id')
-      office_id: @get('selectedOffice.id')
+  selectedOfficeSlugs: Ember.computed.alias 'officeFilterModel.selectedSlugs'
 
-  selectedOfficeUpdated: (->
-    if @get("selectedOffice.id") != App.NO_OFFICE_ID
-      @set("selectedProject", @get('anyProject'))
-    @updateRoute()
-  ).observes('selectedOffice')
+  selectedProjectSlugs: Ember.computed.alias 'projectFilterModel.selectedSlugs'
 
-  selectedProjectUpdated: (->
-    @updateRoute()
-  ).observes('selectedProject')
+  selectedRoleSlugs: Ember.computed.alias 'roleFilterModel.selectedSlugs'
 
+  setQueryParams: (->
+    return unless @get('controllers.application.currentRouteName')
+    Ember.run.once this, =>
+      @transitionToRoute queryParams:
+        offices: @get('selectedOfficeSlugs').join(','),
+        projects: @get('selectedProjectSlugs').join(','),
+        roles: @get('selectedRoleSlugs').join(',')
+  ).observes(
+    'officeFilterModel.options.@each.selected',
+    'projectFilterModel.options.@each.selected',
+    'roleFilterModel.options.@each.selected'
+  )
 
 
 
