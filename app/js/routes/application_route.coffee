@@ -14,6 +14,16 @@ App.ApplicationRoute = Ember.Route.extend
   actions:
     newPerson: ->
       @transitionTo 'people.new'
+    loading: ->
+      view = Ember.View.create(
+        templateName: 'loading'
+        elementId: 'loading'
+        controller: @controllerFor('loading')
+      ).append()
+
+      @router.one('didTransition', ->
+        view.destroy()
+      )
 
   model: ->
     @store.all('office')
