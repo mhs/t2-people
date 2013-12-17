@@ -3,7 +3,7 @@
   <div class="picture">
     <img {{ bind-attr src="avatar.small"}}/>
   </div>
-  {{input avatarFile class="avatar-picker" as="file" label="Choose Avatar"}}
+  {{input avatarData class="avatar-picker" as="file" label="Choose Avatar"}}
   <div class="edit-role">
     {{input role
             as="select"
