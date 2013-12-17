@@ -13,7 +13,7 @@ $ npm install
 $ lineman run
 ```
 
-And then visit the page at [localhost:8000](http://localhost:8000) to verify that it works.
+And then visit the page at [localhost:9999](http://localhost:9999) to verify that it works.
 
 ## Running tests
 
