@@ -61,6 +61,7 @@
   </div>
   {{/input}}
   <div class="unsellable">
+  <h3 class="overhead">Overhead</h3>
    {{input unsellable as="checkbox" checked="checked"}}
   </div>
   <div {{action 'save'}} class="confirm-button">

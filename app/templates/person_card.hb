@@ -1,14 +1,10 @@
 <div class="person-card">
   <div class="name">
-    {{#link-to 'person' id}}
-      {{name}}
-    {{/link-to}}
+    {{name}}
   </div>
 
   <div class="picture">
-    {{#link-to 'person' id}}
-      <img {{ bind-attr src="avatar.small"}}/>
-    {{/link-to}}
+    <img {{ bind-attr src="avatar.small"}}/>
   </div>
 
   <div class="role">

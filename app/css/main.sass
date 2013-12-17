@@ -102,6 +102,7 @@ i.social
 
   input
     +corners
+    font-family: "entypo"
     margin: 0
     font-size: 16px
     padding: 5px
@@ -110,8 +111,12 @@ i.social
     color: $dark-gray
     border: 2px solid $blue
 
+    +placeholder
+      font-family: "entypo"
+
     &:focus
       outline: none
+
 
 .person-icon, .magnify
   +clearfix
@@ -129,7 +134,7 @@ i.social
 
 .magnify
   margin: 0 10px 0 0
-  +size(32px)
+  +size(30px)
   right: 3px
   background: $blue
 
@@ -521,8 +526,8 @@ i.social
 .unsellable
   +clearfix
 
-  label
-    margin: 10px 0 20px
+  h3
+    margin: 7px 0 0
     float: left
     font-size: 20px
     display: block
@@ -531,6 +536,9 @@ i.social
     margin: 10px 0 20px
     width: auto
     float: right
+
+  label
+    display: none
 
 .return-button, .confirm-button
   +black-font
