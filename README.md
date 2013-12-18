@@ -26,3 +26,4 @@ To run the tests, you can do one of two things:
 ## Deploying
 
 Once you have setup your git remote for heroku (app name is t2-people) you can just git push the repo there. The app uses a build pack that does the rest.
+

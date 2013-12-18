@@ -16,11 +16,7 @@ App.ApplicationRoute = Ember.Route.extend
       @transitionTo 'people.new'
     loading: ->
       unless @get('loadingView')
-        view = Ember.View.create(
-          templateName: 'loading'
-          elementId: 'loading'
-          controller: @controllerFor('loading')
-        ).append()
+        view = @container.lookup('view:loading').append()
         @set('loadingView', view)
 
       @router.one('didTransition', =>

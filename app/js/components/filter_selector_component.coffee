@@ -5,7 +5,7 @@ App.FilterSelectorComponent = Ember.Component.extend
   validOptions: Ember.computed.alias('model.validOptions')
 
   didInsertElement: ->
-    Ember.$('body').on 'click', (evt) =>
+    Ember.$(document).on 'click', (evt) =>
       if @get('isOpen') && !($.contains(@get('element'), evt.target))
           @set('isOpen', false)
   selectedList: (->
