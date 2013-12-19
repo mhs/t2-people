@@ -1,4 +1,4 @@
-{{errors-for model=model}}
+{{errors-for model=model class="errors-for"}}
 {{#form-for model}}
   {{#input name class="edit-name"}}
     {{input-field name placeholder="Employee Name"}}
