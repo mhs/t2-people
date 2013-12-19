@@ -1,5 +1,8 @@
 {{#form-for model}}
-  {{input name class="edit-name" placeholder="Employee Name"}}
+  {{#input name class="edit-name"}}
+    {{input-field name placeholder="Employee Name"}}
+    {{label-field name text=" "}}
+  {{/input}}
   <div class="picture">
     <img {{ bind-attr src="avatar.small"}}/>
   </div>
@@ -23,10 +26,9 @@
              optionValuePath="content.id"
              optionLabelPath="content.name"}}
     </div>
-  {{/if}}
-  {{#unless isNew}}
+  {{else}}
     <div class="office">{{office.name}}</div>
-  {{/unless}}
+  {{/if}}
   <div class="info">
     <div class="start-date">
       <label for="startDate"> Start Date </label>
@@ -43,35 +45,31 @@
     {{#input email class="edit-email"}}
       {{input-field email}}
       <i>&#9993;{{label-field email text=" "}}</i>
-      {{error-field email}}
+    {{/input}}
   </div>
-  {{/input}}
   <div class="info">
     {{#input twitter class="edit-twitter"}}
-    {{input-field twitter}}
-    <i class="social">&#62217;{{label-field twitter text=" "}}</i>
-    {{error-field twitter}}
+      {{input-field twitter}}
+      <i class="social">&#62217;{{label-field twitter text=" "}}</i>
+    {{/input}}
   </div>
-  {{/input}}
   <div class="info">
     {{#input github class="edit-github"}}
-    {{input-field github}}
-    <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
-    {{error-field github}}
+      {{input-field github}}
+      <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
+    {{/input}}
   </div>
-  {{/input}}
   <div class="unsellable">
   <h3 class="overhead">Overhead</h3>
-   {{input unsellable as="checkbox" checked="checked"}}
+    {{input unsellable as="checkbox" checked="checked"}}
   </div>
   <div {{action 'save'}} class="confirm-button">
     <i>&#10003;</i>
-      {{#if isNew}}
-        Create Neon
-      {{/if}}
-      {{#unless isNew}}
-        Confirm Edits
-      {{/unless}}
+    {{#if isNew}}
+      Create Neon
+    {{else}}
+      Confirm Edits
+    {{/if}}
   </div>
   <div class="return-button">
     <i>&#11013;</i>
