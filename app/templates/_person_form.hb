@@ -20,12 +20,16 @@
   </div>
   {{#if isNew}}
     <div class="office">
-      {{view Ember.Select
-             content=selectableOffices
-             selection=office
-             prompt="Office"
-             optionValuePath="content.id"
-             optionLabelPath="content.name"}}
+      {{#input office}}
+        {{input-field office
+                      as="select"
+                      prompt="Office"
+                      collection="selectableOffices"
+                      optionValuePath="content.id"
+                      optionLabelPath="content.name"
+        }}
+        {{label-field office text=""}}
+      {{/input}}
     </div>
   {{else}}
     <div class="office">{{office.name}}</div>
