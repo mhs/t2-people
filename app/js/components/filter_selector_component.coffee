@@ -8,6 +8,7 @@ App.FilterSelectorComponent = Ember.Component.extend
     Ember.$(document).on 'click', (evt) =>
       if @get('isOpen') && !($.contains(@get('element'), evt.target))
           @set('isOpen', false)
+
   selectedList: (->
     @get('selectedOptions').mapBy('displayName').join(', ')
   ).property('selectedOptions')
@@ -23,3 +24,4 @@ App.FilterSelectorComponent = Ember.Component.extend
       @get('model').removeSelect(option)
     toggleOpen: ->
       @toggleProperty('isOpen')
+

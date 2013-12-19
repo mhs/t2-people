@@ -50,9 +50,10 @@
 .name
   +black-font
   font-size: 20px
+  min-height: 46px
   color: black
   text-align: center
-  margin: 30px 0 20px
+  margin: 30px 0 5px
 
   a
     color: black
@@ -91,13 +92,16 @@
     display: block
     text-align: center
 
+.holder
+  min-height: 62px
+
 .role, .office, .current-project, .edit-role
   +corners
   +clearfix
   +black-font
   font-size: 18px
   text-align: center
-  margin: 10px auto 20px
+  margin: 10px auto 0px
   padding: 10px
   display: table
   color: $white
@@ -125,8 +129,9 @@
 
 .office
   background: $green
+  margin: 10px auto 25px
 
-.project
+.assigned
   +black-font
   margin: 10px auto 10px
   color: gray

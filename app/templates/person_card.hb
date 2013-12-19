@@ -7,15 +7,17 @@
     <img {{ bind-attr src="avatar.small"}}/>
   </div>
 
-  <div class="role">
-    {{role}}
+  <div class="holder">
+    <div class="role">
+      {{role}}
+    </div>
   </div>
 
   <div class="office">
     {{office.name}}
   </div>
 
-  <div class="project">
+  <div class="assigned">
     Assigned To
   </div>
 
