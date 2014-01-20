@@ -22,8 +22,10 @@
   </div>
 
   <div class="current-project">
-    {{#if currentAllocation.project.name}}
-      {{currentAllocation.project.name}}
+    {{#if allocated}}
+      {{#each currentAllocations}}
+        {{project.name}} {{formatted_percentage}}<br/>
+      {{/each}}
     {{else}}
       {{#if unsellable}}
         Overhead

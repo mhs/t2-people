@@ -5,7 +5,6 @@ App.Person = DS.Model.extend
   role: attr('string')
   notes: attr('string')
   email: attr('string')
-  unsellable: attr('boolean')
   start_date: attr('date')
   end_date: attr('date')
   github: attr('string')
@@ -16,7 +15,8 @@ App.Person = DS.Model.extend
   office_slug: attr('string')
   avatar: attr('raw')
   office: DS.belongsTo('office')
-  currentAllocation: DS.belongsTo('allocation')
+  currentAllocations: DS.hasMany('allocation')
+  percentBillable: DS.attr('number')
 
 
   firstName: (->
@@ -37,6 +37,14 @@ App.Person = DS.Model.extend
 
   # expects an object that FormData will be cool with
   avatarFile: null
+
+  unsellable: (->
+    @get('percentBillable') == 0
+  ).property('percentBillable')
+
+  allocated: (->
+    @get('currentAllocations.length') > 0
+  ).property('currentAllocations')
 
   formStartDate: ((k, v) ->
     if arguments.length > 1
