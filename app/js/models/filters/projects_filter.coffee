@@ -13,14 +13,14 @@ App.ProjectsFilter = App.FilterModel.extend
       exEmployee: (record) ->
         date = record.get('end_date')
         !!date && date < new Date
-      notAllocated: (record) ->
-        !record.get('unsellable') && !record.get('currentAllocation')
+      notAllocated: (record) -> # TODO: check this - what if somebody is allocated for less than their percentBillable?
+        !record.get('unsellable') && !record.get('allocated')
       onOverhead: (record) ->
-        record.get('unsellable')
+        record.get('percentBillable') < 100
       onPto: (record) ->
-        record.get('currentAllocation.project.vacation')
+        record.get('currentAllocations').mapBy('project.vacation').any (val) -> val
       onBillable: (record) ->
-        record.get('currentAllocation.billable')
+        record.get('currentAllocations').mapBy('billable').any (val) -> val
 
     result = []
     result.pushObject App.FilterOption.create

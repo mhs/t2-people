@@ -63,9 +63,11 @@
       <div class="profile-project">
         Current Project
       </div>
-      <div class="current-allocation">
-        <p>{{currentAllocation.project.name}}</p>
-      </div>
+      {{#each currentAllocations}}
+        <div class="current-allocation">
+          <p>{{project.name}}</p>
+        </div>
+      {{/each}}
     </div>
   </div>
 </div>

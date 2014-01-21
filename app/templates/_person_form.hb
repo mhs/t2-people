@@ -64,9 +64,11 @@
       <i class="social">&#62208;{{label-field gituhub text=" "}}</i>
     {{/input}}
   </div>
-  <div class="unsellable">
-  <h3 class="overhead">Overhead</h3>
-    {{input unsellable as="checkbox" checked="checked"}}
+  <div class="edit-percent-billable">
+    {{#input percentBillable class="edit-billable"}}
+      {{input-field percentBillable as="string"}}
+      {{label-field percentBillable text="Percent Billable"}}
+    {{/input}}
   </div>
   <div {{action 'save'}} class="confirm-button">
     <i>&#10003;</i>

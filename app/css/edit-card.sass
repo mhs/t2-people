@@ -40,6 +40,15 @@
     &:focus
       outline: none
 
+  .edit-percent-billable
+    label
+      display: block
+      font-size: 16px
+      position: relative
+      top: 7px
+    input
+      width: 43%
+
 .edit-name
   margin: 0 auto 20px
 
@@ -97,7 +106,6 @@
 
 .role, .office, .current-project, .edit-role
   +corners
-  +clearfix
   +black-font
   font-size: 18px
   text-align: center
@@ -241,6 +249,7 @@
     margin: 0
 
 .confirm-button
+  clear: both
   cursor: pointer
   width: 70%
 
