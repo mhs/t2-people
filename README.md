@@ -1,6 +1,5 @@
 # Lineman + Ember
-
-A little example that pulls [lineman](https://github.com/testdouble/lineman) & [ember](http://emberjs.com) together.
+A t2api app to view, query, and create "people".
 
 If you haven't already done so, first: install [node.js](http://nodejs.org); next, install lineman:
 
@@ -16,6 +15,7 @@ $ lineman run
 And then visit the page at [localhost:9999](http://localhost:9999) to verify that it works.
 
 ## Running tests
+`TODO: verify this is correct`
 
 To run the tests, you can do one of two things:
 
@@ -25,5 +25,21 @@ To run the tests, you can do one of two things:
 
 ## Deploying
 
-Once you have setup your git remote for heroku (app name is t2-people) you can just git push the repo there. The app uses a build pack that does the rest.
+Both production and staging use the lineman buildpack and the
+[user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) experimental option.
+
+NOTE: because the files are rendered during slug compiliation, changing config variables will not work
+until the code is redeployed.
+
+Production environment:
+* Git URI: git@heroku.com:t2-people.git
+* Host: t2people.neo.com
+* Heroku env - API_HOST: http://t2.neo.com
+* Heroku env - BUILDPACK_URL: http://github.com/testdouble/heroku-buildpack-lineman.git
+
+Staging environment:
+* Git URI: git@heroku.com:t2people-staging.git
+* Host: t2people-staging.neo.com
+* Heroku env - API_HOST: http://t2-staging.neo.com
+* Heroku env - BUILDPACK_URL: http://github.com/testdouble/heroku-buildpack-lineman.git
 
