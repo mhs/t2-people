@@ -47,6 +47,11 @@ module.exports = require(process.env['LINEMAN_MAIN']).config.extend 'application
       navBarUrl: process.env['NAVBAR_URL'] || "/api/v1/navbar"
       oauthKey: process.env['OAUTH_KEY'] || "de92924d00c19567c3566d17fe2e783666fd05bcecea385b508b4a3e393dd204"
 
+  uglify:
+    options:
+      beautify:
+        ascii_only: true
+
   watch:
     handlebars:
       tasks: ["ember_handlebars:compile", "concat:js"]
