@@ -4,7 +4,7 @@
   </div>
 
   <div class="picture">
-    <img {{ bind-attr src="avatar.small"}}/>
+    <img {{ bind-attr src="avatar.medium"}}/>
   </div>
 
   <div class="holder">
