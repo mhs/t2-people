@@ -83,7 +83,10 @@ App.ProjectsFilter = App.FilterModel.extend
         slug: project.get('id')
         data: project
         filterFunc: (record) ->
-          record.get('currentAllocation.project') == @get('data')
+          ourProject = @get('data')
+          record.get('currentAllocations').mapBy('project').any (r_project) ->
+            r_project == ourProject
+
     result
   ).property('projects')
 
