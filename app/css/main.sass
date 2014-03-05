@@ -163,7 +163,7 @@ i.social
 
   .option
     +corners
-    font-size: 26px
+    font-size: 18px
     padding: 5px
     margin: 0 0 5px 0
     +transition(all, .2s)
@@ -375,3 +375,9 @@ i.social
 
 li.selected
   color: red
+
+// Media queries for non-retina display positioning
++hidpi(1.0)
+  .select-office, .select-role, .select-project
+    .options
+      top: 150px
