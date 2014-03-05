@@ -152,8 +152,9 @@ i.social
     list-style-type: none
     position: absolute
     z-index: 2
-    top: 300px
+    top: 50%
     left: 50%
+    @include transform(translateY(-50%))
     text-align: left
     border: 2px solid gray
     width: 600px
@@ -376,8 +377,4 @@ i.social
 li.selected
   color: red
 
-// Media queries for non-retina display positioning
-+hidpi(1.0)
-  .select-office, .select-role, .select-project
-    .options
-      top: 150px
+
