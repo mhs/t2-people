@@ -152,8 +152,9 @@ i.social
     list-style-type: none
     position: absolute
     z-index: 2
-    top: 300px
+    top: 50%
     left: 50%
+    @include transform(translateY(-50%))
     text-align: left
     border: 2px solid gray
     width: 600px
@@ -163,7 +164,7 @@ i.social
 
   .option
     +corners
-    font-size: 26px
+    font-size: 18px
     padding: 5px
     margin: 0 0 5px 0
     +transition(all, .2s)
@@ -375,3 +376,5 @@ i.social
 
 li.selected
   color: red
+
+
