@@ -1,4 +1,4 @@
-App.Office = DS.Model.extend
+Office = DS.Model.extend
   name: DS.attr('string')
   projects: DS.hasMany('project')
   slug: (->
@@ -6,3 +6,5 @@ App.Office = DS.Model.extend
   ).property('name')
 
   value: Ember.computed.alias('id')
+
+`export default Office`

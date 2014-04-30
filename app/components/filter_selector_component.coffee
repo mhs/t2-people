@@ -1,4 +1,4 @@
-App.FilterSelectorComponent = Ember.Component.extend
+FilterSelectorComponent = Ember.Component.extend
 
   options: Ember.computed.alias('model.options')
   selectedOptions: Ember.computed.alias('model.selectedOptions')
@@ -25,3 +25,4 @@ App.FilterSelectorComponent = Ember.Component.extend
     toggleOpen: ->
       @toggleProperty('isOpen')
 
+`export default FilterSelector`

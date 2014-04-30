@@ -1,1 +1,3 @@
-App.Conflict = DS.Model.extend
+Conflict = DS.Model.extend
+
+`export default Conflict`

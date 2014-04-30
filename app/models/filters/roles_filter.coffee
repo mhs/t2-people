@@ -1,4 +1,4 @@
-App.RolesFilter = App.FilterModel.extend
+RolesFilter = App.FilterModel.extend
 
   roles: [
     {
@@ -65,3 +65,5 @@ App.RolesFilter = App.FilterModel.extend
           record.get('role') == @get('data')
     result
   ).property('offices')
+
+`export default RolesFilter`

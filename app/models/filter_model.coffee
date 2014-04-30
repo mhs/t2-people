@@ -1,4 +1,4 @@
-App.FilterModel = Ember.Object.extend
+FilterModel = Ember.Object.extend
   options: null
 
   defaultOption: (->
@@ -56,3 +56,5 @@ App.FilterModel = Ember.Object.extend
     #   deselect the default
     Ember.run.once(this, 'fixSelection')
   ).observes('options.@each.selected')
+
+`export default FilterModel`

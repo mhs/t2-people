@@ -1,1 +1,3 @@
-App.ApplicationSerializer = DS.ActiveModelSerializer.extend()
+ApplicationSerializer = DS.ActiveModelSerializer.extend()
+
+`export default ApplicationSerializer`

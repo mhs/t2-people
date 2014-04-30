@@ -1,4 +1,4 @@
-App.ProjectsFilter = App.FilterModel.extend
+ProjectsFilter = App.FilterModel.extend
 
   projects: null
 
@@ -101,3 +101,5 @@ App.ProjectsFilter = App.FilterModel.extend
           option.data.get('offices').contains(item)
         option.set('visible', visible)
   ).observes('officeFilterModel.options.@each.selected').on('init')
+
+`export default ProjectsFilter`

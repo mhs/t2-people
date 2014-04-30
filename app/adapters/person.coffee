@@ -1,4 +1,4 @@
-App.PersonAdapter = App.ApplicationAdapter.extend
+PersonAdapter = App.ApplicationAdapter.extend
   ajaxOptions: (url, type, hash) ->
     # return contentType: false + needed options
     # hang on to the data since super will try to stringify it
@@ -13,3 +13,4 @@ App.PersonAdapter = App.ApplicationAdapter.extend
     else
       @_super(url, type, hash)
 
+`export default PersonAdapter`

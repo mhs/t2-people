@@ -1,6 +1,6 @@
 attr = DS.attr
 
-App.Person = DS.Model.extend
+Person = DS.Model.extend
   name: attr('string')
   role: attr('string')
   notes: attr('string')
@@ -99,3 +99,4 @@ App.EMPLOYEE_ROLES = [
   'Support Staff'
 ]
 
+`export default Person`

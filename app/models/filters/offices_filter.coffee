@@ -1,4 +1,4 @@
-App.OfficesFilter = App.FilterModel.extend
+OfficesFilter = App.FilterModel.extend
 
   offices: null
 
@@ -19,3 +19,5 @@ App.OfficesFilter = App.FilterModel.extend
           record.get('office') == @get('data')
     result
   ).property('offices')
+
+`export default OfficesFilter`

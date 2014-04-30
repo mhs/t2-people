@@ -1,4 +1,4 @@
-App.Allocation = DS.Model.extend
+Allocation = DS.Model.extend
   startDate: DS.attr('date')
   endDate: DS.attr('date')
   project: DS.belongsTo('project')
@@ -14,3 +14,5 @@ App.Allocation = DS.Model.extend
     else
       ''
   ).property('percentAllocated')
+
+`export default Allocation`

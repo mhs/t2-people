@@ -1,4 +1,4 @@
-App.FilterOption = Ember.Object.extend
+FilterOption = Ember.Object.extend
   displayName: null
   slug: null
 
@@ -18,3 +18,5 @@ App.FilterOption = Ember.Object.extend
   init: ->
     @_super()
     @selected = @isDefault
+
+`export default FilterOption`

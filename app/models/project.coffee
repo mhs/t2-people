@@ -1,4 +1,4 @@
-App.Project = DS.Model.extend
+Project = DS.Model.extend
   name: DS.attr('string')
   offices: DS.hasMany('office')
 
@@ -13,3 +13,5 @@ App.Project = DS.Model.extend
       val += 2
     val
   ).property('billable', 'vacation')
+
+`export default Project`

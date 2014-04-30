@@ -1,4 +1,4 @@
-App.ErrorsForComponent = Ember.Component.extend
+ErrorsFor = Ember.Component.extend
 
   model: null
 
@@ -11,3 +11,5 @@ App.ErrorsForComponent = Ember.Component.extend
   ).property('model.errors')
 
   hasErrors: Ember.computed.notEmpty('errors.[]')
+
+`export default ErrorsFor`
