@@ -2,9 +2,9 @@ module.exports = function(environment) {
   var ENV = {
     rootURL: '/',
     navBarPath: '/api/v1/navbar',
-    noOfficeId = '1000',
-    noProjectId = '1000',
-    employeeRoles = [
+    noOfficeId: '1000',
+    noProjectId: '1000',
+    employeeRoles: [
       'Apprentice',
       'Business Development',
       'Designer',
@@ -14,7 +14,7 @@ module.exports = function(environment) {
       'Principal',
       'Product Manager',
       'Support Staff'
-    ]
+    ],
 
     FEATURES: {
       // Here you can enable experimental featuers on an ember canary build
