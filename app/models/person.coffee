@@ -59,9 +59,9 @@ Person = DS.Model.extend
   ).property('end_date')
 
   serializeDate: (d) ->
-    App.DateTransform.create().serialize(d)
+    DateTransform.create().serialize(d)
   deserializeDate: (d) ->
-    App.DateTransform.create().deserialize(d)
+    DateTransform.create().deserialize(d)
 
   formData: ((serializedHash) ->
     data = new FormData()
@@ -86,17 +86,5 @@ Person = DS.Model.extend
     props.any (term) =>
       item = @get(term)
       item && item.match(regex)
-
-App.EMPLOYEE_ROLES = [
-  'Apprentice',
-  'Business Development',
-  'Designer',
-  'Developer',
-  'General & Administrative',
-  'Managing Director',
-  'Principal',
-  'Product Manager',
-  'Support Staff'
-]
 
 `export default Person`

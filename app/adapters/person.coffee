@@ -1,4 +1,6 @@
-PersonAdapter = App.ApplicationAdapter.extend
+`import ApplicationAdapter from 'people/adapters/application'`
+
+PersonAdapter = ApplicationAdapter.extend
   ajaxOptions: (url, type, hash) ->
     # return contentType: false + needed options
     # hang on to the data since super will try to stringify it

@@ -1,3 +1,5 @@
+`import ApplicationSerializer from 'people/serializers/application'`
+
 PersonSerializer = ApplicationSerializer.extend
   serializeIntoHash: (data, type, record) ->
     # return the FormData from record

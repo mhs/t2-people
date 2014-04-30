@@ -1,6 +1,3 @@
-App.NO_OFFICE_ID = '1000'
-App.NO_PROJECT_ID = '1000'
-
 ApplicationRoute = Ember.Route.extend
   beforeModel: (transition) ->
     auth = @controllerFor('authentication')
