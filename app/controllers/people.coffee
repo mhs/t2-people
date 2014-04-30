@@ -1,20 +1,24 @@
+`import OfficesFilter from 'people/models/filters/offices'`
+`import ProjectsFilter from 'people/models/filters/projects'`
+`import RolesFilter from 'people/models/filters/roles'`
+
 PeopleController = Ember.ArrayController.extend
   needs: ['application']
   roleFilter: null
   queryParams: null
 
   officeFilterModel: (->
-    App.OfficesFilter.create(offices: @get('controllers.application.offices'))
+    OfficesFilter.create(offices: @get('controllers.application.offices'))
   ).property('controllers.application.offices')
 
   projectFilterModel: (->
-    App.ProjectsFilter.create(projects: @store.all('project'),
+    ProjectsFilter.create(projects: @store.all('project'),
                               officeFilterModel: @get('officeFilterModel')
     )
   ).property()
 
   roleFilterModel: (->
-    App.RolesFilter.create()
+    RolesFilter.create()
   ).property()
 
   queryParamsDidChange: (->

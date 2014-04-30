@@ -1,4 +1,7 @@
-RolesFilter = App.FilterModel.extend
+`import FilterModel from 'people/models/filter_model'`
+`import FilterOption from 'people/components/filter_option'`
+
+RolesFilter = FilterModel.extend
 
   roles: [
     {
@@ -50,14 +53,14 @@ RolesFilter = App.FilterModel.extend
 
   options: (->
     result = []
-    result.pushObject App.FilterOption.create
+    result.pushObject FilterOption.create
       displayName: 'are'
       slug: 'all_roles'
       isDefault: true
       filterFunc: (record) -> true
 
     @roles.forEach (role) ->
-      result.pushObject App.FilterOption.create
+      result.pushObject FilterOption.create
         displayName: role.display
         slug: role.slug
         data: role.value

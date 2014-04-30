@@ -1,4 +1,7 @@
-ProjectsFilter = App.FilterModel.extend
+`import FilterModel from 'people/models/filter_model'`
+`import FilterOption from 'people/components/filter_option'`
+
+ProjectsFilter = FilterModel.extend
 
   projects: null
 
@@ -23,14 +26,14 @@ ProjectsFilter = App.FilterModel.extend
         record.get('currentAllocations').mapBy('billable').any (val) -> val
 
     result = []
-    result.pushObject App.FilterOption.create
+    result.pushObject FilterOption.create
       displayName: 'Anything'
       slug: 'all_projects'
       isDefault: true
       filterFunc: (record) ->
         filters.currentEmployee(record)
 
-    result.pushObject App.FilterOption.create
+    result.pushObject FilterOption.create
       displayName: 'Overhead'
       slug: 'overhead'
       isDefault: true
@@ -38,7 +41,7 @@ ProjectsFilter = App.FilterModel.extend
         filters.currentEmployee(record) &&
           filters.onOverhead(record)
 
-    result.pushObject App.FilterOption.create
+    result.pushObject FilterOption.create
       displayName: 'Available'
       slug: 'on_bench'
       isDefault: false
@@ -46,7 +49,7 @@ ProjectsFilter = App.FilterModel.extend
         filters.currentEmployee(record) &&
           filters.notAllocated(record)
 
-    result.pushObject App.FilterOption.create
+    result.pushObject FilterOption.create
       displayName: 'PTO'
       slug: 'pto'
       isDefault: false
@@ -54,7 +57,7 @@ ProjectsFilter = App.FilterModel.extend
         filters.currentEmployee(record) &&
           filters.onPto(record)
 
-    result.pushObject App.FilterOption.create
+    result.pushObject FilterOption.create
       displayName: 'Billable Projects'
       slug: 'billable'
       isDefault: false
@@ -62,7 +65,7 @@ ProjectsFilter = App.FilterModel.extend
         filters.currentEmployee(record) &&
           filters.onBillable(record)
 
-    result.pushObject App.FilterOption.create
+    result.pushObject FilterOption.create
       displayName: 'Are No Longer With The Company'
       slug: 'gone'
       isDefault: false
@@ -78,7 +81,7 @@ ProjectsFilter = App.FilterModel.extend
     projects = Ember.ArrayProxy.createWithMixins(Ember.SortableMixin,sortByName)
 
     projects.forEach (project) ->
-      result.pushObject App.FilterOption.create
+      result.pushObject FilterOption.create
         displayName: project.get('name')
         slug: project.get('id')
         data: project

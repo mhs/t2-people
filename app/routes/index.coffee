@@ -1,6 +1,7 @@
 IndexRoute = Ember.Route.extend
   model: ->
     @modelFor 'application'
+
   redirect: ->
     @transitionTo 'people'
 

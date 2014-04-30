@@ -1,4 +1,4 @@
-App.PeopleRoute = Ember.Route.extend
+PeopleRoute = Ember.Route.extend
   model: ->
     @store.all('person')
 
@@ -6,7 +6,4 @@ App.PeopleRoute = Ember.Route.extend
     controller.set('model', model)
     controller.set('queryParams', queryParams)
 
-
-App.PeopleNewRoute = Ember.Route.extend
-  model: ->
-    @store.createRecord 'person', {}
+`export default PeopleRoute`
