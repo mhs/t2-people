@@ -15,8 +15,7 @@ var app = new EmberApp({
     'app-shims.js',
     'ember-resolver.js',
     'ember-load-initializers.js',
-    'moment.js',
-    'pikaday.js'
+    'moment.js'
   ],
 
   // AKA whitelisted modules
@@ -60,21 +59,4 @@ if (app.env !== 'production') {
   ]);
 }
 
-// Add stuff that failed to be added
-//
-var pickFiles = require('broccoli-static-compiler');
-var mergeTrees  = require('broccoli-merge-trees');
-var pikaday = pickFiles('vendor', {
-  srcDir: '/pikaday/css',
-  files: [
-    'pikaday.css'
-  ],
-  destDir: '/assets/'
-});
-
-var emberApp = app.toTree();
-
-module.exports = mergeTrees([emberApp, pikaday], {
-  overwrite: true
-});
-
+module.exports = app.toTree();

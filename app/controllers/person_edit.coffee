@@ -9,4 +9,4 @@ PersonEditController = Ember.ObjectController.extend
       model.save().then (=> @transitionToRoute 'people'), ((error) ->)
     )
 
-`export PersonEditController`
+`export default PersonEditController`
