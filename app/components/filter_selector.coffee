@@ -1,4 +1,4 @@
-FilterSelectorComponent = Ember.Component.extend
+FilterSelector = Ember.Component.extend
 
   options: Ember.computed.alias('model.options')
   selectedOptions: Ember.computed.alias('model.selectedOptions')

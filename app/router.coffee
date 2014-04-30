@@ -1,4 +1,6 @@
-App.Router.map ->
+Router = Ember.Router.extend()
+
+Router.map ->
   @route('sign_out')
 
   @resource('people', queryParams: ['offices', 'projects', 'roles'])
@@ -7,3 +9,5 @@ App.Router.map ->
   @resource('person', path: '/people/:person_id', ->
     @route('edit')
   )
+
+`export default Router`
