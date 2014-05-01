@@ -5,7 +5,7 @@
 PeopleController = Ember.ArrayController.extend
   needs: ['application']
   roleFilter: null
-  queryParams: null
+  queryParams: ["search"]
 
   officeFilterModel: (->
     OfficesFilter.create(offices: @get('controllers.application.offices'))
