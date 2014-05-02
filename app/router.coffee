@@ -3,7 +3,7 @@ Router = Ember.Router.extend()
 Router.map ->
   @route('sign_out')
 
-  @resource('people', queryParams: ['offices', 'projects', 'roles'])
+  @resource('people')
   @route('people.new', path: '/people/new')
 
   @resource('person', path: '/people/:person_id', ->

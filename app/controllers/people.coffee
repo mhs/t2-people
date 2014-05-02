@@ -3,18 +3,24 @@
 `import RolesFilter from 'people/models/filters/roles'`
 
 PeopleController = Ember.ArrayController.extend
-  needs: ['application']
-  roleFilter: null
-  queryParams: ["search"]
+  needs: ["application"]
+  queryParams: ["projects", "offices", "roles", "search"]
+
+  projects: null
+  offices: null
+  roles: null
+  search: null
+  searchTerm: null
 
   officeFilterModel: (->
     OfficesFilter.create(offices: @get('controllers.application.offices'))
   ).property('controllers.application.offices')
 
   projectFilterModel: (->
-    ProjectsFilter.create(projects: @store.all('project'),
-                              officeFilterModel: @get('officeFilterModel')
-    )
+    ProjectsFilter.create({
+      projects: @store.all('project'),
+      officeFilterModel: @get('officeFilterModel')
+    })
   ).property()
 
   roleFilterModel: (->
@@ -22,14 +28,13 @@ PeopleController = Ember.ArrayController.extend
   ).property()
 
   queryParamsDidChange: (->
-    params = @get('queryParams')
-    offices = params.offices || ''
-    projects = params.projects || ''
-    roles = params.roles || ''
+    offices = @get('offices') || ''
+    projects = @get('projects') || ''
+    roles = @get('roles') || ''
     @get('officeFilterModel').select(offices.split(','))
     @get('projectFilterModel').select(projects.split(','))
     @get('roleFilterModel').select(roles.split(','))
-  ).observes('queryParams')
+  ).observes('offices', 'projects', 'roles')
 
   filteredPeople: (->
     officeFilter = @get('officeFilterModel')
@@ -55,7 +60,11 @@ PeopleController = Ember.ArrayController.extend
       content: officePeople
 
     Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, sortByName)
-  ).property('officeFilterModel.selectedOptions', 'projectFilterModel.selectedOptions', 'queryParams', 'searchTerm')
+  ).property(
+    'officeFilterModel.selectedOptions',
+    'projectFilterModel.selectedOptions',
+    'searchTerm'
+  )
 
   updateSearch: (->
     Ember.run.debounce({name: 'searchDebounce'}, =>
@@ -81,6 +90,5 @@ PeopleController = Ember.ArrayController.extend
     'projectFilterModel.options.@each.selected',
     'roleFilterModel.options.@each.selected'
   )
-
 
 `export default PeopleController`
