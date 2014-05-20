@@ -1,6 +1,7 @@
 module.exports = function(environment) {
   var ENV = {
-    rootURL: '/',
+    baseURL: '/',
+    locationType: 'auto',
     navBarPath: '/api/v1/navbar',
     noOfficeId: '1000',
     noProjectId: '1000',
@@ -25,10 +26,8 @@ module.exports = function(environment) {
     ENV.apiHost = "http://localhost:5000";
   }
 
-  if (environment === 'production') {
+  if (environment === 'production') {}
 
-  }
-
-  return JSON.stringify(ENV); // Set in index.html
+  return ENV;
 };
 

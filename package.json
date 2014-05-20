@@ -25,12 +25,17 @@
   },
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "ember-cli": "0.0.27",
+    "ember-cli": "0.0.28",
     "originate": "~0.1.5",
     "broccoli-ember-hbs-template-compiler": "^1.5.0",
     "loom-generators-ember-appkit": "^1.1.1",
+    "express": "^4.1.1",
+    "body-parser": "^1.2.0",
+    "glob": "^3.2.9",
+
     "broccoli-coffee": "*",
-    "broccoli-ruby-sass": "*"
+    "broccoli-ruby-sass": "*",
+    "broccoli-file-mover": "*"
   }
 }
 

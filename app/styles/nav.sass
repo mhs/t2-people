@@ -1,0 +1,143 @@
+$blue: $blue
+$white: white
+
+header
+  margin: 0 0 30px 0
+  width: 100%
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2)
+  z-index: 1
+
+nav
+  float: right
+  color: $white
+  font-weight: bold
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15)
+  ul.nav-links
+    padding: 0
+    margin: 7px 20px 0 0
+    float: right
+    list-style-type: none
+  .nav-links li
+    +transition(all 0.3s)
+    cursor: pointer
+    margin: -14px 0px 0 0
+    padding: 12px 20px
+    height: 44px
+    float: left
+    border-right: 1px solid transparent
+    border-left: 1px solid transparent
+    line-height: inherit
+    font-size: inherit
+    font-weight: bold
+    &:hover
+      background: rgba($white, 0.15)
+      border-right: 1px solid rgba($white, 0.05)
+      border-left: 1px solid rgba($white, 0.05)
+    &.selected-application
+      background: #68CFED
+      border-right: 1px solid #5AC5E7
+      border-left: 1px solid #5AC5E7
+    &.pto i
+      +transform(rotate(-45deg))
+      text-shadow: -1px 1px 1px rgba(0, 0, 0, 0.15)
+    &.allocations i
+      +transform(rotate(90deg))
+      text-shadow: 1px 0 1px rgba(0, 0, 0, 0.15)
+    i
+      display: inline-block
+      margin: 0 6px 5px 0
+  a
+    color: white
+    text-decoration: none
+
+.user-actions
+  margin: 10px 3px 0 0
+  float: right
+
+.global-logout, .global-settings
+  cursor: pointer
+  margin: 0 10px 0 0
+  float: right
+  i
+    font-size: 44px
+
+.logo
+  +retina-image(/img / logo, 100%)
+  +size(60 22)
+  display: block
+  margin: 5px 6px 0 0
+  float: right
+
+.nav-bar
+  +size(100% 44)
+  padding: 7px 8px
+  background: $blue
+  box-shadow: inset 0 -1px 2px rgba(0, 0, 0, 0.05)
+  button, select
+    border: 1px solid #66C5E0
+    border-bottom: 1px solid #5FBAD3
+    &.white-button
+      border: 1px solid #66C5E0
+      border-bottom: 1px solid #5FBAD3
+      color: #777
+      &:active
+        border: 1px solid darken(#66c5e0, 20%)
+        border-bottom: 1px solid #5FBAD3
+  select
+    padding: 0 0 0 44px
+    +appearance(none)
+    cursor: pointer
+
+.date-timeline
+  height: 32px
+
+.office-select, .project-person-toggle
+  margin: 0 8px 0 0
+  float: left
+  i
+    position: relative
+    top: 1px
+
+i
+  line-height: 0
+  font-size: 24px
+  font-weight: normal
+  font-style: normal
+  font-family: entypo
+
+button, select
+  +transition(all 0.05s)
+  +size(176 29)
+  text-align: center
+  padding: 1px 0 0
+  cursor: pointer
+  outline: none
+  border-radius: 4px
+  font-size: 16px
+  font-weight: 700
+  i
+    margin: 0 0 0 5px
+  &.blue-button
+    +linear-gradient(#76dcf9, #6fd2ee)
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15)
+    color: $white
+    &:active
+      +linear-gradient(#64c1dc, #76dcf9)
+      border: 1px solid darken(#66c5e0, 20%)
+      border-bottom: 1px solid #5FBAD3
+      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 0 rgba($white, 0.2)
+  &.white-button
+    +linear-gradient(white, #efefef)
+    text-shadow: 0 1px 0 $white
+    color: #8A8A8A
+    border: 1px solid #cfcfcf
+    border-bottom: 1px solid #aeaeae
+    color: #9b9b9b
+    &:active
+      +linear-gradient(#d2d2d2, white)
+      border: 1px solid darken(#cfcfcf, 20%)
+      border-bottom: 1px solid #aeaeae
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 0 rgba($white, 0.2)
+
+.dummy-project
+  min-height: 42px
