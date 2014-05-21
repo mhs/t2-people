@@ -5,6 +5,5 @@
 /.sass-cache
 /dist
 /generated
-.ruby-version
 /vendor
 /tmp

@@ -1,5 +1,5 @@
 {
-  "name": "people",
+  "name": "t2-people",
   "title": "People dashboard for T2",
   "version": "0.0.1",
   "private": true,
@@ -33,9 +33,9 @@
     "body-parser": "^1.2.0",
     "glob": "^3.2.9",
 
-    "broccoli-coffee": "*",
-    "broccoli-ruby-sass": "*",
-    "broccoli-file-mover": "*"
+    "broccoli-coffee": "0.1.0",
+    "broccoli-ruby-sass": "0.0.1",
+    "broccoli-file-mover": "0.3.1"
   }
 }
 
