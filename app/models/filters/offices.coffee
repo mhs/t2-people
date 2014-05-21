@@ -1,5 +1,5 @@
-`import FilterModel from 'people/models/filter_model'`
-`import FilterOption from 'people/components/filter_option'`
+`import FilterModel from 't2-people/models/filter-model'`
+`import FilterOption from 't2-people/components/filter-option'`
 
 OfficesFilter = FilterModel.extend
 

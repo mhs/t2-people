@@ -1,4 +1,4 @@
-`import ApplicationAdapter from 'people/adapters/application'`
+`import ApplicationAdapter from 't2-people/adapters/application'`
 
 PersonAdapter = ApplicationAdapter.extend
   ajaxOptions: (url, type, hash) ->

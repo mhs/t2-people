@@ -1,4 +1,4 @@
-`import ApplicationSerializer from 'people/serializers/application'`
+`import ApplicationSerializer from 't2-people/serializers/application'`
 
 PersonSerializer = ApplicationSerializer.extend
   serializeIntoHash: (data, type, record) ->

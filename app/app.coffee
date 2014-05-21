@@ -10,9 +10,9 @@ App = Ember.Application.extend
   LOG_TRANSITIONS_INTERNAL      : true,
   LOG_VIEW_LOOKUPS              : true,
   LOG_ACTIVE_GENERATION         : true,
-  modulePrefix                  : 'people',
+  modulePrefix                  : 't2-people',
   Resolver                      : Resolver
 
-loadInitializers(App, 'people')
+loadInitializers(App, 't2-people')
 
 `export default App`

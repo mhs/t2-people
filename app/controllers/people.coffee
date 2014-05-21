@@ -1,6 +1,6 @@
-`import OfficesFilter from 'people/models/filters/offices'`
-`import ProjectsFilter from 'people/models/filters/projects'`
-`import RolesFilter from 'people/models/filters/roles'`
+`import OfficesFilter from 't2-people/models/filters/offices'`
+`import ProjectsFilter from 't2-people/models/filters/projects'`
+`import RolesFilter from 't2-people/models/filters/roles'`
 
 PeopleController = Ember.ArrayController.extend
   needs: ["application"]
