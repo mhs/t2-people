@@ -1,5 +1,5 @@
 `import Ember from "ember";`
-`import { NO_OFFICE_ID } fom "t2-people/config/environment";`
+`import { NO_OFFICE_ID } from "t2-people/utils/constants";`
 PeopleNewController = Ember.ObjectController.extend
   needs: ['application']
 

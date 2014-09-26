@@ -25,6 +25,9 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.apiHost = "http://localhost:5000"
+    ENV.navBarUrl = "/api/v1/navbar"
+    ENV.oauthKey = "de92924d00c19567c3566d17fe2e783666fd05bcecea385b508b4a3e393dd204"
   }
 
   if (environment === 'test') {

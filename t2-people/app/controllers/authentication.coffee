@@ -4,7 +4,7 @@ _redirectTo = (url)->
   location.href = uri
 
 `import Ember from "ember";`
-`import { apiHost } fom "t2-people/config/environment";`
+`import ENV from "t2-people/config/environment";`
 AuthenticationController = Ember.ObjectController.extend
   init: -> @set('accessToken', localStorage.accessToken)
 
@@ -12,10 +12,10 @@ AuthenticationController = Ember.ObjectController.extend
   isAuthenticated: Ember.computed.notEmpty('accessToken')
 
   _redirectToSignIn: ->
-    _redirectTo(apiHost + '/sign_in')
+    _redirectTo(ENV.apiHost + '/sign_in')
 
   _redirectToSignOut: ->
-    _redirectTo(apiHost + '/sign_out')
+    _redirectTo(ENV.apiHost + '/sign_out')
 
   extractAccessToken: ->
     match = location.href.match(/authentication_token=([a-zA-Z0-9_-]+)/)
@@ -44,7 +44,7 @@ AuthenticationController = Ember.ObjectController.extend
     Ember.$.ajax({
       # ASYNC MY BALLS
       async: false,
-      url: "#{apiHost}/profile.json",
+      url: "#{ENV.apiHost}/profile.json",
       dataType: 'json',
       data: {},
       success: (data) ->
