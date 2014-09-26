@@ -1,3 +1,12 @@
-<h2 id='title'>Welcome to Ember.js</h2>
+<header>
+  <section class="nav-bar">
+    <button {{action 'newPerson'}} class="new-person white-button">
+      <i>&#10133;</i>Add a Neon
+    </button>
+    {{view App.NavView}}
+  </section>
+</header>
 
-{{outlet}}
+<section>
+  {{outlet}}
+</section>
