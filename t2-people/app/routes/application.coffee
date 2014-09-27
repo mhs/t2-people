@@ -16,6 +16,7 @@ ApplicationRoute = Ember.Route.extend
     loading: ->
       unless @get('loadingView')
         view = @container.lookup('view:loading').append()
+        view.set('controller', @controllerFor('loading'))
         @set('loadingView', view)
 
       @router.one('didTransition', =>
