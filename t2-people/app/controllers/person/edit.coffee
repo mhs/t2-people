@@ -1,6 +1,9 @@
 `import Ember from "ember";`
+`import { EMPLOYEE_ROLES } from "t2-people/utils/constants";`
 PersonEditController = Ember.ObjectController.extend
   needs: ['application']
+
+  employeeRoles: EMPLOYEE_ROLES
 
   actions:
     save: (->
