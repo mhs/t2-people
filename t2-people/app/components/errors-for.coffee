@@ -4,11 +4,7 @@ ErrorsForComponent = Ember.Component.extend
   model: null
 
   errors: (->
-    errors = []
-    for fieldName,errorArray of @get('model.errors')
-      errorArray.forEach (error) ->
-        errors.push(fieldName.capitalize() + " " + error)
-    errors
+    @get('model.errors')
   ).property('model.errors')
 
   hasErrors: Ember.computed.notEmpty('errors.[]')
