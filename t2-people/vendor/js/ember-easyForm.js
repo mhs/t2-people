@@ -269,7 +269,7 @@ Ember.EasyForm.Error = Ember.EasyForm.BaseView.extend({
     this.classNames.push(this.getWrapperConfig('errorClass'));
     Ember.Binding.from('context.errors.' + this.property).to('errors').connect(this);
   },
-  templateName: 'easyForm/error'
+  templateName: 'easy-form/error'
 });
 
 })();
@@ -343,9 +343,9 @@ Ember.EasyForm.Input = Ember.EasyForm.BaseView.extend({
     Ember.defineProperty(this, 'showError', Ember.computed.and('canShowValidationError', 'context.errors.' + this.property + '.firstObject'));
     if (!this.isBlock) {
       if (this.getWrapperConfig('wrapControls')) {
-        this.set('templateName', 'easyForm/wrapped_input');
+        this.set('templateName', 'easy-form/wrapped-input');
       } else {
-        this.set('templateName', 'easyForm/input');
+        this.set('templateName', 'easy-form/input');
       }
     }
   },
@@ -522,7 +522,7 @@ Ember.EasyForm.TextField = Ember.TextField.extend();
 
 
 (function() {
-Ember.TEMPLATES['easyForm/error'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES['easy-form/error'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var hashTypes, hashContexts, escapeExpression=this.escapeExpression;
@@ -539,7 +539,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
 (function() {
-Ember.TEMPLATES['easyForm/input'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES['easy-form/input'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
@@ -555,7 +555,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "easyForm/inputControls", options) : helperMissing.call(depth0, "partial", "easyForm/inputControls", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "easy-form/input-controls", options) : helperMissing.call(depth0, "partial", "easy-form/input-controls", options))));
   return buffer;
 
 });
@@ -565,7 +565,8 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
 (function() {
-Ember.TEMPLATES['easyForm/inputControls'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+debugger
+Ember.TEMPLATES['easy-form/input-controls'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, stack2, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression, self=this;
@@ -617,7 +618,7 @@ function program3(depth0,data) {
 
 
 (function() {
-Ember.TEMPLATES['easyForm/wrapped_input'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+Ember.TEMPLATES['easy-form/wrapped-input'] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   var buffer = '', stack1, hashContexts, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
@@ -638,7 +639,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   hashTypes = {};
   hashContexts = {};
   options = {hash:{},contexts:[depth0],types:["STRING"],hashContexts:hashContexts,hashTypes:hashTypes,data:data};
-  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "easyForm/inputControls", options) : helperMissing.call(depth0, "partial", "easyForm/inputControls", options))));
+  data.buffer.push(escapeExpression(((stack1 = helpers.partial || depth0.partial),stack1 ? stack1.call(depth0, "easy-form/input-controls", options) : helperMissing.call(depth0, "partial", "easy-form/input-controls", options))));
   data.buffer.push("</div>");
   return buffer;
 
