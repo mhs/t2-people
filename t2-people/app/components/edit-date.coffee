@@ -1,7 +1,7 @@
 `import Ember from "ember";`
-EditDateView = Ember.TextField.extend
+EditDateComponent = Ember.TextField.extend
   focusIn: (event) ->
     @$().datepicker
       dateFormat: "yy-mm-dd"
 
-`export default EditDateView;`
+`export default EditDateComponent;`
