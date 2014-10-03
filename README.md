@@ -1,45 +1,44 @@
-# Lineman + Ember
-A t2api app to view, query, and create "people".
+# T2 - People
 
-If you haven't already done so, first: install [node.js](http://nodejs.org); next, install lineman:
+Brand new time tracking and scheduling program used to quantify the essence of our business. Built
+in [EmberJS](http://emberjs.com), using [ember-cli](http://www.ember-cli.com).
 
-$ npm install -g lineman
+## Requirements
 
-To work from this example, just clone into it and run:
+* NodeJS & NPM `brew install node`
+* ember-cli `npm install -g ember-cli`.  Note we're using **0.0.46**
+* [t2-api](http://github.com/neo/t2-api)
 
-```
-$ npm install
-$ lineman run
-```
 
-And then visit the page at [localhost:9999](http://localhost:9999) to verify that it works.
+## Install & run
 
-## Running tests
-`TODO: verify this is correct`
+1. Get the code: `git clone git@github.com:neo/t2-people`
+1. Change directory: `cd t2-people`
+1. Install npm dependencies: `npm install`
+1. Start [t2-api](https://github.com/neo/t2-api#start-the-server).
+1. Start: `ember serve`.  You can specify a `--port` argument if you'd like.
+1. You'll probably want the [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+## Testing
 
-To run the tests, you can do one of two things:
+Tests are written in [ember-qunit](https://github.com/rwjblue/ember-qunit).
+Run them using `ember test`
 
-1. In one terminal run lineman run and (with it still running) run lineman spec, which will launch chrome and an ongoing interactive session with testem.
+## Deployment
 
-2. For a one-shot test run, first have phantomjs installed (brew install phantomjs) and then run lineman spec-ci which will run the tests headlessly
+* Add your public key to `~/.ssh/authorized_keys` via the `neo` user at `t2static.neo.com`.
+* Run `ember build --env production`
 
-## Deploying
+### Production
 
-Both production and staging use the lineman buildpack and the
-[user-env-compile](https://devcenter.heroku.com/articles/labs-user-env-compile) experimental option.
+* Run `scp -r dist/* neo@t2static.neo.com:/var/www/t2peoplebeta.neo.com`
 
-NOTE: because the files are rendered during slug compiliation, changing config variables will not work
-until the code is redeployed.
+## Getting started with EmberJS
 
-Production environment:
-* Git URI: git@heroku.com:t2-people.git
-* Host: t2people.neo.com
-* Heroku env - API_HOST: http://t2.neo.com
-* Heroku env - BUILDPACK_URL: http://github.com/testdouble/heroku-buildpack-lineman.git
+Here are some links to help lead the way:
 
-Staging environment:
-* Git URI: git@heroku.com:t2people-staging.git
-* Host: t2people-staging.neo.com
-* Heroku env - API_HOST: http://t2-staging.neo.com
-* Heroku env - BUILDPACK_URL: http://github.com/testdouble/heroku-buildpack-lineman.git
+- [Ember.js Getting Started](http://emberjs.com/guides/getting-started/)
 
+And for a comprehensive list of what's happening in Ember Land:
+
+- [emberwatch.com](http://emberwatch.com/)
+- [emberweekly.com](http://emberweekly.com/)
