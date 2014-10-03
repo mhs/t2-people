@@ -8,7 +8,7 @@ PersonEditController = Ember.ObjectController.extend
   actions:
     save: (->
       model = @get('model')
-      if model.get('errors')
+      if model.get('isError')
         model.send('becameValid')
       model.save().then (=> @transitionToRoute 'people'), ((error) ->)
     )
