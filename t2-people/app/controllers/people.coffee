@@ -60,6 +60,7 @@ PeopleController = Ember.ArrayController.extend
   ).property(
     'officeFilterModel.selectedOptions',
     'projectFilterModel.selectedOptions',
+    'roleFilterModel.selectedOptions',
     'searchTerm')
 
   updateSearch: (->
