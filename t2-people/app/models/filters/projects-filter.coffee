@@ -73,7 +73,7 @@ ProjectsFilter = FilterModel.extend
       filterFunc: (record) ->
         filters.exEmployee(record)
 
-    projects = @get('projects') || []
+    projects = @get('projects').filter((project) -> project.get('name')) || []
 
     sortByName =
       sortProperties: ['sortOrder', 'name']
@@ -92,7 +92,7 @@ ProjectsFilter = FilterModel.extend
             r_project == ourProject
 
     result
-  ).property('projects')
+  ).property('projects.@each.name')
 
   officeSelectionDidChange: (->
     offices = @get('officeFilterModel.selectedOptions').mapBy('data')
