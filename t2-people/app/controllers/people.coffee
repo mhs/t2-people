@@ -7,10 +7,10 @@ PeopleController = Ember.ArrayController.extend
   needs: ['application']
   queryParams: ["projects", "offices", "roles", "search"]
 
-  projects: null
-  offices: null
-  roles: null
-  search: null
+  projects: ""
+  offices: ""
+  roles: ""
+  search: ""
   searchTerm: null
 
   officeFilterModel: (->
@@ -86,9 +86,5 @@ PeopleController = Ember.ArrayController.extend
     'projectFilterModel.options.@each.selected',
     'roleFilterModel.options.@each.selected'
   )
-
-
-
-
 
 `export default PeopleController;`
