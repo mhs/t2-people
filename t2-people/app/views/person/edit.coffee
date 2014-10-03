@@ -1,7 +1,7 @@
 `import Ember from "ember";`
 PersonEditView = Ember.View.extend
-  didInsertElement: ->
-    $(@get('element')).on 'change', '.avatar-picker input', (evt) =>
+  bindFilePickerEvent: (->
+    @$().on 'change', '.avatar-picker input', (evt) =>
       fileField = evt.target
       file = fileField.files[0]
       @set('controller.avatarFile', file)
@@ -13,6 +13,6 @@ PersonEditView = Ember.View.extend
       img = $('.picture img')[0]
       reader.onload = imageSetter(img)
       reader.readAsDataURL(file)
-
+  ).on('didInsertElement')
 
 `export default PersonEditView;`
