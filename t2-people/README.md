@@ -1,51 +1,44 @@
-# T2-people
+# T2 - People
 
-This README outlines the details of collaborating on this Ember application.
+Brand new time tracking and scheduling program used to quantify the essence of our business. Built
+in [EmberJS](http://emberjs.com), using [ember-cli](http://www.ember-cli.com).
 
-A short introduction of this app could easily go here.
+## Requirements
 
-## Prerequisites
+* NodeJS & NPM `brew install node`
+* ember-cli `npm install -g ember-cli`.  Note we're using **0.0.46**
+* [t2-api](http://github.com/neo/t2-api)
 
-You will need the following things properly installed on your computer.
 
-* [Git](http://git-scm.com/)
-* [Node.js](http://nodejs.org/) (with NPM) and [Bower](http://bower.io/)
+## Install & run
 
-## Installation
+1. Get the code: `git clone git@github.com:neo/t2-people`
+1. Change directory: `cd t2-people`
+1. Install npm dependencies: `npm install`
+1. Start [t2-api](https://github.com/neo/t2-api#start-the-server).
+1. Start: `ember serve`.  You can specify a `--port` argument if you'd like.
+1. You'll probably want the [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+## Testing
 
-* `git clone <repository-url>` this repository
-* change into the new directory
-* `npm install`
-* `bower install`
+Tests are written in [ember-qunit](https://github.com/rwjblue/ember-qunit).
+Run them using `ember test`
 
-## Running / Development
+## Deployment
 
-* `ember server`
-* Visit your app at http://localhost:4200.
+* Add your public key to `~/.ssh/authorized_keys` via the `neo` user at `t2static.neo.com`.
+* Run `ember build --env production`
 
-### Code Generators
+### Production
 
-Make use of the many generators for code, try `ember help generate` for more details
+* Run `scp -r dist/* neo@t2static.neo.com:/var/www/t2peoplebeta.neo.com`
 
-### Running Tests
+## Getting started with EmberJS
 
-* `ember test`
-* `ember test --server`
+Here are some links to help lead the way:
 
-### Building
+- [Ember.js Getting Started](http://emberjs.com/guides/getting-started/)
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+And for a comprehensive list of what's happening in Ember Land:
 
-### Deploying
-
-Specify what it takes to deploy your app.
-
-## Further Reading / Useful Links
-
-* ember: http://emberjs.com/
-* ember-cli: http://www.ember-cli.com/
-* Development Browser Extensions
-  * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
-  * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
+- [emberwatch.com](http://emberwatch.com/)
+- [emberweekly.com](http://emberweekly.com/)
