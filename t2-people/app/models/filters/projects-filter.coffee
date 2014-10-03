@@ -88,7 +88,8 @@ ProjectsFilter = FilterModel.extend
         data: project
         filterFunc: (record) ->
           ourProject = @get('data')
-          record.get('currentAllocations').mapBy('project').any (r_project) ->
+          # the content property here is a bit of a hack, but 'seems' to work.
+          record.get('currentAllocations').mapBy('project.content').any (r_project) ->
             r_project == ourProject
 
     result
