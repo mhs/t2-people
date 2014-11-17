@@ -30,7 +30,7 @@ Run them using `ember test`
 
 ### Production
 
-* Run `scp -r dist/* neo@t2static.neo.com:/var/www/t2peoplebeta.neo.com`
+* Run `scp -r dist/* neo@t2static.neo.com:/var/www/t2people.neo.com`
 
 ## Getting started with EmberJS
 
