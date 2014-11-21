@@ -37,7 +37,7 @@ ProjectsFilter = FilterModel.extend
     result.pushObject FilterOption.create
       displayName: 'Overhead'
       slug: 'overhead'
-      isDefault: true
+      isDefault: false
       filterFunc: (record) ->
         filters.currentEmployee(record) &&
           filters.onOverhead(record)
