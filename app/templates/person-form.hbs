@@ -13,10 +13,8 @@
             as="select"
             prompt="Employee Role"
             collection="employeeRoles"
-            selection="role"
-            optionValuePath="content"
-            optionLabelPath="content"
     }}
+
   </div>
   {{#if isNew}}
     <div class="office">
@@ -83,4 +81,3 @@
     {{#link-to 'people'}}Return to List{{/link-to}}
   </div>
 {{/form-for}}
-
