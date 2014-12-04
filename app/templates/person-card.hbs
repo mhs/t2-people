@@ -23,8 +23,8 @@
 
   <div class="current-project">
     {{#if allocated}}
-      {{#each currentAllocations}}
-        {{project.name}} {{formatted_percentage}}<br/>
+      {{#each allocation in currentAllocations}}
+        {{allocation.project.name}} {{allocation.formatted_percentage}}<br/>
       {{/each}}
     {{else}}
       {{#if unsellable}}

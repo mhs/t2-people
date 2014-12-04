@@ -3,6 +3,10 @@ Project = DS.Model.extend
   name: DS.attr('string')
   offices: DS.hasMany('office')
 
+  notes: DS.attr('string')
+  slug: DS.attr('string')
+  position: DS.attr('string')
+  personIds: DS.attr()
   vacation: DS.attr('boolean')
   billable: DS.attr('boolean')
 

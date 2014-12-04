@@ -12,45 +12,40 @@
         Start Date{{start_date}}
       </div>
 
-      {{#if email}}
       <div class="email">
-        <a {{bind-attr href="mailTo"}}>
-          <i>&#9993;</i>
-        </a>
+        {{#if email}}
+          <a {{bind-attr href="mailTo"}}>
+            <i>&#9993;</i>
+          </a>
+        {{else}}
+          <i class="placeholder">&#9993;</i>
+        {{/if}}
       </div>
-      {{else}}
-      <div class="email">
-        <i class="placeholder">&#9993;</i>
-      </div>
-    {{/if}}
 
-    {{#if twitter}}
       <div class="twitter">
-        <a {{bind-attr href="twitterURL"}}  target="_blank">
-          <i class="social">&#62217;</i>
-        </a>
+        {{#if twitter}}
+          <a {{bind-attr href="twitterURL"}}  target="_blank">
+            <i class="social">&#62217;</i>
+          </a>
+        {{else}}
+          <i class="placeholder social">&#62217;</i>
+        {{/if}}
       </div>
-    {{else}}
-      <div class="twitter">
-        <i class="placeholder social">&#62217;</i>
-      </div>
-    {{/if}}
 
-    {{#if github}}
       <div class="github">
-        <a {{bind-attr href="githubURL"}} target="_blank">
-          <i class="social">&#62208;</i>
-        </a>
+        {{#if github}}
+          <a {{bind-attr href="githubURL"}} target="_blank">
+            <i class="social">&#62208;</i>
+          </a>
+        {{else}}
+          <i class="placeholder social">&#62208;</i>
+        {{/if}}
       </div>
-      {{else}}
-      <div class="github">
-        <i class="placeholder social">&#62208;</i>
-      </div>
-    {{/if}}
 
       <button class="return-button">
-      <i>&#11013;</i>
-      {{#link-to 'people'}}Return to List{{/link-to}}
+        <i>&#11013;</i>
+        {{#link-to 'people'}}Return to List{{/link-to}}
+      </button>
     </div>
 
     <div class="about">
