@@ -24,6 +24,7 @@ ApplicationRoute = Ember.Route.extend
       )
 
   model: ->
-    @store.all('office')
+    @store.all('office').filter (office) ->
+        return !office.get('deleted')
 
 `export default ApplicationRoute;`
