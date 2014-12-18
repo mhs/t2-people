@@ -23,7 +23,7 @@ module("Let's make it work", {
   },
   teardown: function() {
     Ember.run(App, App.destroy);
-    server.reset();
+    server.restore();
   }
 });
 
