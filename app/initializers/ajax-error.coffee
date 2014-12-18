@@ -7,11 +7,12 @@ ajaxInitializer =
       xhr.setRequestHeader("Authorization", auth.get('accessToken'))
       xhr.setRequestHeader("x-Requested-With", "XMLHTTPRequest")
 
-    $(document).ajaxError( (event, jqXHR, ajaxSettings, thrownError) ->
-      return if jqXHR.status == 422
-      return unless jqXHR.getAllResponseHeaders()
-      auth = container.lookup("controller:authentication")
-      auth.logout()
-    )
+    unless Ember.testing
+      $(document).ajaxError( (event, jqXHR, ajaxSettings, thrownError) ->
+        return if jqXHR.status == 422
+        return unless jqXHR.getAllResponseHeaders()
+        auth = container.lookup("controller:authentication")
+        auth.logout()
+      )
 
 `export default ajaxInitializer;`

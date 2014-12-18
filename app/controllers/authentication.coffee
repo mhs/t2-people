@@ -18,10 +18,13 @@ AuthenticationController = Ember.ObjectController.extend
     _redirectTo(ENV.apiHost + '/sign_out')
 
   extractAccessToken: ->
-    match = location.href.match(/authentication_token=([a-zA-Z0-9_-]+)/)
-    if (match)
-      @set('accessToken', match[1])
-      location.href = location.origin
+    if Ember.testing
+      @set('accessToken', "testing")
+    else
+      match = location.href.match(/authentication_token=([a-zA-Z0-9_-]+)/)
+      if (match)
+        @set('accessToken', match[1])
+        location.href = location.origin
 
   login: ->
     @_redirectToSignIn()
