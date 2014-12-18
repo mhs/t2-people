@@ -7,6 +7,9 @@ var app = new EmberApp();
 app.import('bower_components/moment/moment.js');
 app.import('bower_components/jquery-ui/jquery-ui.js');
 app.import('vendor/styles/jquery-ui-1.10.3.custom.css');
+app.import('vendor/js/sinon.js', {
+        type: 'test'
+      });
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
