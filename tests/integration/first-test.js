@@ -14,11 +14,28 @@ var fakeJson = function(route, content) {
 };
 
 module("Let's make it work", {
+  var testOffice = {id: 1,
+                    name: "TestOffice",
+                    project_ids: [1],
+                    deleted: false}
+
+  var testProject = {id: 1,
+                     office_ids: [1],
+                     vacation: false,
+                     billable: true}
+
+  var testPerson =  {id: 1,
+                     name: 'Test Guy',
+                     role: 'Developer',
+                     email: 'testguy@example.com',
+                     office_slug: 'testoffice'}
+
+
   setup: function() {
     App = startApp();
-    fakeJson('/api/v1/offices', {offices: []});
-    fakeJson('/api/v1/people', {people: []});
+    fakeJson('/api/v1/offices', {offices: [testOffice]});
     fakeJson('/api/v1/projects', {projects: []});
+    fakeJson('/api/v1/people', {people: []});
 
   },
   teardown: function() {
