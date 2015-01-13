@@ -38,6 +38,10 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy['connect-src'] = "'self' http://localhost:5000";
   }
 
+  if (environment === 'staging') {
+    ENV.apiHost = "http://t2api-staging.neo.com"
+  }
+
   if (environment === 'test') {
     // Testem prefers this...
     ENV.baseURL = '/';
