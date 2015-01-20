@@ -21,7 +21,7 @@ module.exports = function(environment) {
     contentSecurityPolicy: {
       'default-src': "'none'",
       'font-src': "'self' http://fonts.gstatic.com", // Allow fonts to be loaded from http://fonts.gstatic.com
-      'img-src': "'self' https://t2-data.s3.amazonaws.com/ http://s3.amazonaws.com/",
+      'img-src': "'self' data: https://t2-data.s3.amazonaws.com/ http://s3.amazonaws.com/",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com", // Allow inline styles and loaded CSS from http://fonts.googleapis.com
       'media-src': "'self'"
     }
