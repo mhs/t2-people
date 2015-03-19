@@ -1,5 +1,5 @@
 `import Ember from "ember";`
-`import "vendor/js/ember-easyForm";`
+
 formInitializer =
   name: 'easyForm'
   initialize: (container, app) ->
