@@ -33,7 +33,6 @@
     "ember-export-application-global": "^1.0.0",
     "express": "^4.8.5",
     "glob": "^4.0.5",
-    "rimraf": "2.2.8",
-    "ember-easyform-cli": "git://github.com/kristianmandrup/ember-easyform-cli.git#master"
+    "rimraf": "2.2.8"
   }
 }
