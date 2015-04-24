@@ -6,7 +6,7 @@ in [EmberJS](http://emberjs.com), using [ember-cli](http://www.ember-cli.com).
 ## Requirements
 
 * NodeJS & NPM `brew install node`
-* ember-cli `npm install -g ember-cli`.  Note we're using **0.0.46**
+* ember-cli `npm install -g ember-cli`.  Note we're using **0.2.0**
 * [t2-api](http://github.com/neo/t2-api)
 
 
@@ -19,6 +19,7 @@ in [EmberJS](http://emberjs.com), using [ember-cli](http://www.ember-cli.com).
 1. Start [t2-api](https://github.com/neo/t2-api#start-the-server).
 1. Fire it up: ember serve --port 9999 (port that app uses locally within t2 suite)
 1. You'll probably want the [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+
 ## Testing
 
 Tests are written in [ember-qunit](https://github.com/rwjblue/ember-qunit).
