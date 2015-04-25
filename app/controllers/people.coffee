@@ -3,7 +3,7 @@
 `import ProjectsFilter from "t2-people/models/filters/projects-filter";`
 `import RolesFilter from "t2-people/models/filters/roles-filter";`
 
-PeopleController = Ember.ArrayController.extend
+PeopleController = Ember.Controller.extend
   needs: ['application']
   queryParams: ["projects", "offices", "roles", "search"]
 

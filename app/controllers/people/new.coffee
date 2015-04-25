@@ -1,7 +1,8 @@
 `import Ember from "ember";`
 `import { NO_OFFICE_ID } from "t2-people/utils/constants";`
 `import { EMPLOYEE_ROLES } from "t2-people/utils/constants";`
-PeopleNewController = Ember.ObjectController.extend
+
+PeopleNewController = Ember.Controller.extend
   needs: ['application']
 
   employeeRoles: EMPLOYEE_ROLES

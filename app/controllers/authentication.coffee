@@ -5,7 +5,7 @@ _redirectTo = (url)->
 
 `import Ember from "ember";`
 `import ENV from "t2-people/config/environment";`
-AuthenticationController = Ember.ObjectController.extend
+AuthenticationController = Ember.Controller.extend
   init: -> @set('accessToken', localStorage.accessToken)
 
   accessToken: null
