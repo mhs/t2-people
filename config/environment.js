@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 't2-people',
+    podModulePrefix: 't2-people/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',

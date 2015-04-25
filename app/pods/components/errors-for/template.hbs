@@ -1,0 +1,7 @@
+{{#if hasErrors}}
+  <ul class="error-list">
+    {{#each model.errors as |error|}}
+      <li class="error">{{error}}</li>
+    {{/each}}
+  </ul>
+{{/if}}

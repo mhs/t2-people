@@ -1,5 +1,5 @@
 `import DS from "ember-data";`
-`import { EMPLOYEE_ROLES } from "t2-people/utils/constants";`
+`import { EMPLOYEE_ROLES } from "t2-people/constants";`
 `import DateTransform from "t2-people/transforms/date";`
 
 attr = DS.attr

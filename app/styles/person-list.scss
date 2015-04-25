@@ -1,0 +1,89 @@
+.person-list {
+}
+
+@media (min-width: 2050px) {
+  .person-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.person-list-item {
+  position: relative;
+  display: flex;
+  min-width: 40%;
+  min-height: 90px;
+  margin: 0 0 15px 130px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #d6d6d6;
+  padding-bottom: 15px;
+}
+
+.person-list-item-section {
+  padding-right: 15px;
+}
+  .person-list-item-meta {
+    min-width: 250px;
+    font-weight: 300;
+  }
+
+  .person-list-item-section-label {
+    padding-right: 1rem;
+  }
+
+.person-list-item-name {
+  padding: 5px 0;
+  color: #222;
+  font-size: 27px;
+}
+
+.person-list-item-avatar {
+  position: absolute;
+  top: 0;
+  left: -90px;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.person-list-item-allocations-section {
+  display: flex;
+  min-width: 350px;
+  padding-top: 19px;
+  color: #555;
+  font-size: 13px;
+
+  .person-list-item-section-label {
+    color: $red;
+    flex-basis: 83px;
+  }
+}
+  .person-list-item-allocations {
+    margin-bottom: 10px;
+
+    div { margin-bottom: 0.25rem; }
+  }
+
+
+.person-list-item-social-section {
+  padding-top: 25px;
+  font-size: 13px;
+
+  i {
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 44px;
+  }
+
+  .placeholder {
+    color: #ddd;
+  }
+
+  a {
+    color: #aaa;
+  }
+
+  a:hover {
+    color: #666;
+  }
+}

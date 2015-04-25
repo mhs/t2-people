@@ -1,11 +1,9 @@
 import Ember from 'ember';
 import config from './config/environment';
 
-let Router = Ember.Router.extend({
+export default Ember.Router.extend({
   location: config.locationType
-});
-
-export default Router.map(function() {
+}).map(function() {
   this.route('sign_out');
 
   this.resource('people');

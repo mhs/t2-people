@@ -2,11 +2,12 @@
 `import ApplicationSerializer from "t2-people/serializers/application";`
 
 PersonSerializer = ApplicationSerializer.extend
-  serializeIntoHash: (data, type, record, options) ->
+  serializeIntoHash: (data, type, snapshot, options) ->
     # return the FormData from record
-    data['person'] = @generateFormData(@serialize(record))
+    data['formData'] = @generateFormDataFromSnapshop(snapshot)
 
-  generateFormData: ((serializedHash) ->
+  generateFormDataFromSnapshop: (snapshot) ->
+    serializedHash = @serialize(snapshot)
     data = new FormData()
     skipProperties = 'avatar office_slug current_allocation_id'.w()
     for prop, value of serializedHash
@@ -18,10 +19,11 @@ PersonSerializer = ApplicationSerializer.extend
         if value == null
           value = ''
         data.append("person[#{prop}]", value)
-    file = @get('avatarFile')
+
+    file = snapshot.record.get('avatarFile')
     if file
       data.append('person[avatar]', file)
+
     data
-  )
 
 `export default PersonSerializer;`

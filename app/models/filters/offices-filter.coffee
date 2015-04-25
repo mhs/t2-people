@@ -1,5 +1,6 @@
 `import FilterModel from "t2-people/models/filter-model";`
-`import FilterOption from "t2-people/components/filter-option";`
+`import FilterOption from "t2-people/services/filter-option";`
+
 OfficesFilter = FilterModel.extend
 
   offices: null
@@ -7,7 +8,7 @@ OfficesFilter = FilterModel.extend
   options: (->
     result = []
     result.pushObject FilterOption.create
-      displayName: 'Team Neo'
+      displayName: 'Team Human'
       slug: 'all_offices'
       isDefault: true
       filterFunc: (record) -> true

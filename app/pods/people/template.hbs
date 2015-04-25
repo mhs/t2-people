@@ -1,0 +1,29 @@
+<div class="header">
+  <h1>Humans in</h1>
+  <h1>{{filter-selector class="select-office" model=officeFilterModel}}</h1>
+  <h1>who</h1>
+  <h1>{{filter-selector class="select-role" model=roleFilterModel}}</h1>
+  <h1>working on</h1>
+  <h1>{{filter-selector class="select-project" model=projectFilterModel}}</h1>
+</div>
+
+<div class="search-and-new">
+  <div {{action "newPerson"}} class="search-and-new--add-button">
+    {{partial "svg/person-add"}} Add Human
+  </div>
+
+  <label class="search-and-new--input-container">
+    {{partial "svg/search"}}
+    {{input value=search type="search" class="search-and-new--input" placeholder="Search"}}
+  </label>
+</div>
+
+<div class="people-list">
+  {{#each filteredPeople as |person|}}
+    {{person-card model=person}}
+  {{else}}
+    <div class="people-list-no-results">
+      No Humans!
+    </div>
+  {{/each}}
+</div>
