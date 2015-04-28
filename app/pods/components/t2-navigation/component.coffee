@@ -3,6 +3,7 @@
 
 Component = Ember.Component.extend
   tagName: 'nav'
+  classNames: ['global-header-navigation']
 
   topLinks: null
   bottomLinks: null

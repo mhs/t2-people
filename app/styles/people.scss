@@ -11,9 +11,9 @@
 
   svg  {
     float: left;
-    width: 28px;
+    width: 32px;
     margin-right: 4px;
-    @include transform(translateY(1px));
+    @include transform(translateY(-1px));
   }
 
   path { fill: gray; }

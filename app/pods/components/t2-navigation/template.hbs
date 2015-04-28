@@ -1,17 +1,7 @@
-<div class="user-actions">
-  {{#each bottomLinks as |link|}}
-    <div class="global-settings">
-      <a href={{link.url}} title={{link.link_text}}>
-        <i>{{link.icon}}</i>
-      </a>
-    </div>
-  {{/each}}
-</div>
-
 {{#each topLinks as |link|}}
   <a href={{unbound link.url}} class={{unbound link.classes}} title={{unbound link.link_text}}>
     {{unbound link.title}}
   </a>
 {{/each}}
 
-<a href="/#/sign_out" class="global-logout">Sign Out</a>
+<a href="/#/sign_out">Sign Out</a>
