@@ -1,6 +1,6 @@
 `import Ember from "ember";`
 `import FilterModel from "t2-people/models/filter-model";`
-`import FilterOption from "t2-people/components/filter-option";`
+`import FilterOption from "t2-people/services/filter-option";`
 
 ProjectsFilter = FilterModel.extend
 

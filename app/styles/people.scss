@@ -1,0 +1,86 @@
+.search-and-new {
+  margin-bottom: 2rem;
+  display: flex;
+  padding: 0 30px 3px 30px;
+}
+
+.search-and-new--input-container {
+  flex-grow: 1;
+  border-bottom: 1px solid #ddd;
+  padding: 0 5px;
+
+  svg  {
+    float: left;
+    width: 28px;
+    margin-right: 4px;
+    @include transform(translateY(1px));
+  }
+
+  path { fill: gray; }
+}
+
+.search-and-new--input {
+  width: calc(100% - 40px);
+  margin: 0;
+  border: none;
+  color: #777;
+  font-size: 24px;
+  font-weight: 300;
+  background: transparent;
+  -webkit-appearance: none;
+
+  &:focus { outline: none; }
+}
+
+.search-and-new--add-button {
+  margin-right: 40px;
+  border-bottom: 1px solid #ddd;
+  padding: 0 5px;
+  color: #aaa;
+  font-size: 24px;
+  font-weight: 300;
+  background: transparent;
+  cursor: pointer;
+
+  svg  {
+    float: left;
+    width: 36px;
+    margin-right: 10px;
+    @include transform(translateY(-7px));
+  }
+  path { fill: #999; }
+}
+
+.people-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0 20px;
+
+  .person-card {
+    width: 24%;
+    min-width: 275px;
+    max-width: 300px;
+    margin: 0 5px 20px 5px;
+  }
+}
+
+.people-list-no-results {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.person-card--edit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 15px 15px 10px 15px;
+  color: #bbb;
+
+  &:hover { color: #888; }
+
+  i {
+    font-size: 38px;
+  }
+}

@@ -10,15 +10,20 @@ in [EmberJS](http://emberjs.com), using [ember-cli](http://www.ember-cli.com).
 * [t2-api](http://github.com/neo/t2-api)
 
 
-## Install & run
+## Install
 
 1. Get the code: `git clone git@github.com:neo/t2-people`
 1. Change directory: `cd t2-people`
 1. Install npm dependencies: `npm install`
 1. Install bower dependencies: `bower install`
-1. Start [t2-api](https://github.com/neo/t2-api#start-the-server).
-1. Fire it up: ember serve --port 9999 (port that app uses locally within t2 suite)
-1. You'll probably want the [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
+
+## Run
+
+Start [t2-api](https://github.com/neo/t2-api#start-the-server).
+
+```
+ember serve
+```
 
 ## Testing
 

@@ -1,25 +1,32 @@
 @import mixins
-@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700)
 @import colors
 @import new-nav
 @import loading
 @import edit-card
 @import errors
+@import people
+@import person-list
+@import pill
 
 +font-face(entypo, '/assets/fonts/entypo')
 +font-face(entypo-social, '/assets/fonts/entypo-social')
 
-*
+html
   box-sizing: border-box
 
+*, *:before, *:after
+  box-sizing: inherit
 
 
 html,body
-  background: $white
-  font-family: "Montserrat", sans-serif
+  min-height: 100%
   margin: 0
   padding: 0
-  min-height: 100%
+  font-family: 'Helvetica Neue', helvetica, arial, sans-serif
+  background: #fff
+
+input, select, button
+  font-family: 'Helvetica Neue', helvetica, arial, sans-serif
 
 h1
   font-size: 36px
@@ -35,9 +42,6 @@ a
 
 button
   margin: 0
-
-header
-  +clearfix
 
 i
   font-family: "entypo"
@@ -57,27 +61,36 @@ i.social
   +clearfix
   width: 100%
 
-.container, .people-container
+.container
   margin: auto
-  max-width: 1024px
   width: 96%
   +clearfix
 
-.header
-  +clearfix
-  text-align: center
-  padding: 60px 20px 20px
-  margin: 0 auto 40px
-  border-bottom: 2px solid gray
+.people-container
+  display: flex
+  align-items: flex-start
 
-  h2
+  .search-and-new
+    width: 310px
+    min-width: 310px
+    padding-left: 20px
+
+.container
+  max-width: 1024px
+
+.header
+  text-align: center
+  padding: 50px 20px 60px 20px
+
+  h1
     display: inline-block
-    font-size: 38px
-    color: gray
     margin: 0
+    color: #444
+    font-size: 38px
+    font-weight: 300
+    letter-spacing: -0.05rem
 
 .filter
-
   select
     -webkit-appearance: none
     border: 0
@@ -85,53 +98,6 @@ i.social
     padding: 10px 5px
     color: $white
 
-// Search
-
-.search
-  +clearfix
-  float: right
-
-  label
-    display: none
-
-  input
-    +corners
-    margin: 0
-    font-size: 16px
-    padding: 5px
-    display: block
-    width: 200px
-    color: $dark-gray
-    border: 2px solid $blue
-
-    &:focus
-      outline: none
-
-
-.person-icon, .magnify
-  +clearfix
-  float: right
-  position: relative
-
-  i
-    position: relative
-    font-size: 42px
-
-.person-icon
-  color: $dark-gray
-  margin: 0 5px 0 0
-  top: 13px
-
-.magnify
-  margin: 0 10px 0 0
-  +size(32px)
-  right: 3px
-  background: $blue
-
-  i
-    color: $white
-    top: 13px
-    left: 5px
 
 .profile .header
   +clearfix
@@ -140,7 +106,7 @@ i.social
 //filter stytling
 
 .select-office, .select-role, .select-project
-  color: $white
+  border-bottom: 1px solid #fff
   cursor: pointer
   margin: 0 5px 5px 5px
   padding: 3px 5px
@@ -176,7 +142,8 @@ i.social
     color: $white
 
 .select-office
-  background: $green
+  color: $green
+  border-bottom-color: $green
 
   .options
     color: $green
@@ -188,7 +155,8 @@ i.social
     background: $green
 
 .select-role
-  background: $blue
+  color: $blue
+  border-bottom-color: $blue
 
   .options
     color: $blue
@@ -200,7 +168,8 @@ i.social
     background: $blue
 
 .select-project
-  background: $red
+  color: $red
+  border-bottom-color: red
 
   .options
     color: $red
@@ -263,14 +232,14 @@ i.social
 // Person Card Styling
 
 .person-card
+  border-radius: 10px
+  padding-bottom: 50px
 
   .social-info
-    +clearfix
     position: absolute
-    bottom: 50px
+    right: 0
+    bottom: 10px
     left: 0
-    width: 100%
-    height: 20px
 
   .email, .twitter, .github
     text-align: center
@@ -280,35 +249,15 @@ i.social
     width: 33%
 
     a
-      color: gray
+      color: #bbb
 
     i
       +transition(all, .3s)
       font-size: 55px
 
-      &:hover
-        font-size: 65px
-
       &.placeholder
-        color: $mid-gray
+        color: #e5e5e5
         cursor: not-allowed
-
-        &:hover
-          font-size: 55px
-          color: $mid-gray
-
-  .email
-    i:hover
-      color: white
-      text-shadow: -1px -1px 0 $mid-gray, 1px -1px 0 $mid-gray, -1px 1px 0 $mid-gray, 1px 1px 0 $mid-gray
-
-  .twitter
-    i:hover
-      color: #4099ff
-
-  .github
-    i:hover
-      color: black
 
 // Profile Styling
 
@@ -323,19 +272,6 @@ i.social
     margin: 0
     padding: 0 40px 20px
     background: $white
-
-  .role, .office
-    font-size: 26px
-    padding: 0
-    background: $white
-
-  .role
-    margin-bottom: 0
-    color: gray
-
-  .office
-    margin: 5px auto 40px
-    color: $dark-gray
 
   .start-date
     color: $dark-gray
@@ -377,4 +313,5 @@ i.social
 li.selected
   color: red
 
-
+.filter-selector
+  letter-spacing: 0

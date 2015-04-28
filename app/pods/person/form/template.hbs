@@ -1,0 +1,74 @@
+{{errors-for model=model class="errors-for"}}
+
+<form>
+  <div class="edit-name">
+    {{input value=model.name placeholder="Employee Name"}}
+  </div>
+
+  <div class="picture">
+    <img src={{model.avatar.medium}}>
+  </div>
+
+  <div class="avatar-picker avatarData">
+    <label class="avatarData" for="avatar-file-picker">Choose Avatar</label>
+    {{input id="avatar-file-picker" type="file" name="avatarData"}}
+  </div>
+
+  <div class="edit-role">
+    <label for="employee-role-select">Role</label>
+    {{view "select" id="employee-role-select"
+                    prompt="Employee Role"
+                    content=employeeRoles
+                    value=model.role}}
+  </div>
+
+  <div class="office">
+    {{view "select" prompt="Office"
+                    content=selectableOffices
+                    optionValuePath="content.id"
+                    optionLabelPath="content.name"
+                    selection=model.office}}
+  </div>
+
+  <div class="info">
+    <label for="startDate">Start Date</label>
+    {{edit-date name="startDate" class="date" value=model.formStartDate}}
+  </div>
+
+  <div class="info">
+    <label for="endDate">End Date</label>
+    {{edit-date name="endDate" class="date" value=model.formEndDate}}
+  </div>
+
+  <div class="info">
+    <i>&#9993;</i>
+    {{input value=model.email}}
+  </div>
+
+  <div class="info">
+    <i class="social">&#62217;</i>
+    {{input value=model.twitter}}
+  </div>
+
+  <div class="info">
+    <i class="social">&#62208;</i>
+    {{input value=model.github}}
+  </div>
+
+  <div class="edit-percent-billable">
+    <div class="edit-billable">
+      <label for="percent-billable-field">Percent Billable</label>
+      {{input value=model.percentBillable id="percent-billable-field"}}
+    </div>
+  </div>
+
+  <div {{action "save"}} class="confirm-button">
+    <i>&#10003;</i>
+    {{if model.isNew "Create Human" "Confirm Edits"}}
+  </div>
+
+  <div class="return-button">
+    <i>&#11013;</i>
+    {{#link-to "people"}}Return to List{{/link-to}}
+  </div>
+</form>

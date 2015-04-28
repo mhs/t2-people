@@ -1,0 +1,10 @@
+.pill {
+  border-radius: 20px;
+  padding: 2px 12px;
+  color: #fff;
+  font-size: 16px;
+}
+
+.pill--red   { background: $red; }
+.pill--blue  { background: $blue; }
+.pill--green { background: $green; }

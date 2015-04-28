@@ -1,0 +1,28 @@
+{{#if isOpen}}
+  <div {{action "toggleOpen" bubbles=false}}>{{selectedList}}</div>
+  <ul class="options">
+  <div class="filter-options">
+    <div class="reset" {{action "reset"}}>
+      <p>Reset Filter</p>
+      <span>&#10226;</span>
+    </div>
+    <div class="confirm-choice" {{action "toggleOpen" bubbles=false}}>
+      <span>&#10003;</span>
+      <p>Confirm Choice</p>
+    </div>
+  </div>
+    {{#each model.options as |option|}}
+      {{#if option.visible}}
+        {{#if option.selected}}
+          <li class="option selected" {{action "unselect" option}}>{{option.displayName}}</li>
+        {{else}}
+          <li class="option" {{action "select" option}}>{{option.displayName}}</li>
+        {{/if}}
+      {{/if}}
+    {{/each}}
+  </ul>
+{{else}}
+  <div {{action "toggleOpen" bubbles=false}} class="selected-list">
+    {{selectedList}}
+  </div>
+{{/if}}

@@ -1,0 +1,58 @@
+{{#link-to "person.edit" model.id class="person-card--edit"}}<i>&#9881;</i>{{/link-to}}
+
+<div class="name">{{model.name}}</div>
+
+<div class="picture"><img src={{model.avatar.medium}}></div>
+
+<div style="text-align: center">
+  <span class="pill pill--blue">{{model.role}}</span>
+  <span class="pill pill--green">{{model.office.name}}</span>
+</div>
+
+<div class="current-project">
+  {{#if model.allocated}}
+    {{#each model.currentAllocations as |allocation|}}
+      <div>{{allocation.project.name}} {{allocation.formatted_percentage}}</div>
+    {{/each}}
+  {{else}}
+    <div>{{if model.unsellable "Overhead" "Bench"}}</div>
+  {{/if}}
+</div>
+
+<div class="social-info">
+  {{#if model.email}}
+    <div class="email">
+      <a href={{model.mailTo}}>
+        <i>&#9993;</i>
+      </a>
+    </div>
+  {{else}}
+    <div class="email">
+      <i class="placeholder">&#9993;</i>
+    </div>
+  {{/if}}
+
+  {{#if model.twitter}}
+    <div class="twitter">
+      <a href={{model.twitterURL}} target="_blank">
+        <i class="social">&#62217;</i>
+      </a>
+    </div>
+  {{else}}
+    <div class="twitter">
+      <i class="placeholder social">&#62217;</i>
+    </div>
+  {{/if}}
+
+  {{#if model.github}}
+    <div class="github">
+      <a href={{model.githubURL}} target="_blank">
+        <i class="social">&#62208;</i>
+      </a>
+    </div>
+  {{else}}
+    <div class="github">
+      <i class="placeholder social">&#62208;</i>
+    </div>
+  {{/if}}
+</div>

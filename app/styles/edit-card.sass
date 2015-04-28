@@ -1,19 +1,10 @@
 // Edit profile/People Card styling
-
 .person-card, .edit-card
-  +clearfix
   position: relative
-  height: 600px
-  letter-spacing: .5px
   padding: 10px
   +corners
-  width: 24.25%
-  float: left
-  margin: 0 10px 10px 0
-  background: $light-gray
-
-  &:nth-child(4n+4)
-    margin: 0 0 10px 0
+  border: 1px solid #ddd
+  background: #f9f9f9
 
 .edit-card
   width: 33%
@@ -54,12 +45,14 @@
     float: none
 
 .name
-  +black-font
-  font-size: 20px
-  min-height: 46px
-  color: black
+  overflow: hidden
+  margin: 20px 0 10px 0
+  font-size: 27px
+  font-weight: 300
+  color: #222
   text-align: center
-  margin: 30px 0 5px
+  text-overflow: ellipsis
+  white-space: nowrap
 
   a
     color: black
@@ -69,17 +62,17 @@
 
 .picture
   margin: 0 auto 20px
-  +size(150px)
+  +size(120px)
   border-radius: 50%
   overflow: hidden
   border: 4px solid $white
 
   img
-    +size(150px)
+    +size(120px)
 
 .avatar-picker
   +corners
-  +size(150 40)
+  +size(150px 40px)
   cursor: pointer
   color: $white
   margin: 10px auto 20px
@@ -98,18 +91,41 @@
     display: block
     text-align: center
 
-.holder
-  min-height: 62px
+.current-project
+  margin-bottom: 10px
+  padding-top: 20px
 
-.role, .office, .current-project, .edit-role
-  +corners
-  +black-font
-  font-size: 18px
-  text-align: center
-  margin: 10px auto 0px
-  padding: 10px
-  display: table
-  color: $white
+.current-project div
+  position: relative
+  margin-bottom: 0.35rem
+  padding-left: 25px
+  color: #555
+  font-size: 13px
+  text-align: left
+
+  &:before
+    position: absolute
+    top: 1px
+    left: 8px
+    border-radius: 50%
+    width: 12px
+    height: 12px
+    background: $red
+    content: ''
+
+  &:after
+    position: absolute
+    top: 3px
+    left: 10px
+    border-radius: 50%
+    width: 8px
+    height: 8px
+    background: #fff
+    content: ''
+    z-index: 1
+
+  &:last-child
+    margin-bottom: 0
 
 
 .role, .edit-role
@@ -136,15 +152,6 @@
   background: $green
   margin: 10px auto 25px
 
-.assigned
-  +black-font
-  margin: 10px auto 10px
-  color: gray
-  text-align: center
-
-.current-project
-  background: $red
-
 .start-date, .end-date
   +clearfix
 
@@ -163,19 +170,6 @@
   bottom: 0
   left: 0
   width: 100%
-
-.edit-profile
-  position: absolute
-  bottom: 10px
-  right: 75px
-
-  i
-    position: relative
-    top: 1px
-    font-size: 30px
-
-  a
-    color: gray
 
 .info
   +clearfix
