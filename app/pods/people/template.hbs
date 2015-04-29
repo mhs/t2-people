@@ -28,6 +28,8 @@
   {{#each filteredPeople as |person|}}
     {{person-card model=person}}
   {{else}}
-    <div class="people-list-no-results">No Humans!</div>
+    <div class="people-list-no-results animation-slide-up">
+      {{partial "svg/face-sad"}}
+    </div>
   {{/each}}
 </div>

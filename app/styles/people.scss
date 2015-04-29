@@ -80,6 +80,12 @@
   width: 300px;
   margin: 0 auto;
   text-align: center;
+
+  svg {
+    width: 300px;
+
+    path { fill: #ccc; }
+  }
 }
 
 .person-card--edit {
