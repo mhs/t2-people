@@ -12,8 +12,28 @@
   letter-spacing: -0.05rem;
 }
 
+.filter-clear-all {
+  display: inline-block;
+  font-size: 38px;
+  font-weight: 100;
+  cursor: pointer;
+
+  svg {
+    width: 20px;
+    path { fill: #999; }
+  }
+}
+
 @media (min-width: 650px) {
   .filter-text {
     font-size: 38px;
+  }
+
+  .filter-clear-all {
+    margin-right: 5px;
+
+    svg {
+      width: 26px;
+    }
   }
 }

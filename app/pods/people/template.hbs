@@ -1,4 +1,10 @@
 <div class="filter">
+  {{#if filterBeingUsed}}
+    <div class="filter-clear-all" {{action "clearAllFilters"}} title="clear all filters">
+      {{partial "svg/x-circle"}}
+    </div>
+  {{/if}}
+
   <div class="filter-text">Humans in</div>
   {{filter-selector type="office" model=officeFilterModel}}
   <div class="filter-text">who</div>
