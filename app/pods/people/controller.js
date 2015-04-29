@@ -77,10 +77,12 @@ export default Ember.Controller.extend({
     'roleFilterModel.selectedOptions.[]'
   ),
 
+  syncSearch() {
+    this.set('searchTerm', this.get('search'));
+  },
+
   updateSearch: function() {
-    Ember.run.debounce({name: 'searchDebounce'}, ()=> {
-      this.set('searchTerm', this.get('search'));
-    }, 150);
+    Ember.run.debounce(this, this.syncSearch, 300);
   }.observes('search'),
 
   selectedOfficeSlugs:  Ember.computed.alias('officeFilterModel.selectedSlugs'),
