@@ -23,7 +23,7 @@ $filter-actions-height: 50px;
   text-align: left;
   background: rgba(255,255,255, 0.95);
   box-shadow: 0 3px 15px rgba(0,0,0, 0.1);
-  z-index: 2;
+  z-index: z('filter', 'modal');
 }
 
 
@@ -36,7 +36,9 @@ $filter-actions-height: 50px;
   height: $filter-actions-height;
   padding: 8px 8px 10px 8px;
   background: rgba(255,255,255, 0.8);
-  z-index: 1;
+  z-index: z('filter', 'actions');
+  /* fixes Chrome bug with z-index on animating in: */
+  -webkit-backface-visibility: hidden;
 }
 
 .filter-action {
@@ -61,6 +63,7 @@ $filter-actions-height: 50px;
   @include position(absolute, 0 0 0 0);
   padding: 8px 0 $filter-actions-height+10 0;
   -webkit-overflow-scrolling: touch;
+  z-index: z('filter', 'options');
 }
 
 .filter-option {
