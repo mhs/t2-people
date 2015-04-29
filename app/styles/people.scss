@@ -45,11 +45,22 @@
   svg  {
     float: left;
     width: 36px;
-    margin-right: 10px;
     @include transform(translateY(-7px));
   }
   path { fill: #999; }
+
+  span {
+    display: none;
+    margin-left: 10px;
+  }
 }
+
+@media (min-width: 610px) {
+  .search-and-new--add-button span {
+    display: inline;
+  }
+}
+
 
 .people-list {
   @include display(flex);
