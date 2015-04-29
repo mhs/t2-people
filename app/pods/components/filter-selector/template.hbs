@@ -1,28 +1,25 @@
+<div {{action "toggleOpen" bubbles=false}} class="filter-text">{{selectedList}}</div>
+
 {{#if isOpen}}
-  <div {{action "toggleOpen" bubbles=false}}>{{selectedList}}</div>
-  <ul class="options">
-  <div class="filter-options">
-    <div class="reset" {{action "reset"}}>
-      <p>Reset Filter</p>
-      <span>&#10226;</span>
+  <div class="filter-modal animation-slide-up">
+    <div class="filter-actions">
+      <div {{action "toggleOpen" bubbles=false}} class="filter-action filter-action-done">
+        Done
+      </div>
+      <div {{action "reset"}} class="filter-action filter-action-reset">
+        Reset {{typeDisplay}} Filter
+      </div>
     </div>
-    <div class="confirm-choice" {{action "toggleOpen" bubbles=false}}>
-      <span>&#10003;</span>
-      <p>Confirm Choice</p>
-    </div>
-  </div>
-    {{#each model.options as |option|}}
-      {{#if option.visible}}
-        {{#if option.selected}}
-          <li class="option selected" {{action "unselect" option}}>{{option.displayName}}</li>
-        {{else}}
-          <li class="option" {{action "select" option}}>{{option.displayName}}</li>
+
+    <div class="filter-options">
+      {{#each model.options as |option|}}
+        {{#if option.visible}}
+          <div class="filter-option {{if option.selected "filter-option--selected"}}" {{action "toggleSelect" option}}>
+            {{partial "svg/check"}}
+            {{option.displayName}}
+          </div>
         {{/if}}
-      {{/if}}
-    {{/each}}
-  </ul>
-{{else}}
-  <div {{action "toggleOpen" bubbles=false}} class="selected-list">
-    {{selectedList}}
+      {{/each}}
+    </div>
   </div>
 {{/if}}

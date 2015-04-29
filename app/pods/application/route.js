@@ -18,11 +18,5 @@ export default Ember.Route.extend({
     return this.store.all('office').filter(function(office) {
       return !office.get('deleted');
     });
-  },
-
-  actions: {
-    newPerson() {
-      this.transitionTo('people.new');
-    }
   }
 });

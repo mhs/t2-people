@@ -1,0 +1,103 @@
+$filter-actions-height: 50px;
+
+.filter-selector {
+  display: inline-block;
+
+  .filter-text {
+    margin: 0 5px 5px 5px;
+    padding: 3px 5px;
+    border-bottom: 1px solid #999;
+    cursor: pointer;
+  }
+}
+
+
+.filter-modal {
+  overflow: hidden;
+  @include position(absolute, 180px auto auto 50%);
+  width: 400px;
+  height: 400px;
+  margin: 0 0 0 -200px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: left;
+  background: rgba(255,255,255, 0.95);
+  box-shadow: 0 3px 15px rgba(0,0,0, 0.1);
+  z-index: 2;
+}
+
+
+/* Filter Actions */
+
+.filter-actions {
+  overflow: hidden;
+  @include position(absolute, auto 0 0 0);
+  @include display(flex);
+  height: $filter-actions-height;
+  padding: 8px 8px 10px 8px;
+  background: rgba(255,255,255, 0.8);
+  z-index: 1;
+}
+
+.filter-action {
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 5px 21px 7px 21px;
+  text-align: center;
+  background: rgba(255,255,255, 0.8);
+  cursor: pointer;
+}
+
+.filter-action-done  {
+  flex-grow: 1;
+  margin-right: 8px;
+}
+
+
+/* Filter Options */
+
+.filter-options {
+  overflow: auto;
+  @include position(absolute, 0 0 0 0);
+  padding: 8px 0 $filter-actions-height+10 0;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filter-option {
+  border-bottom: 1px dashed #eee;
+  padding: 5px 10px;
+  color: #555;
+  font-size: 18px;
+  cursor: pointer;
+
+  svg {
+    width: 15px;
+
+    path { fill: transparent; }
+  }
+}
+
+.filter-option--selected svg {
+  display: inline-block;
+}
+
+
+/* Color overrides */
+
+@mixin filter-color-modifier($color, $lighten-percent) {
+  .filter-action           { color: $color; }
+  .filter-action:active    { background: lighten($color, $lighten-percent); }
+  .filter-option:hover     { background: lighten($color, $lighten-percent); }
+  .filter-option--selected {
+    color: $color;
+    svg path { fill: $color; }
+  }
+  .filter-text  {
+    border-bottom-color: $color;
+    color: $color;
+  }
+}
+
+.filter-selector--office  { @include filter-color-modifier($green, 30%); }
+.filter-selector--role    { @include filter-color-modifier($blue,  25%);  }
+.filter-selector--project { @include filter-color-modifier($red,   40%);   }

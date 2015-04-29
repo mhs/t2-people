@@ -22,6 +22,12 @@ FilterModel = Ember.Object.extend
     @selectOptions (option) ->
       slugs.contains(option.get('slug'))
 
+  toggleSelect: (option) ->
+    if @get('selectedOptions').contains(option)
+      @removeSelect(option)
+    else
+      @addSelect(option)
+
   addSelect: (option) ->
     if option == @get('defaultOption')
       @reset()

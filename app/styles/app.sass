@@ -4,10 +4,17 @@
 @import loading
 @import edit-card
 @import errors
+@import filter
+@import components/filter-selector
 @import icons
 @import people
 @import person-list
 @import pill
+
+@import animations/fade
+@import animations/scale
+@import animations/slide-up
+@import animations/slight-bounce-up
 
 +font-face(entypo, '/assets/fonts/entypo')
 +font-face(entypo-social, '/assets/fonts/entypo-social')
@@ -25,6 +32,9 @@ html,body
   padding: 0
   font-family: 'Helvetica Neue', helvetica, arial, sans-serif
   background: #fff
+
+.noscroll
+  overflow: hidden
 
 input, select, button
   font-family: 'Helvetica Neue', helvetica, arial, sans-serif
@@ -69,172 +79,10 @@ i.social
   width: 100%
 
 .container
-  margin: auto
   width: 96%
-  +clearfix
-
-.people-container
-  @include display(flex)
-  @include align-items(flex-start)
-
-  .search-and-new
-    width: 310px
-    min-width: 310px
-    padding-left: 20px
-
-.container
   max-width: 1024px
-
-.header
-  text-align: center
-  padding: 50px 20px 60px 20px
-
-  h1
-    display: inline-block
-    margin: 0
-    color: #444
-    font-size: 38px
-    font-weight: 300
-    letter-spacing: -0.05rem
-
-.filter
-  select
-    -webkit-appearance: none
-    border: 0
-    background: $green
-    padding: 10px 5px
-    color: $white
-
-
-.profile .header
+  margin: auto
   +clearfix
-  text-align: left
-
-//filter stytling
-
-.select-office, .select-role, .select-project
-  border-bottom: 1px solid #fff
-  cursor: pointer
-  margin: 0 5px 5px 5px
-  padding: 3px 5px
-
-  .options
-    +clearfix
-    max-height: 400px
-    overflow-y: scroll
-    list-style-type: none
-    position: absolute
-    z-index: 2
-    top: 50%
-    left: 50%
-    @include transform(translateY(-50%))
-    text-align: left
-    border: 2px solid gray
-    width: 600px
-    background: $white
-    padding: 10px 10px 5px 10px
-    margin-left: -300px
-
-  .option
-    +corners
-    font-size: 18px
-    padding: 5px
-    margin: 0 0 5px 0
-    +transition(all, .2s)
-
-    &:hover
-      color: $white
-
-  .selected
-    color: $white
-
-.select-office
-  color: $green
-  border-bottom-color: $green
-
-  .options
-    color: $green
-
-  .option:hover
-    background: $green
-
-  .selected
-    background: $green
-
-.select-role
-  color: $blue
-  border-bottom-color: $blue
-
-  .options
-    color: $blue
-
-  .option:hover
-    background: $blue
-
-  .selected
-    background: $blue
-
-.select-project
-  color: $red
-  border-bottom-color: red
-
-  .options
-    color: $red
-
-  .option:hover
-    background: $red
-
-  .selected
-    background: $red
-
-
-.filter-options
-  margin: 0 0 20px 0
-
-.reset, .confirm-choice, .filter-options
-  +clearfix
-  text-align: center
-
-  p
-    position: relative
-    margin: 0
-
-.reset, .confirm-choice
-  +corners
-  height: 60px
-  border: 2px solid
-  +transition(all, .2s)
-
-
-
-  &:hover
-    background: $light-gray
-
-  span, p
-    margin: 0
-    display: inline
-
-.reset
-  +clearfix
-  float: right
-  padding: 5px 5px 5px 8px
-
-  span
-    position: relative
-    bottom: 7px
-
-  p
-    bottom: 12px
-
-.confirm-choice
-  float: left
-  padding: 5px 8px 5px 5px
-
-  span
-    top: 10px
-
-  p
-    bottom: 10px
 
 // Person Card Styling
 
