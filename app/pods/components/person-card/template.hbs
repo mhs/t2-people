@@ -14,7 +14,7 @@
 <div class="current-project">
   {{#if model.allocated}}
     {{#each model.currentAllocations as |allocation|}}
-      <div>{{allocation.project.name}} {{allocation.formatted_percentage}}</div>
+      <div>{{allocation.project.name}} {{allocation.formattedPercentage}}</div>
     {{/each}}
   {{else}}
     <div>{{if model.unsellable "Overhead" "Bench"}}</div>

@@ -36,6 +36,12 @@ export default Ember.Controller.extend({
     this.get('roleFilterModel').select(this.get('roles').split(','));
   }.observes('offices', 'projects', 'roles'),
 
+  personMatchesSearch: function(person, regex) {
+    return ['name', 'email', 'twitter', 'github'].any((term) => {
+      return person.get(term) && person.get(term).match(regex);
+    });
+  },
+
   filteredPeople: function() {
     let searchRegex   = new RegExp(this.get('searchTerm') || '', 'i');
     let officeFilter  = this.get('officeFilterModel');
@@ -50,7 +56,7 @@ export default Ember.Controller.extend({
     let officePeople  = this.get('model').filter(function(record) {
       return officeFunc.call(officeFilter, record) && projectFunc.call(projectFilter, record) && roleFunc.call(roleFilter, record);
     }).filter((item)=> {
-      return item.matches(searchRegex);
+      return this.personMatchesSearch(item, searchRegex);
     });
 
     return Ember.ArrayProxy.createWithMixins(Ember.SortableMixin, {
@@ -67,9 +73,9 @@ export default Ember.Controller.extend({
 
   filterBeingUsed: function() {
     return [
-      this.get('officeFilterModel.selectedOptions').any(function(o)  { return (o.hasOwnProperty('isDefault') && o.isDefault) }),
-      this.get('projectFilterModel.selectedOptions').any(function(o) { return (o.hasOwnProperty('isDefault') && o.isDefault) }),
-      this.get('roleFilterModel.selectedOptions').any(function(o)    { return (o.hasOwnProperty('isDefault') && o.isDefault) })
+      this.get('officeFilterModel.selectedOptions').any(function(o)  { return (o.hasOwnProperty('isDefault') && o.isDefault); }),
+      this.get('projectFilterModel.selectedOptions').any(function(o) { return (o.hasOwnProperty('isDefault') && o.isDefault); }),
+      this.get('roleFilterModel.selectedOptions').any(function(o)    { return (o.hasOwnProperty('isDefault') && o.isDefault); })
     ].any(function(value) { return !value; });
   }.property(
     'officeFilterModel.selectedOptions.[]',
