@@ -12,8 +12,11 @@
     "jquery": "^1.11.1",
     "loader.js": "ember-cli/loader.js#3.2.0",
     "qunit": "~1.17.1",
+
     "moment": "~2.8.3",
     "jquery-ui": "~1.11.1",
-    "ember-easyform": "git://github.com/kristianmandrup/ember-easyForm.git#master"
+    "neat": "1.6.0",
+    "pikaday": "~1.2.0",
+    "spin.js": "2.0.1"
   }
 }
