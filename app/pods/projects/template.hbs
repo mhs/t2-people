@@ -1,0 +1,48 @@
+<div class="search-controls">
+  <div class="search">
+    {{search-field placeholder="Search for projects"
+                   query=query
+                   search=search
+                   results=searchResults}}
+  </div>
+
+  <div class="filter">
+    {{view Ember.Select content=searchFilters
+                        optionLabelPath="content.label"
+                        optionValuePath="content.value"
+                        selection=selectedFilter
+                        class="project-filter"}}
+
+
+    {{will-paginate route="projects" data=content}}
+  </div>
+</div>
+
+<table class="table-striped">
+  <colgroup>
+    <col style="width: 50%">
+    <col style="width: 20%">
+    <col style="width: 15%">
+    <col style="width: 15%">
+  </colgroup>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Start Date</th>
+      <th class="centered-cell">Investment Fridays</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |project|}}
+      <tr>
+        <td>{{#link-to "project-edit" project.id}}{{project.name}}{{/link-to}}</td>
+        <td>{{readable-date project.startDate}}</td>
+        <td class="centered-cell">{{check-mark project.investmentFridays}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<br>
+
+<div class="hangLeft"><a href="{{unbound apiHost}}/reports/revenue.csv">Download Revenue Report</a></div>

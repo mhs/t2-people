@@ -6,10 +6,7 @@ export default DS.Model.extend({
 
   deleted: DS.attr('boolean'),
   name: DS.attr('string'),
-
-  slug: function() {
-    return this.get('name').replace(/\s+/, '-').toLowerCase();
-  }.property('name'),
+  slug: DS.attr('string'),
 
   value: Ember.computed.alias('id')
 });

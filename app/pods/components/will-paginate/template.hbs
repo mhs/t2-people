@@ -1,0 +1,12 @@
+{{#if displayMeta}}
+
+  {{#if showPrevious}}
+    {{#link-to route (query-params page=previousPage) class="prev"}} &#59237; {{/link-to}}
+  {{/if}}
+
+  <span>{{page}} of {{total}}</span>
+
+  {{#if showNext}}
+    {{#link-to route (query-params page=nextPage) class="next"}} &#59238;{{/link-to}}
+  {{/if}}
+{{/if}}

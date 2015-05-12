@@ -4,7 +4,8 @@
     "window",
     "-Promise",
     "$",
-    "moment"
+    "moment",
+    "Spinner"
   ],
   "browser": true,
   "boss": true,
