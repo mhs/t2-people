@@ -1,0 +1,189 @@
+@import 'mixins';
+@import 'z-index';
+@import 'colors';
+@import 'global-header';
+@import 'application-loading';
+@import 'edit-card';
+@import 'errors';
+@import 'filter';
+@import 'components/filter-selector';
+@import 'icons';
+@import 'people';
+@import 'person-list';
+@import 'projects-list';
+@import 'ui/pill';
+@import 'ui/progress-spinner';
+
+@import 'animations/fade';
+@import 'animations/scale';
+@import 'animations/slide-up';
+@import 'animations/slight-bounce-up';
+
+@include font-face(entypo, '/assets/fonts/entypo');
+
+@include font-face(entypo-social, '/assets/fonts/entypo-social');
+
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
+  background: white;
+}
+
+.noscroll {
+  overflow: hidden;
+}
+
+input, select, button {
+  font-family: 'Helvetica Neue', helvetica, arial, sans-serif;
+}
+
+h1 {
+  font-size: 36px;
+}
+
+h2 {
+  font-size: 28px;
+}
+
+p {
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  margin: 0;
+}
+
+select {
+  outline: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+i {
+  font-family: 'entypo';
+}
+
+i.social {
+  font-family: 'entypo-social';
+}
+
+#content {
+  @include clearfix;
+  width: 100%;
+}
+
+.container {
+  width: 96%;
+  max-width: 1024px;
+  margin: auto;
+  @include clearfix;
+}
+
+// Person Card Styling
+
+.person-card {
+  border-radius: 10px;
+  padding-bottom: 50px;
+  .social-info {
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    left: 0;
+  }
+  .email, .twitter, .github {
+    text-align: center;
+    color: gray;
+    cursor: pointer;
+    float: left;
+    width: 33%;
+    a {
+      color: #bbbbbb;
+    }
+    i {
+      @include transition(all, 0.3s);
+      font-size: 55px;
+      &.placeholder {
+        color: #e5e5e5;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+// Profile Styling
+
+.profile-container {
+  width: 100%;
+  padding: 0 0 0 0;
+}
+
+.profile {
+  @include clearfix;
+  .person-card {
+    margin: 0;
+    padding: 0 40px 20px;
+    background: $white;
+  }
+  .start-date {
+    color: $dark-gray;
+  }
+  .info i {
+    @include clearfix;
+    color: $dark-gray;
+    font-size: 60px;
+    position: relative;
+    float: left;
+    top: 31px;
+    left: 0;
+    &.email-icon {
+      top: 41px;
+    }
+  }
+  .twitter, .github, .email {
+    font-size: 22px;
+    position: relative;
+    left: 40px;
+    color: gray;
+    float: left;
+    text-align: left;
+  }
+  .return-button {
+    float: left;
+  }
+}
+
+.about {
+  @include clearfix;
+  float: left;
+  width: 30%;
+}
+
+.profile-name, .profile-project {
+  @include black-font;
+  padding: 5px;
+  background: $blue;
+  color: $white;
+}
+
+li.selected {
+  color: red;
+}
+
+.filter-selector {
+  letter-spacing: 0;
+}

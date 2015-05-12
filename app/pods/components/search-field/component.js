@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: ['search-field'],
+  classNames: ['search-and-new--input-container'],
   query: null,
   results: [],
   placeholder: 'Search',
@@ -10,12 +10,12 @@ export default Ember.Component.extend({
   requiredLength: 2,
   blankQuery: Ember.computed.empty('query'),
 
-  validQuery: (function() {
+  validQuery: function() {
     return this.get('query.length') >= this.get('requiredLength');
-  }).property('query', 'requiredLength'),
+  }.property('query', 'requiredLength'),
 
-  queryObserver: (function() {
-    if (this.get('blankQuery')) {
+  queryObserver: function() {
+    if (Ember.isEmpty(this.get('query'))) {
       this.set('results', []);
       return;
     }
@@ -30,5 +30,5 @@ export default Ember.Component.extend({
     });
 
     Ember.run.debounce(this, searchFunc, this.get('debounce'));
-  }).observes('query', 'blankQuery', 'validQuery', 'debounce')
+  }.observes('query', 'validQuery', 'debounce')
 });

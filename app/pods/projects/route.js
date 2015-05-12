@@ -8,9 +8,8 @@ export default Ember.Route.extend({
   },
 
   model: function(params) {
-    let key, newParams, value;
-
-    newParams = {};
+    let key, value;
+    let newParams = {};
     for (key in params) {
       value = params[key];
       if (value !== "null" && value !== "undefined") {

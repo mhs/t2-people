@@ -1,0 +1,32 @@
+{
+  "app/stylesheets/*.scss":            { "command": "css", },
+  "app/stylesheets/animations/*.scss": { "command": "cssanim", },
+  "app/stylesheets/components/*.scss": { "command": "csscomp", },
+  "app/stylesheets/overlays/*.scss":   { "command": "cssover", },
+  "app/stylesheets/screens/*.scss":    { "command": "cssscreen", },
+  "app/stylesheets/ui/*.scss":         { "command": "cssui", },
+
+  "app/models/*.js": {
+    "command": "jmodel",
+    "alternate": "tests/unit/%s-test.coffee",
+    "template": "import Ember from 'ember';\nimport DS from 'ember-data';\n\nexport default DS.Model.extend();"
+  },
+
+  "app/mixins/*.js": {
+    "command": "jmixin",
+    "template": "import Ember from 'ember';\n\nexport default Ember.Mixin.create();"
+  },
+
+  "app/adapters/*.js":     { "command": "jadapt" },
+  "app/helpers/*.js":      { "command": "jhelper" },
+  "app/initializers/*.js": { "command": "jinit" },
+  "app/pods/*.hbs":        { "command": "jtemplate" },
+  "app/pods/*.js":         { "command": "jpod" },
+  "app/router.js":         { "command": "jrouter" },
+  "app/serializers/*.js":  { "command": "jserial" },
+  "app/services/*.js":     { "command": "jservice" },
+
+  "package.json":  { "command": "jpackage" },
+  "bower.json":    { "command": "jbower" },
+  "Brocfile.json": { "command": "jbroc" },
+}

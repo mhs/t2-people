@@ -1,43 +1,44 @@
-<div class="search-controls">
-  <div class="search">
-    {{search-field placeholder="Search for projects"
-                   query=query
-                   search=search
-                   results=searchResults}}
-  </div>
+<br><br><br>
 
-  <div class="filter">
-    {{view Ember.Select content=searchFilters
-                        optionLabelPath="content.label"
-                        optionValuePath="content.value"
-                        selection=selectedFilter
-                        class="project-filter"}}
+<div class="search-and-new">
+  {{#link-to "projects-new" class="search-and-new--add-button"}}
+    {{partial "svg/add"}} <span>Add Project</span>
+  {{/link-to}}
 
-
-    {{will-paginate route="projects" data=content}}
-  </div>
+  <label class="search-and-new--input-container">
+    {{partial "svg/search"}}
+    {{input value=query type="search" class="search-and-new--input" placeholder="Search"}}
+  </label>
 </div>
 
-<table class="table-striped">
-  <colgroup>
-    <col style="width: 50%">
-    <col style="width: 20%">
-    <col style="width: 15%">
-    <col style="width: 15%">
-  </colgroup>
+{{search-field placeholder="Search"
+               query=query
+               search=search
+               results=searchResults}}
+
+{{view "select" content=searchFilters
+                optionLabelPath="content.label"
+                optionValuePath="content.value"
+                selection=selectedFilter
+                class="project-filter"}}
+
+
+{{will-paginate route="projects" data=model}}
+
+<table class="projects-list">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Start Date</th>
-      <th class="centered-cell">Investment Fridays</th>
+      <th class="projects-list-heading">Name</th>
+      <th class="projects-list-heading">Start Date</th>
+      <th class="projects-list-heading">Investment Fridays</th>
     </tr>
   </thead>
   <tbody>
     {{#each model as |project|}}
       <tr>
-        <td>{{#link-to "project-edit" project.id}}{{project.name}}{{/link-to}}</td>
-        <td>{{readable-date project.startDate}}</td>
-        <td class="centered-cell">{{check-mark project.investmentFridays}}</td>
+        <td class="projects-list-row">{{#link-to "project-edit" project.id}}{{project.name}}{{/link-to}}</td>
+        <td class="projects-list-row">{{readable-date project.startDate}}</td>
+        <td class="projects-list-row">{{#if project.investmentFridays}}&#10003;{{/if}}</td>
       </tr>
     {{/each}}
   </tbody>
@@ -45,4 +46,4 @@
 
 <br>
 
-<div class="hangLeft"><a href="{{unbound apiHost}}/reports/revenue.csv">Download Revenue Report</a></div>
+<a href="{{unbound apiHost}}/reports/revenue.csv">Download Revenue Report</a>

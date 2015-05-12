@@ -1,0 +1,34 @@
+@include keyframes(progressSpinner) {
+  from {
+    @include transform(rotate(0deg));
+  }
+  to {
+    @include transform(rotate(360deg));
+  }
+}
+
+.progress-spinner {
+  position: relative;
+  width: 5em;
+  height: 5em;
+  margin: 6em auto;
+  border-top:    2px solid rgba(0, 0, 0, 0.1);
+  border-right:  2px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  border-left:   2px solid rgba(128, 199, 132, 1.0);
+  border-radius: 50%;
+  font-size: 10px;
+  text-indent: -9999em;
+  @include transform(translateZ(0));
+  @include animation(progressSpinner 0.6s infinite linear);
+
+  &:after {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+  }
+}
+
+.progress-spinner--visible {
+  display: block;
+}
