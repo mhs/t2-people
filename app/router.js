@@ -7,15 +7,15 @@ export default Ember.Router.extend({
   this.route('sign_out');
 
   // People
-  this.resource('people');
-  this.route('people.new', { path: '/people/new' });
-  this.resource('person', { path: '/people/:person_id' }, function() {
+  this.route('people');
+  this.route('person-new', { path: '/people/new' });
+  this.route('person', { path: '/people/:person_id' }, function() {
     this.route('edit');
   });
 
   // Projects
-  this.resource('projects');
-  this.resource('projects-new', { path: 'projects/new' });
-  this.resource('project',      { path: 'projects/:project_id' });
-  this.resource('project-edit', { path: 'projects/:project_id/edit' });
+  this.route('projects');
+  this.route('projects-new', { path: 'projects/new' });
+  this.route('project',      { path: 'projects/:project_id' });
+  this.route('project-edit', { path: 'projects/:project_id/edit' });
 });

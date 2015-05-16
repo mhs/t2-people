@@ -1,0 +1,14 @@
+{{#if isOpen}}
+  <div class="filter-modal animation-slide-up">
+    <div class="filter-actions">
+      <div {{action "done"}} class="filter-action">Done</div>
+    </div>
+
+    <div class="filter-options">
+      {{#each projects as |project|}}
+        {{link-to project.name "project" project.id class="filter-option"}}
+      {{/each}}
+    </div>
+  </div>
+{{/if}}
+

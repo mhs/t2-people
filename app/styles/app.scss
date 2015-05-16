@@ -97,14 +97,16 @@ i.social {
 // Person Card Styling
 
 .person-card {
-  border-radius: 10px;
+  border-radius: 6px;
   padding-bottom: 50px;
+
   .social-info {
     position: absolute;
     right: 0;
     bottom: 10px;
     left: 0;
   }
+
   .email, .twitter, .github {
     text-align: center;
     color: gray;

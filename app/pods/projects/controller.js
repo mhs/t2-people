@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import promiseAction from 't2-people/utils/promise-action';
 import ENV from 't2-people/config/environment';
 
 export default Ember.Controller.extend({
@@ -7,16 +6,39 @@ export default Ember.Controller.extend({
   page: 1,
   office_id: null,
   archived: false,
-  searchResults: [],
+  apiHost: function() { return ENV.apiHost; }.property(),
+
   query: null,
+  queryRequiredLength: 2,
+  queryIsValid: function() {
+    return this.get('query.length') >= this.get('queryRequiredLength');
+  }.property('query'),
 
-  apiHost: (function() { return ENV.apiHost; }).property(),
+  queryObserver: function() {
+    if(!this.get('queryIsValid')) {
+      this.set('searchResults', []);
+      return;
+    }
 
-  search: promiseAction(function(searchTerm) {
-    this.store.find('projectListItem', { search: searchTerm }).then((results) => {
-      this.set('searchResults', results);
+    this.set('isSearching', true);
+
+    Ember.run.debounce(this, this.searchAndDisplayResults, 1000);
+  }.observes('query'),
+
+  searchResults: [],
+  isSearching: false,
+  search(query) {
+    return this.store.find('projectListItem', { search: query }).then((results) => {
+      return results;
     });
-  }),
+  },
+  searchAndDisplayResults() {
+    return this.search(this.get('query')).then((results)=>{
+      this.set('searchResults', results);
+    }).finally(()=> {
+      this.set('isSearching', false);
+    });
+  },
 
   selectedFilter: function() {
     return this.get('searchFilters.firstObject');
@@ -73,5 +95,14 @@ export default Ember.Controller.extend({
     });
 
     return [active, archived];
-  }.property()
+  }.property(),
+
+  actions: {
+    clearSearch() {
+      this.setProperties({
+        searchResults: [],
+        query: ''
+      });
+    }
+  }
 });

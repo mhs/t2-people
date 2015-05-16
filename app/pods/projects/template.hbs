@@ -7,43 +7,48 @@
 
   <label class="search-and-new--input-container">
     {{partial "svg/search"}}
-    {{input value=query type="search" class="search-and-new--input" placeholder="Search"}}
+    {{input value=query
+            type="search"
+            class="search-and-new--input"
+            placeholder="Search all projects"}}
   </label>
 </div>
 
-{{search-field placeholder="Search"
-               query=query
-               search=search
-               results=searchResults}}
+<div style="padding: 0 30px;">
+  {{view "select" content=searchFilters
+                  optionLabelPath="content.label"
+                  optionValuePath="content.value"
+                  selection=selectedFilter
+                  class="project-filter"}}
 
-{{view "select" content=searchFilters
-                optionLabelPath="content.label"
-                optionValuePath="content.value"
-                selection=selectedFilter
-                class="project-filter"}}
+  {{projects-search-selector projects=searchResults
+                             isOpen=queryIsValid
+                             done="clearSearch"}}
 
+  <a href="{{unbound apiHost}}/reports/revenue.csv">Download Revenue Report</a>
 
-{{will-paginate route="projects" data=model}}
+  {{will-paginate route="projects" data=model}}
 
-<table class="projects-list">
-  <thead>
-    <tr>
-      <th class="projects-list-heading">Name</th>
-      <th class="projects-list-heading">Start Date</th>
-      <th class="projects-list-heading">Investment Fridays</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each model as |project|}}
+  <br><br>
+
+  <table class="projects-list" cellpadding="0" cellspacing="0">
+    <thead>
       <tr>
-        <td class="projects-list-row">{{#link-to "project-edit" project.id}}{{project.name}}{{/link-to}}</td>
-        <td class="projects-list-row">{{readable-date project.startDate}}</td>
-        <td class="projects-list-row">{{#if project.investmentFridays}}&#10003;{{/if}}</td>
+        <th class="projects-list-heading">Name</th>
+        <th class="projects-list-heading projects-list-cell--fridays">Fridays</th>
+        <th class="projects-list-heading projects-list-cell--date">Start Date</th>
+        <th class="projects-list-heading projects-list-cell--cell">End Date</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
-
-<br>
-
-<a href="{{unbound apiHost}}/reports/revenue.csv">Download Revenue Report</a>
+    </thead>
+    <tbody>
+      {{#each model as |project|}}
+        <tr>
+          <td class="projects-list-cell">{{#link-to "project-edit" project.id}}{{project.name}}{{/link-to}}</td>
+          <td class="projects-list-cell projects-list-cell--fridays">{{#if project.investmentFridays}}{{partial "svg/check"}}{{/if}}</td>
+          <td class="projects-list-cell projects-list-cell--date">{{readable-date project.startDate}}</td>
+          <td class="projects-list-cell projects-list-cell--cell">{{readable-date project.endDate}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

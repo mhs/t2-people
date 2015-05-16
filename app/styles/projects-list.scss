@@ -3,11 +3,29 @@
 }
 
 .projects-list-heading {
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 12px;
+  font-weight: bold;
   text-align: left;
 }
 
-.projects-list-row {
-  padding: 0.25rem 0;
+.projects-list-cell {
+  border-bottom: 1px solid #eee;
+  padding: 0.75rem 2px;
+  font-size: 18px;
+  font-weight: 300;
+
+  svg {
+    position: relative;
+    top: 3px;
+    width: 15px;
+
+    path { fill: #666; }
+  }
+
+  a {
+    color: #222;
+  }
 }
+
+.projects-list-cell--fridays { width: 70px; }
+.projects-list-cell--date    { width: 150px; }
