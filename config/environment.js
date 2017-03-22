@@ -40,7 +40,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'staging') {
-    ENV.apiHost = "http://api.t2-staging.mutuallyhuman.com"
+    ENV.apiHost = "https://t2-api-staging.herokuapp.com";
   }
 
   if (environment === 'test') {
@@ -57,7 +57,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
-    ENV.apiHost = "http://api.t2.mutuallyhuman.com"
+    ENV.apiHost = "https://t2-api.herokuapp.com";
     ENV.navBarUrl = "/api/v1/navbar"
 
     ENV.contentSecurityPolicy['connect-src'] = "'self' https://api.mixpanel.com http://custom-api.local";
